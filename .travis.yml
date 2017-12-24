@@ -21,6 +21,9 @@ install: true
 script:
     - echo ">>>>>>>> START <<<<<<<<<<<"
     - brew outdated node || brew upgrade node
+    - which node
+    - node --version
+    - npm --version
     - npm install
     - node build.js
     - chmod a+x deploy.sh
