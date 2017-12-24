@@ -26,7 +26,7 @@ set -e
 mkdir -p ${TMP}
 
 if [[ -d ${FOLDER} ]]; then
-	cp ${FOLDER}/* ${TMP}
+	cp -R ${FOLDER}/* ${TMP}
 else
 	echo "${FOLDER} not found"
 	ls
