@@ -22,6 +22,10 @@ script:
     - echo ">>>>>>>> START <<<<<<<<<<<"
     - brew update
     - brew outdated node || brew upgrade node
+    - env
+    - alias node=/usr/local/bin/node
+    - alias npm=/usr/local/bin/npm
+    - env
     - which node
     - node --version
     - npm --version
