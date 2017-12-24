@@ -18,6 +18,7 @@ before_install:
 install: true
 
 script:
+    - npm install
     - node build.js
     - chmod a+x deploy.sh
     - ./deploy.sh
