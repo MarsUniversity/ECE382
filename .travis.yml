@@ -20,6 +20,7 @@ install: true
 
 script:
     - echo ">>>>>>>> START <<<<<<<<<<<"
+    - brew update
     - brew outdated node || brew upgrade node
     - which node
     - node --version
