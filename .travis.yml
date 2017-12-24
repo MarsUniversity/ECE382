@@ -1,13 +1,13 @@
 os: osx
 sudo: false
-osx_image: xcode9
+osx_image: xcode9.2
 git:
   depth: 1
 
 before_install:
     - echo ">>>>>>>> SETUP <<<<<<<<<<<"
     - brew update
-    - brew upgrade
+    # - brew upgrade
     - brew install pandoc
     # - brew outdated node || brew upgrade node
     - node --version
@@ -20,6 +20,7 @@ install: true
 
 script:
     - echo ">>>>>>>> START <<<<<<<<<<<"
+    - brew outdated node || brew upgrade node
     - npm install
     - node build.js
     - chmod a+x deploy.sh
