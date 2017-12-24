@@ -1,5 +1,7 @@
 # ECE 382
 
+[![Build Status](https://travis-ci.org/MarsUniversity/ece382.svg?branch=master)](https://travis-ci.org/MarsUniversity/ece382)
+
 The website is built using [travis-ci](https://travis-ci.org), [pandoc](http://pandoc.org/no) and [nodejs](https://nodejs.org/en/). We are also using a templating system (probably not necessary) called ejs which is found on [npm](https://www.npmjs.com/). Finally, we are using [Bootstrap](http://getbootstrap.com/) to produce a nice HTML5 navigation bar across the top of the page.
 
 - `build.js` builds the website
@@ -32,6 +34,6 @@ First you need to install:
 
 1. Open a terminal window and navigate to the repo
 1. run: `npm install`
-    1. This installs ejs, you only have to do this once or again to update the library 
+    1. This installs ejs, you only have to do this once or again to update the library
 1. run: `node build.js`
 1. Look in the `html` folder and the website should be there
