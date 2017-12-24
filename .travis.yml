@@ -5,12 +5,11 @@ git:
   depth: 1
 
 before_install:
+    - echo ">>>>>>>> SETUP <<<<<<<<<<<"
     - brew update
-    # - brew list
-    # - brew cask list
-    # - brew upgrade python
+    - brew upgrade
     - brew install pandoc
-    - brew upgrade node
+    # - brew outdated node || brew upgrade node
     - node --version
     - npm --version
     - brew cask install basictex
@@ -20,6 +19,7 @@ before_install:
 install: true
 
 script:
+    - echo ">>>>>>>> START <<<<<<<<<<<"
     - npm install
     - node build.js
     - chmod a+x deploy.sh
