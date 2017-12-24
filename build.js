@@ -1,4 +1,4 @@
-var pandoc = require('./kt2.js')
+var pandoc = require('./pandoc.js')
 var fs = require('fs')
 var path = require('path')
 var ejs = require('ejs');
