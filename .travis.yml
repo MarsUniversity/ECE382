@@ -11,6 +11,8 @@ before_install:
     # - brew upgrade python
     - brew install pandoc
     - brew upgrade node
+    - node --version
+    - npm --version
     - brew cask install basictex
     # - brew cask install wkhtmltopdf
     - export PATH=$PATH:/Library/TeX/texbin
