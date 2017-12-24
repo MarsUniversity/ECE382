@@ -37,3 +37,25 @@ First you need to install:
     1. This installs ejs, you only have to do this once or again to update the library
 1. run: `node build.js`
 1. Look in the `html` folder and the website should be there
+
+During the build process, you should see:
+
+```bash
+kevin@Dalek ece382 $ node build.js
+-------------------------------------------
+Searching: source
+-------------------------------------------
+Searching: source/admin
+Wrote: html/admin/c_style_guide.html
+Wrote: html/admin/course_goals.html
+Wrote: html/admin/course_letter.html
+-------------------------------------------
+Searching: source/admin/final_resources
+Copied: html/admin/final_resources/ADC10AE0.jpg
+Copied: html/admin/final_resources/ADC10CTL0_1.jpg
+Copied: html/admin/final_resources/ADC10CTL0_2.jpg
+Copied: html/admin/final_resources/ADC10CTL0_3.jpg
+Copied: html/admin/final_resources/ADC10CTL1_1.jpg
+Copied: html/admin/final_resources/ADC10CTL1_2.jpg
+...
+```
