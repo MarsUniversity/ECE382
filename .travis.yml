@@ -1,0 +1,23 @@
+os: osx
+sudo: false
+osx_image: xcode9
+git:
+  depth: 1
+
+before_install:
+    - brew update
+    # - brew list
+    # - brew cask list
+    # - brew upgrade python
+    - brew install pandoc
+    - brew install node
+    - brew cask install basictex
+    # - brew cask install wkhtmltopdf
+    - export PATH=$PATH:/Library/TeX/texbin
+
+install: true
+
+script:
+    - node build.js
+    - chmod a+x deploy.sh
+    - ./deploy.sh
