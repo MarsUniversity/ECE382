@@ -10,6 +10,28 @@ You'll write your first complete assembly language program using what you've lea
 
 ## Details
 
+# Lab 1 Test Cases
+
+First, make them demo their code with their test program.  Question the absence of any edge cases.  I fill the first 50 words of RAM with 0xCCCC.  Then, set a break on END_PROGRAM.  Then, make them go through each result and trace it back to the original program.
+
+## Required Functionality
+
+0x11, 0x11, 0x11, 0x11, 0x11, 0x44, 0x22, 0x22, 0x22, 0x11, 0xCC, 0x55
+
+Result: 0x22, 0x33, 0x00, 0x00, 0xCC
+
+## B Functionality
+
+0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0xDD, 0x44, 0x08, 0x22, 0x09, 0x44, 0xFF, 0x22, 0xFD, 0x55
+
+Result: 0x22, 0x33, 0x44, 0xFF, 0x00, 0x00, 0x00, 0x02
+
+## A Functionality
+
+0x22, 0x11, 0x22, 0x22, 0x33, 0x33, 0x08, 0x44, 0x08, 0x22, 0x09, 0x44, 0xff, 0x11, 0xff, 0x44, 0xcc, 0x33, 0x02, 0x33, 0x00, 0x44, 0x33, 0x33, 0x08, 0x55
+
+Result: 0x44, 0x11, 0x88, 0x00, 0x00, 0x00, 0xff, 0x00, 0xff, 0x00, 0x00, 0xff
+
 ### The Basic Idea
 
 You'll write a program that interprets a series of operands and operations and stores the results - an assembly language calculator!
@@ -74,7 +96,7 @@ Most prelabs in this class essentially require that you 1) lay out a plan for ho
 
 After you have carefully read through this document, make sure you understand the [test cases](test_cases.html).  Do the expected results make sense to you?  Make sure you understand how the input and output of the program will work.  Otherwise, you will be completely lost in implementing your program!
 
-Now that you understand *what* your program should do, you can start developing a plan on *how* it will accomplish its tasks.  Start with sketching ideas on paper.  This may result in an initial flowchart or pseudocode.  You will likely find that working out the problem on paper will help you to understand the problem better.  Once you have developed a reasonable algorithm to implement your task, test it with [test cases](test_cases.html).  Adjust the plan as needed. 
+Now that you understand *what* your program should do, you can start developing a plan on *how* it will accomplish its tasks.  Start with sketching ideas on paper.  This may result in an initial flowchart or pseudocode.  You will likely find that working out the problem on paper will help you to understand the problem better.  Once you have developed a reasonable algorithm to implement your task, test it with [test cases](test_cases.html).  Adjust the plan as needed.
 
 Keep in mind that whenever you write any code, you should also consider what it should do in the event that you receive an invalid input.  Can you think of any invalid inputs in the context of this task?  Can you think of any inputs that might break the algorithm you have already developed?  For instance, what should your program do if an operator is unknown?  Are there any bytes that you cannot use an as operand?
 
@@ -109,7 +131,7 @@ Read the [guidance on Labs / Lab Notebooks / Coding standards](/382/admin/labs.h
 - Labels
     - Descriptive!
         - `loop` or `loop1` or `l1` or `blah` - not acceptable!
-    - Used for all memory location, jumps, etc. 
+    - Used for all memory location, jumps, etc.
 - Constants
     - Use `.equ` syntax for all constants!
     - Don't want to see naked values / magic numbers
@@ -140,3 +162,55 @@ Read the [guidance on Labs / Lab Notebooks / Coding standards](/382/admin/labs.h
 
 - Code 10
 - Lab Notebook 15 (most of the notebook work is done with the prelab)
+
+## Use Assembler Directives!
+
+Your program is going to be reading a series of operands and operations from memory.  Use the `.byte` directive to store them!
+
+```
+                .text
+myProgram:      .byte      0x13,0x22,0x14,0x11,0x37
+```
+
+Your program is going to be storing results to memory.  Use the `.space` directive to store space for them!
+
+```
+                .data
+myResults:      .space      20                          ; reserving 20 bytes of space
+```
+
+Hex values code for operations.  I better not see any magic numbers!
+```
+ADD_OP:         .equ        0x11
+SUB_OP:         .equ        0x22
+```
+
+## Use Good Code Style!
+
+- Comments
+    - Assume the reader is a competent assembly language programmer
+    - Comment above blocks of code to convey **purpose**
+    - Only comment individual lines when purpose is unclear
+- Labels
+    - Descriptive!
+        - loop or loop1 or l1 or blah - not acceptable!
+    - Used for all memory location, jumps, etc.
+- Constants
+    - Use `.equ` syntax for all constants!
+    - Don't want to see naked values
+- Instruction Choice
+    - Use the instruction that makes your code readable!
+        - `JHS` rather than `JC`
+        - `INCD` rather than `ADD #2`
+    - Well-written code requires few comments
+- Spacing
+    - Align your code to make it readable
+    - Put whitespace between logical blocks of code
+
+## Remember Design Principles!
+
+**Get one small thing working first.**
+
+**Break a big project up into smaller, more manageable tasks.**
+
+**Test your code!  Better yet, write your tests before you write your code.**
