@@ -1,44 +1,188 @@
+---
+title: 'ECE 387: Intro to Robotic Systems'
+header-includes:
+    - \usepackage{fancyhdr}
+    - \pagestyle{fancy}
+    - \fancyhead[CO,CE]{ECE 387}
+    - \fancyfoot[CO,CE]{\thepage}
+    - \fancyfoot[LE,RO]{Robots are cool!}
+---
+
 # ECE382 - Embedded Systems I
 
-| Lesson | Topic | Assigned | Due |
-|:--|:----------------------------------------|:------------------|:---------------|
-| [L1](notes/L1/index.html) | Course Introduction. Computer Structure.  Architecture vs Microarchitecture.  RISC vs CISC. | [Skills Review](notes/L1/skills_review.html) | |
-| [L2](notes/L2/index.html) | Intro to the MSP430.  MSP430 Architecture.  Assembly and Machine Languages. | [uCorrupt 1](notes/L2/ucorrupt1.html) | |
-| [L3](notes/L3/index.html) | Debuggers.  MSP430 Execution Model.  MSP430 Instruction Set.  Converting Assembly to Machine Code. | [Assignment 1](notes/L3/L3_execution.html) | [Skills Review](notes/L1/skills_review.html) |
-| [L4](notes/L4/index.html) | Addressing Modes.  CompEx 1 Intro. | [Assignment 2](notes/L4/L4_addressing_modes.html) | [Assignment 1](notes/L3/L3_execution.html), [uCorrupt 1](notes/L2/ucorrupt1.html) |
-| L5 | [CompEx 1](labs/compex1/index.html) - Introduction to the MSP430 and CodeComposer. | [CompEx 1](labs/compex1/index.html) [Badlec5.asm EC](notes/L6/code/badlec5.asm) | |
-| [L6](notes/L6/index.html) | Status Register.  Flow of Control.  Movement Instructions. | [uCorrupt 2](notes/L6/ucorrupt2.html) | [Assignment 2](notes/L4/L4_addressing_modes.html ), [CompEx 1](labs/compex1/index.html) Questions |
-| [L7](notes/L7/index.html) | Arithmetic / Logic, Shift / Rotate Instructions.  Watchdog Timer. *Miniquiz* ([Solution](notes/L7/Lesson-07-Quiz-Key.pdf))| [Assignment 3](notes/L7/L7_control_flow.html) | [uCorrupt 2](notes/L6/ucorrupt2.html) |
-| [L8](notes/L8/index.html) | Directives.  Assembly Process.  Structured Design and Test.  Debugging.  [Lab 1](labs/lab1/index.html) Introduction. *Miniquiz*| [Lab 1](labs/lab1/index.html) Prelab | [Assignment 3](notes/L7/L7_control_flow.html) |
-| L9 | [Lab 1](labs/lab1/index.html) - Loops / Branches.  "Simple Calculator". | [Lab 1](labs/lab1/index.html) | [Lab 1](labs/lab1/index.html) Prelab |
-| [L10](notes/L10/index.html) | The Stack.  Subroutines.  [Lab 2](labs/lab2/index.html) Introduction. | [Lab 2](labs/lab2/index.html) Prelab, [Assignment 4](notes/L10/stack_hw.html) | [Lab 1](labs/lab1/index.html) Functionality |
-| L11 | [Lab 2](labs/lab2/index.html) - Subroutines.  "Cryptography". | [Lab 2](labs/lab2/index.html) | [Lab 1](labs/lab1/index.html) Lab Notebook, [Lab 2](labs/lab2/index.html) Prelab, [Assignment 4](notes/L10/stack_hw.html) |
-| L12 | [Lab 2](labs/lab2/index.html) - Subroutines.  "Cryptography". *Miniquiz* | | |
-| [L13](notes/L13/index.html) | Peripherals. Ports.  GPIO.  Multiplexing. | | [Lab 2](labs/lab2/index.html) |
-| [L14](notes/L14/index.html) | Polling.  Debouncing.  Software Delay Routines. |  | [Badlec5.asm EC](notes/L6/code/badlec5.asm) |
-| [L15](notes/L15/index.html) | Serial Comm Fundamentals.  Serial Peripheral Interface.  [Lab 3](labs/lab3/index.html) Introduction.  Logic Analyzer Demo. | [Lab 3](labs/lab3/index.html) Mega Prelab | |
-| L16 | [Lab 3](labs/lab3/index.html) - Polling and SPI. | [Lab 3](labs/lab3/index.html) | [Lab 3](labs/lab3/index.html) Mega Prelab |
-| L17 | [GR #1](admin/gr1_resources) | | |
-| L18 | [Lab 3](labs/lab3/index.html) - Polling and SPI. | ||
-| [L19](notes/L19/index.html) | Compilers.  Introduction to C.  | [Assignment 6](notes/L19/L19_C_basics.html)| [Lab 3](labs/lab3/index.html) Functionality, Logic Analyzer, and Notebook |
-| [L20](notes/L20/index.html) | C Programming - Structs, Functions, and Headers. | [Assignment 7](notes/L20/L20_pong.html)| [Assignment 6](notes/L19/L19_C_basics.html) |
-| [L21](notes/L21/index.html) | C Programming - Pointers and Arrays | [Assignment 8](notes/L21/L21_moving_average.html) | [Assignment 7](notes/L20/L20_pong.html) |
-| [L22](notes/L22/index.html) | C Programming - Writing Clean Code.  Revision Control. Mapping C to Assembly. | [Lab 4](labs/lab4/index.html) Prelab| [Assignment 8](notes/L21/L21_moving_average.html) |
-| [L23](notes/L23/index.html) | [Lab 4](labs/lab4/index.html) Introduction. Polling and SPI in C.  |  | [Lab 4](labs/lab4/index.html) Prelab |
-| L24 | [Lab 4](labs/lab4/index.html) - Polling and SPI in C. | [Lab 4](labs/lab4/index.html)| [Lab 4](labs/lab4/index.html) Functionality|
-| [L25](notes/L25/index.html) |  Timers |  | [Lab 4](labs/lab4/index.html) Notebook |
-| [L26](notes/L26/index.html)| Timer_A: Interval Timing.  Introduction to Interrupts. | [Assignment 9](notes/L26/L26_timer_interrupt_lab4.html) |  |
-| [L27](notes/L27/index.html) | Interrupts and ISRs. MSP430 Interrupt System.  [Lab 5](labs/lab5/index.html) Introduction. | Read [Lab 5](labs/lab5/index.html) | [Assignment 9](notes/L26/L26_timer_interrupt_lab4.html) |
-| L28 | [Lab 5](labs/lab5/index.html) - Interrupts | [Lab 5](labs/lab5/index.html) |  |
-| L29 | [Lab 5](labs/lab5/index.html) - Interrupts | [Lab 5](labs/lab5/index.html) | Day 1 activities  |
-| L30 | [Lab 5](labs/lab5/index.html) - Interrupts | [Lab 5](labs/lab5/index.html) Documentation | [Lab 5](labs/lab5/index.html) Functionality |
-| L31 | [GR #2](admin/gr2_resources) |  | [Lab 5](labs/lab5/index.html) Documentation |
-| [L32](notes/L31/index.html) | Timer_A: Capture / Compare, Pulse Width Modulation.  Lab 6 Introduction. | [Lab 6](labs/lab6/index.html) Prelab | |
-| L33 | [Lab 6](labs/lab6/index.html) - Robot Motion | [Lab 6](labs/lab6/index.html) | [Lab 6](labs/lab6/index.html) Prelab |
-| L34 | [Lab 6](labs/lab6/index.html) - Robot Motion | | |
-| L35 | [Lab 6](labs/lab6/index.html) - Robot Motion | | [Lab 6](labs/lab6/index.html) Functionality |
-| [L36](notes/L36/index.html) | Analog-to-Digital and Digital-to-Analog Conversion. [Lab 7](labs/lab7/index.html) / [Lab 8](labs/lab8/index.html) Intro. | [Lab 7](labs/lab7/index.html) Prelab, [Temp Sensor Bonus](notes/L36/Lsn36_in_class_exercise.docx) | [Lab 6](labs/lab6/index.html) Documentation |
-| L37 | [Lab 7](labs/lab7/index.html) - Robot Sensing | [Lab 7](labs/lab7/index.html), [Lab 8](labs/lab8/index.html) Prelab | [Lab 7](labs/lab7/index.html) Prelab |
-| L38 | [Lab 8](labs/lab8/index.html) - Robot Maze | [Lab 8](labs/lab8/index.html) | [Lab 8](labs/lab8/index.html) Prelab, [Lab 7](labs/lab7/index.html) Functionality |
-| L39 | [Lab 8](labs/lab8/index.html) - Robot Maze | | [Temp Sensor Bonus](notes/L36/Lsn36_in_class_exercise.docx)  |
-| L40 | [Lab 8](labs/lab8/index.html) - Robot Maze / Competition | | [Lab 8](labs/lab8/index.html) Functionality, [Lab 7](labs/lab7/index.html)/ [Lab 8](labs/lab8/index.html) Documentation |
+| Lsn | Topic                                                 | Reading                     | Assignments Due                       |
+|-----|-------------------------------------------------------|-----------------------------|---------------------------|
+| 1   | [Intro & Overview][1]                                 |                             | |
+| 2   | [uC Comparison and ISA][2]                            |                             | Install required software |
+| 3   | [ISA: Instructions to Machine Code][3]                |                             | |
+| 4   | [ISA: Instructions to Machine Code][4]                |                             | |
+| 5   | [ISA: Instructions to Machine Code][5]                |                             | |
+| 6   | [Advanced Git][6]                                     |                             | Code Academy Git Module |
+| 7   | [Code Composer Studio (CSS)][7]                       |                             | |
+| 8   | [Status Register and Flow Control][8]                 |                             | |
+| 9   | [Stack, Subroutines, and ABI][9]                      |                             | |
+| 10  | [Stack, Subroutines, and ABI][10]                     |                             | |
+| 11  | [Lab 1: Assembly Calculator][11]                      |                             | |
+| 12  | [Lab 1: Assembly Calculator][11]                      |                             | |
+| 13  | [Memory Mapped IO and Muxes][13]                      |                             | |
+| 14  | [Polling, Debouncing, and Logic Analyzer][14]         |                             | |
+| 15  | [Polling, Debouncing, and Logic Analyzer][15]         |                             | |
+| 16  | [Lab 2: Debouncing and Logic Analyzer][16]            |                             | |
+| 17  | [Lab 2: Debouncing and Logic Analyzer][17]            |                             | |
+| 18  | [GR1][18]                                             |                             | |
+| 19  | [GR Review and High Level Language (HLL) Overview][19]|                             | |
+| 20  | [Intro to C][20]                                      |                             | |
+| 21  | [Programming Libraries][21]                           |                             | |
+| 22  | [Common Data Structures][22]                          |                             | |
+| 23  | [???][23]                                             |                             | |
+| 24  | [Interrupts][24]                                      |                             | |
+| 25  | [Interrupts][25]                                      |                             | |
+| 26  | [??][26]  [[download](lsn26.zip)]                     |                             | |
+| 27  | [??][27]  [[download](lsn27.zip)]                     |                             | |
+| 28  | [??][28]  [[download](lsn28.zip)]                     |                             | |
+| 29  | [??][29]  [[download](lsn29.zip)]                     |                             | |
+| 30  | [??](lab4.pdf)                                        |                             | |
+| 31  | [??](lab4.pdf)                                        |                             | |
+| 32  | [??][32]  [[download](lsn32.zip)]                     |                             | |
+| 33  | [???](final_project.pdf)                              |                             | |
+| 34  | [??](final_project.pdf)                               |                             | |
+| 35  | [??](final_project.pdf)                               |                             | |
+| 36  | [??](final_project.pdf)                               |                             | |
+| 37  | [??][37]                                              |                             | |
+| 38  | [??][37]                                              |                             | |
+| 39  | [??][37]                                              |                             | |
+| 40  | [??][37]                                              |                             | |
+
+- Homeworks are at the beginning of class (BOC)
+- Labs are due on the final day at the end of class (EOC)
+
+[1]: lsn1.pptx
+[2]: lsn2-linux.pptx
+[3]: lsn3-4-5.pptx
+[4]: lsn3-4-5.pptx
+[5]: lsn3-4-5.pptx
+[6]: lsn3-4-5.pptx
+[7]: lsn3-4-5.pptx
+[8]: lsn3-4-5.pptx
+[9]: lsn3-4-5.pptx
+[10]: lsn3-4-5.pptx
+[11]: lsn3-4-5.pptx
+[12]: lsn3-4-5.pptx
+[13]: lsn3-4-5.pptx
+[14]: lsn3-4-5.pptx
+[15]: lsn3-4-5.pptx
+[16]: lsn3-4-5.pptx
+[17]: lsn3-4-5.pptx
+[18]: lsn3-4-5.pptx
+[19]: lsn3-4-5.pptx
+[20]: lsn3-4-5.pptx
+[21]: lsn3-4-5.pptx
+[22]: lsn3-4-5.pptx
+[23]: lsn3-4-5.pptx
+[24]: lsn3-4-5.pptx
+[25]: lsn3-4-5.pptx
+[26]: lsn3-4-5.pptx
+[27]: lsn3-4-5.pptx
+[28]: lsn3-4-5.pptx
+[29]: lsn3-4-5.pptx
+[30]: lsn3-4-5.pptx
+[31]: lsn3-4-5.pptx
+[32]: lsn3-4-5.pptx
+[33]: lsn3-4-5.pptx
+[34]: lsn3-4-5.pptx
+[35]: lsn3-4-5.pptx
+[36]: lsn3-4-5.pptx
+[37]: lsn3-4-5.pptx
+[38]: lsn3-4-5.pptx
+[39]: lsn3-4-5.pptx
+[40]: lsn3-4-5.pptx
+
+# [Spring 2018 Syllabus](syllabus.pdf)
+
+## Instructor
+
+  Maj Kevin Walchko
+  Fairchild 2F48
+  kevin.walchko@usafa.edu
+
+  Capt Dan Johnson
+  Fairchild 2F46A
+  daniel.johnson@usafa.edu
+
+## Course Goals and Objectives
+
+By the end of this course, cadets shall be able to:
+
+1.	Utilize the built-in functional units of a specified microcontroller.
+2.	Write, assemble, link, and run microcontroller code in assembly language.
+3.	Write, compile, assemble, link, and run microcontroller code in the C programming language.
+4.	Interpret and explain orally and in writing the functions of a given assembly language or C program as well as laboratory work
+5.	Evaluate, analyze, debug, and modify a given program to improve its execution of a specified task
+6.	Demonstrate a working knowledge of the on-board hardware components of a microcontroller and implement an interface between a specified microcontroller and other hardware.
+7.	Demonstrate the ability to solve well and ill-defined problems
+
+
+### Course Prerequisites
+
+CompSci 110 and ECE 281
+
+## Grades
+
+| Grade        | Grade        |
+|--------------|--------------|
+| 90 < A < 100 | 74 < C+ < 77 |
+| 87 < A- < 90 | 70 < C  < 74 |
+| 84 < B+ < 87 | 67 < C- < 70 |
+| 80 < B < 84  | 60 < D  < 67 |
+| 77 < B- < 80 |  0 < F  < 60 |
+
+|               | Prog %   | Final %   |
+|---------------|----------|-----------|
+| HW            | xx       | xx        |
+| Quizzes       | xx       | xx        |
+| GRs           | xx       | xx        |
+| Labs          | xx       | xx        |
+| Final Exam    |          | xx        |
+
+## Missing Class and the Late Policy
+
+Inform your instructor of absences in advance via email. Please include the reason for the absence and any relevant SCA. Check the SCA to see if instructor permission is required and if it is, make the request prior to the absence. You will be given an Unexcused Absence in CAS if you fail to get permission.
+
+If you plan to miss a class, you *must* take any quiz or GR prior to your departure.
+
+Due to the limited time to conduct labs and the fact they are executed in groups, you can not miss both lab days unless you have a medical excuse due to unplanned illness. You can miss one lab day, but depending on situation (e.g., something you could have avoided), you may loose points for the lab.
+
+If you are expecting to miss class on the day an assignment is due, you shall turn in your assignment prior to your departure. Your instructor may grant a no-penalty turn-in extension for absences resulting from illness or other legitimate extenuating circumstances. Cadets shall coordinate late submittals in advance. The late policy for the Department of Electrical and Computer Engineering is as follows:
+
+| How Late? | Max Penalty | Max Grade |
+|-----------|-------------|-----------|
+| < 1 day   | 25%         | 75%       |
+|   2 day   | 50%         | 50%       |
+|   3 day   | 75%         | 25%       |
+| > 3 day   | 100%        | 0%        |
+
+## Collaboration and Documentation Policy
+
+You may receive help from any DFEC faculty member on the homework. Do not work
+with other students in the class or who have taken the class previously. Document
+all help received on work submitted for grading IAW DF policies, or document
+*none* if your work was completely individual effort.
+
+### Homework
+
+Reading assignments include the lesson notes provided on each lesson page, along with the links and datasheet pages specified at the top of the respective lesson page.  The Barrett readings are optional.  Readings should be accomplished **prior** to the designated class in order to be most beneficial.
+
+Graded homework assignments are also given at the top of the class notes and are due BOC the next lesson unless otherwise stated.
+
+### Prelabs, Labs, and Lab Notebooks
+
+Prelabs and Labs will be turned in and graded via Bitbucket unless otherwise stated.  **Prelabs are due NLT one duty day prior to the day you start a lab.**  This is to ensure that instructors have a reasonable amount of time to provide you feedback on your plan prior to starting the lab.
+
+Lab notebooks must follow the lab notebook standards specified under the [Lab Notebooks](/382/admin/labs.html) link on the Admin page.  The lab notebook is maintained as a journal of your lab experience and should allow you, or any knowledgeable engineer, to recreate your project.
+
+### Exams
+
+All exams are closed textbook and notes.  Cadets are allowed to use only the provided TI documents and data sheets for exams and quizzes.  Both laboratory and classroom work will appear on exams.  For missed GRs, the following policies are outlined:
+
+- **Scheduled Absence** - If you know that you will be unable to take the GR during the scheduled GR period, you are required to inform your instructor as soon as possible before the GR to schedule a make-up exam.
+- **Unscheduled Absense** - If you miss the GR for reasons beyond your control (e.g. hospitalization, emergency leave, delayed field trip return, etc.) you must contact DFEC (x3190) within **two working days** to schedule a make-up.  Exceptions can only be granted by the Department Head.
