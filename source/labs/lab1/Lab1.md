@@ -6,43 +6,46 @@ title = 'Lab 1 - Assembly Language - "A Simple Calculator"'
 
 ## Objectives
 
-You'll write your first complete assembly language program using what you've learned in class.  You'll need all of the skills you've learned to this point - the instruction set, addressing modes, conditional jumps, status register flags, assembler directives, the assembly process, etc.  This lab will give you practice in using assembly to implement higher-level if/then/else and looping constructs.
+You'll write your first complete assembly language program using what you've learned in class.  You'll need all of the skills you've learned to this point
 
-## Details
+- the instruction set
+- addressing modes
+- flow control
+  - conditional jumps
+  - status register flags
+- assembly directives
 
-# Lab 1 Test Cases
 
-First, make them demo their code with their test program.  Question the absence of any edge cases.  I fill the first 50 words of RAM with 0xCCCC.  Then, set a break on END_PROGRAM.  Then, make them go through each result and trace it back to the original program.
+- subroutines?
 
-## Required Functionality
+## Directions
 
-0x11, 0x11, 0x11, 0x11, 0x11, 0x44, 0x22, 0x22, 0x22, 0x11, 0xCC, 0x55
+You'll write a program that interprets a series of operands and operations and
+stores the results - an assembly language calculator!
 
-Result: 0x22, 0x33, 0x00, 0x00, 0xCC
+Your program will start reading at the location in ROM where you stored the
+calculator instructions.  It will read the first byte as the first operand.  
+The next byte will be an operation.  The third byte will be the second operand.  
+Your program will execute the expected operation and store the result starting
+at `0x0200`.  The result will then be the first operand for the next operation.  
+The next byte will be an operation.  The following will be the second operand.  
+Your program will execute the requested operation and store the result at `0x0201`.
+Your program will continue doing this until you encounter an `END_OP` - at which
+point, your program will cease execution.
 
-## B Functionality
+- The input and output for the calculator will be in memory locations.  The
+calculator operations and operands will be stored in ROM - any location in ROM
+is acceptable.  The results of the calculations will be stored in RAM starting
+at `0x0200`.  
+- Labels shall be used in the program to refer to the location of your instructions
+and results.
+- The input operands and output results will be positive integers between 0
+and 255 (an unsigned byte). If you are passed a value greater than 255, then
+you *must* set it to 255.
+- Good coding standards (labels, .`equ` where appropriate) must be used throughout
+(review the lessons if you are unclear on what this means)
 
-0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0xDD, 0x44, 0x08, 0x22, 0x09, 0x44, 0xFF, 0x22, 0xFD, 0x55
-
-Result: 0x22, 0x33, 0x44, 0xFF, 0x00, 0x00, 0x00, 0x02
-
-## A Functionality
-
-0x22, 0x11, 0x22, 0x22, 0x33, 0x33, 0x08, 0x44, 0x08, 0x22, 0x09, 0x44, 0xff, 0x11, 0xff, 0x44, 0xcc, 0x33, 0x02, 0x33, 0x00, 0x44, 0x33, 0x33, 0x08, 0x55
-
-Result: 0x44, 0x11, 0x88, 0x00, 0x00, 0x00, 0xff, 0x00, 0xff, 0x00, 0x00, 0xff
-
-### The Basic Idea
-
-You'll write a program that interprets a series of operands and operations and stores the results - an assembly language calculator!
-
-Your program will start reading at the location in ROM where you stored the calculator instructions.  It will read the first byte as the first operand.  The next byte will be an operation.  The third byte will be the second operand.  Your program will execute the expected operation and store the result starting at 0x0200.  The result will then be the first operand for the next operation.  The next byte will be an operation.  The following will be the second operand.  Your program will execute the requested operation and store the result at 0x0201.  Your program will continue doing this until you encounter an END_OP - at which point, your program will cease execution.
-
-### Required Functionality
-
-- The input and output for the calculator will be in memory locations.  The calculator operations and operands will be stored in ROM - any location in ROM is acceptable.  The results of the calculations will be stored in RAM starting at 0x0200.  Labels shall be used in the program to refer to the location of your instructions and results.
-- The input operands and output results will be positive integers between 0 and 255 (an unsigned byte).
-- Good coding standards (labels, .equ where appropriate) must be used throughout.
+## Calculator Instruction Set
 
 Your program will implement the following operations:
 
@@ -65,103 +68,10 @@ Example calculator program: `0x14 0x11 0x32 0x22 0x08 0x44 0x04 0x11 0x08 0x55`
 It's equivalent to: `0x14 + 0x32 - 0x08 CLR 0x04 + 0x08 END`  
 The result should be, stored at 0x0200: `0x46 0x3e 0x00 0x0c`
 
-Your calculator will be tested with various combinations of input instructions.  Results will be verified using the debugger.
-
-### B Functionality
-
-In addition to the Required Functionality, your program will meet the following requirement:
-
-- If a result exceeds 255, it is set to the maximum value of 255.  If a result is less than 0, it is set to the minimum value of 0.
-
-### A Functionality
-
-In addition to B Functionality, your program will implement a multiply operation:
-
-**MUL_OP**  
-An multiplication operation is coded by the value 0x33.  It multiplies two numbers and stores the result.  
-The calculator program `0x02 0x33 0x04` is equivalent to `0x02 * 0x04`.  It would store the result `0x08`.
-
-The MSP430G2553 that you're using does not have a hardware multiplier, so you'll have to get creative to implement this.
-
-There are a couple of ways to implement multiply - **strive for the fastest possible, yet practical implementation**.  Solutions that multiply by brute force (worse than O(n) time) will receive half points.  Only solutions that multiply in O(n) or better time will receive full points.
-
-O(n) means that the time it takes to reach a solution varies with the size of the input.  A typical brute force multiply algorithm requires O(2^n )!
-
-
-## Prelab
-
-**Remember, the Prelab is due one full business day prior to the lab in order to provide your instructor time to provide you feedback on your plan (before you start implementing it).**
-
-Most prelabs in this class essentially require that you 1) lay out a plan for how you will tackle the lab, and 2) answer questions to guide you in developing a good plan.  A good plan usually requires multiple iterations.  Pages 17-18 and 55 of the Barret and Pack book provide a concise approach to design planning.
-
-After you have carefully read through this document, make sure you understand the [test cases](test_cases.html).  Do the expected results make sense to you?  Make sure you understand how the input and output of the program will work.  Otherwise, you will be completely lost in implementing your program!
-
-Now that you understand *what* your program should do, you can start developing a plan on *how* it will accomplish its tasks.  Start with sketching ideas on paper.  This may result in an initial flowchart or pseudocode.  You will likely find that working out the problem on paper will help you to understand the problem better.  Once you have developed a reasonable algorithm to implement your task, test it with [test cases](test_cases.html).  Adjust the plan as needed.
-
-Keep in mind that whenever you write any code, you should also consider what it should do in the event that you receive an invalid input.  Can you think of any invalid inputs in the context of this task?  Can you think of any inputs that might break the algorithm you have already developed?  For instance, what should your program do if an operator is unknown?  Are there any bytes that you cannot use an as operand?
-
-Are there any other ways to break your program?  For example, what would happen if someone were to provide a loooooonnnggg set of operations?
-
-Note, it is not expected that you will implement code that is unbreakable and completely robust.  **However, you should understand and DOCUMENT the limitations of your code.**
-
-
-#### Prelab Deliverables
-
-**Remember, the Prelab is due one full business day prior to the lab in order to provide your instructor time to provide you feedback on your plan (before you start implementing it).**
-
-1. **Refine your plan, and develop a professional looking flowchart describing how your code will operate.**  Use traditional symbols in your flowchart as much as possible, and include a symbol key.  **Do not include assembly in your flowchart.**  Make it easy to read and understand.
-
-2. Answer the following questions:
-
- - How will you test your code?  Be *specific* on how you will verify correctness of results with a *repeatable and consistent* method.  Hint:  Think about where you will find your results and how that location is affected by subsequent tests.
- - What should your program do if an operator is unknown?
- - Are there any bytes that you *cannot* use as an operand?
- - Are there any other ways to break your program?  For example, what would happen if someone were to provide a loooooonnnggg set of operations?
- - Is there anything about this lab that you would like me to address at the beginning of class?
-
-
-## Notes
-
-Read the [guidance on Labs / Lab Notebooks / Coding standards](/382/admin/labs.html) thoroughly and follow it.  Additional guidance is provided in the [teaching notes](notes.html) page.
-
-- Comments
-    - Assume the reader is a competent assembly language programmer (do NOT comment every line)
-    - Comment above blocks of code to convey **purpose**
-    - Only comment individual lines when purpose is unclear
-- Labels
-    - Descriptive!
-        - `loop` or `loop1` or `l1` or `blah` - not acceptable!
-    - Used for all memory location, jumps, etc.
-- Constants
-    - Use `.equ` syntax for all constants!
-    - Don't want to see naked values / magic numbers
-- Instruction Choice
-    - Use the instruction that makes your code readable!
-        - `JHS` rather than `JC`
-        - `INCD` rather than `ADD #2`
-    - Well-written code requires few comments
-- Spacing
-    - Align your code to make it readable
-    - Put whitespace between logical blocks of code
-
-## Test Cases!
-
-**In addition to using the test cases I have provided, create at least two test cases of your own.  Explain why your test cases provide added value in testing your program.  Be sure to include the expected results.**
-
-[Test Cases](test_cases.html)
-
-## Grading - Lab 1
-
-#### Points breakdown
-- Prelab 25 (15 flowchart, 10 questions)
-
-- Req'd funct 30
-- B funct 10
-- A funct (Brute force multiply) 5
-- A funct (O(n) multiply) 5
-
-- Code 10
-- Lab Notebook 15 (most of the notebook work is done with the prelab)
+If your program gets an byte that is not in the above instruction set, it will reset.
+Any values already stored in the `0x0200` output location will be retained, but
+any operands pushed into a register will be cleared (or just forgotten) and your
+program will start back through its flowchart for reading inputs.
 
 ## Use Assembler Directives!
 
@@ -185,32 +95,50 @@ ADD_OP:         .equ        0x11
 SUB_OP:         .equ        0x22
 ```
 
-## Use Good Code Style!
+## Prelab
 
-- Comments
-    - Assume the reader is a competent assembly language programmer
-    - Comment above blocks of code to convey **purpose**
-    - Only comment individual lines when purpose is unclear
-- Labels
-    - Descriptive!
-        - loop or loop1 or l1 or blah - not acceptable!
-    - Used for all memory location, jumps, etc.
-- Constants
-    - Use `.equ` syntax for all constants!
-    - Don't want to see naked values
-- Instruction Choice
-    - Use the instruction that makes your code readable!
-        - `JHS` rather than `JC`
-        - `INCD` rather than `ADD #2`
-    - Well-written code requires few comments
-- Spacing
-    - Align your code to make it readable
-    - Put whitespace between logical blocks of code
+**This is due at the beginning of class**
 
-## Remember Design Principles!
+[15 pts] You will hand in a flow diagram of how your program will work (use PowerPoint).
+Your flow chart must start from when the program starts running until you
 
-**Get one small thing working first.**
+[10 pts] Answer the following questions:
 
-**Break a big project up into smaller, more manageable tasks.**
+1. What should your program do if an input is out of range?
+1. How do you know if an input is out of range?
+1. What should your program do if an operator is unknown?
+1. Are there any bytes that you *cannot* use as an operand?
+1. What happens if you do not find and `END_OP` command?
+1. What happens ???
+1. ?
+1. ?
+1. ?
+1. ?
 
-**Test your code!  Better yet, write your tests before you write your code.**
+# Lab Functionality
+
+Here are the test cases you must demonstrate to your instructor before the end
+of the class:
+
+1. `0x11, 0x11, 0x11, 0x11, 0x11, 0x44, 0x22, 0x22, 0x22, 0x11, 0xCC, 0x55`
+    - Result: `0x22, 0x33, 0x00, 0x00, 0xCC`
+2. `0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0xDD, 0x44, 0x08, 0x22, 0x09, 0x44, 0xFF, 0x22, 0xFD, 0x55`
+    - Result: `0x22, 0x33, 0x44, 0xFF, 0x00, 0x00, 0x00, 0x02`
+3. `0x22, 0x11, 0x22, 0x22, 0x33, 0x33, 0x08, 0x44, 0x08, 0x22, 0x09, 0x44, 0xff, 0x11, 0xff, 0x44, 0xcc, 0x33, 0x02, 0x33, 0x00, 0x44, 0x33, 0x33, 0x08, 0x55`
+    - Result: `0x44, 0x11, 0x88, 0x00, 0x00, 0x00, 0xff, 0x00, 0xff, 0x00, 0x00, 0xff`
+4. The input and output will be given on the last day of lab
+
+When you demo, due to time limitations, you only get one chance to demo, so make
+sure it works (repeatedly) before you show the instructor. Any follow-on demos
+will be treated as late (even if class has not ended) and you will lose 25% of
+the demo grade.
+
+## Rubric
+
+| Item | 0-25% | 25-50% | 50-75% | 75-100% |
+|---|---|---|---|---|
+| Prelab |
+
+- Prelab 25 (15 flowchart, 10 questions)
+- Code 25 pts
+- Demonstration in class 50 pts

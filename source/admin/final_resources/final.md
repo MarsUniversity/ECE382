@@ -48,7 +48,7 @@ This, along with the GR1 and GR2 resources, will be available for you to referen
 
 ![ADC10MEM Register](ADC10MEM.jpg)
 
-###Quadruple Half-H Driver
+### Quadruple Half-H Driver
 
 ![SN754410 page 1](SN754410p1.JPG)
 
