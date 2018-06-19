@@ -11,7 +11,8 @@ var w = execSync('which pandoc').toString();
 if (typeof(w) !== 'string'){
   throw 'Is pandoc installed?';
 }
-var pandocPath = w.substr(0, w.length - 1);
+// var pandocPath = w.substr(0, w.length - 1);
+var pandocPath = 'pandoc';
 
 exports.cleanAscii = function(file){
   // get markdown
@@ -114,7 +115,7 @@ exports.convertToHTML = function(inFile) {
     //   timeout: 5000,
     //   killSignal: 'SIGKILL'
     // };
-    // return execSync(cmd, opts).toString();
+    return execSync(cmd).toString();
     // return exec(cmd).toString();
     // var ret = exec(cmd).stdout.toString();
 

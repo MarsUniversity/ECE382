@@ -10,14 +10,14 @@ header-includes:
 
 # ECE382 - Embedded Systems I
 
-| Lsn | Topic                                                 | Reading                     | Assignments Due                       |
+| Lsn | Topic                                                 | Assignments Due             | Misc                      |
 |-----|-------------------------------------------------------|-----------------------------|---------------------------|
 | 1   | [Intro & Overview][1]                                 |                             | |
-| 2   | [uC Comparison and ISA][2]                            |                             | Install required software |
+| 2   | [uC Comparison and ISA][2]                            | Install required software   | |
 | 3   | [ISA: Instructions to Machine Code][3]                |                             | |
 | 4   | [ISA: Instructions to Machine Code][4]                |                             | |
 | 5   | [ISA: Instructions to Machine Code][5]                |                             | |
-| 6   | [Advanced Git][6]                                     |                             | Code Academy Git Module |
+| 6   | [Advanced Git][6]                                     | Code Academy Git Module     | |
 | 7   | [Code Composer Studio (CSS)][7]                       |                             | |
 | 8   | [Status Register and Flow Control][8]                 |                             | |
 | 9   | [Stack, Subroutines, and ABI][9]                      |                             | |
@@ -56,46 +56,46 @@ header-includes:
 - Homeworks are at the beginning of class (BOC)
 - Labs are due on the final day at the end of class (EOC)
 
-[1]: lsn1.pptx
-[2]: lsn2-linux.pptx
-[3]: lsn3-4-5.pptx
-[4]: lsn3-4-5.pptx
-[5]: lsn3-4-5.pptx
-[6]: lsn3-4-5.pptx
-[7]: lsn3-4-5.pptx
-[8]: lsn3-4-5.pptx
-[9]: lsn3-4-5.pptx
-[10]: lsn3-4-5.pptx
-[11]: lsn3-4-5.pptx
-[12]: lsn3-4-5.pptx
-[13]: lsn3-4-5.pptx
-[14]: lsn3-4-5.pptx
-[15]: lsn3-4-5.pptx
-[16]: lsn3-4-5.pptx
-[17]: lsn3-4-5.pptx
-[18]: lsn3-4-5.pptx
-[19]: lsn3-4-5.pptx
-[20]: lsn3-4-5.pptx
-[21]: lsn3-4-5.pptx
-[22]: lsn3-4-5.pptx
-[23]: lsn3-4-5.pptx
-[24]: lsn3-4-5.pptx
-[25]: lsn3-4-5.pptx
-[26]: lsn3-4-5.pptx
-[27]: lsn3-4-5.pptx
-[28]: lsn3-4-5.pptx
-[29]: lsn3-4-5.pptx
-[30]: lsn3-4-5.pptx
-[31]: lsn3-4-5.pptx
-[32]: lsn3-4-5.pptx
-[33]: lsn3-4-5.pptx
-[34]: lsn3-4-5.pptx
-[35]: lsn3-4-5.pptx
-[36]: lsn3-4-5.pptx
-[37]: lsn3-4-5.pptx
-[38]: lsn3-4-5.pptx
-[39]: lsn3-4-5.pptx
-[40]: lsn3-4-5.pptx
+[1]: lessons/lsn1/index.html
+[2]: lessons/lsn2/index.html
+[3]: lessons/lsn3-4-5/index.html
+[4]: lessons/lsn3-4-5/index.html
+[5]: lessons/lsn3-4-5/index.html
+[6]: lessons/lsn3-4-5/index.html
+[7]: lessons/lsn3-4-5/index.html
+[8]: lessons/lsn3-4-5/index.html
+[9]: lessons/lsn3-4-5/index.html
+[10]: lessons/lsn3-4-5/index.html
+[11]: lessons/lsn3-4-5/index.html
+[12]: lessons/lsn3-4-5/index.html
+[13]: lessons/lsn3-4-5/index.html
+[14]: lessons/lsn3-4-5/index.html
+[15]: lessons/lsn3-4-5/index.html
+[16]: lessons/lsn3-4-5/index.html
+[17]: lessons/lsn3-4-5/index.html
+[18]: lessons/lsn3-4-5/index.html
+[19]: lessons/lsn3-4-5/index.html
+[20]: lessons/lsn3-4-5/index.html
+[21]: lessons/lsn3-4-5/index.html
+[22]: lessons/lsn3-4-5/index.html
+[23]: lessons/lsn3-4-5/index.html
+[24]: lessons/lsn3-4-5/index.html
+[25]: lessons/lsn3-4-5/index.html
+[26]: lessons/lsn3-4-5/index.html
+[27]: lessons/lsn3-4-5/index.html
+[28]: lessons/lsn3-4-5/index.html
+[29]: lessons/lsn3-4-5/index.html
+[30]: lessons/lsn3-4-5/index.html
+[31]: lessons/lsn3-4-5/index.html
+[32]: lessons/lsn3-4-5/index.html
+[33]: lessons/lsn3-4-5/index.html
+[34]: lessons/lsn3-4-5/index.html
+[35]: lessons/lsn3-4-5/index.html
+[36]: lessons/lsn3-4-5/index.html
+[37]: lessons/lsn3-4-5/index.html
+[38]: lessons/lsn3-4-5/index.html
+[39]: lessons/lsn3-4-5/index.html
+[40]: lessons/lsn3-4-5/index.html
 
 # [Spring 2018 Syllabus](syllabus.pdf)
 
