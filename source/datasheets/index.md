@@ -1,4 +1,0 @@
-- [MSP430 Family User Guide]()
-- [MSP430G2x53 Device Specific]
-- [74HC595 Shift Register](sn74hc595.pdf)
-- [SG90 Micro Servo](servo.pdf)
