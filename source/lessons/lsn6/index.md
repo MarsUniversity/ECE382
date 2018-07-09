@@ -4,7 +4,7 @@
 
 # Homework
 
-- None
+- Due at the beginning of class: CodeAcademy.com git lesson
 
 ## Resources
 
