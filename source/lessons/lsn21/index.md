@@ -7,7 +7,11 @@
 
 # Homework
 
-1. ?
+1. What is the purpose of the header file? What does it provide?
+1. When writing clean code, what are 4 things you should do (there could be more)?
+1. When linking C and assembly code together, how do you tell C that the variable
+  or function is defined elsewhere in an assembly file? (*hint:* what is the
+  keyword)
 
 ## Resources
 

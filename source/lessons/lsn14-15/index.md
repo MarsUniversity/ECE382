@@ -6,7 +6,11 @@
 
 # Homework
 
-1. ?
+1. What is the difference between polling and interrupts?
+1. Generally, which is better from a performance stand point?
+1. On buttons or switches, why do we get noise?
+1. How (in words) do we debounce an input in SW?
+1. How (in words) do we debounce an input in HW?
 
 ## Resources
 

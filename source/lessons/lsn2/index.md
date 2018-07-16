@@ -20,9 +20,11 @@ Please type all homework
 	```
 	mov.w   #0xdfec, &0x0200        ; stores the value 0xdfec at memory location 0x0200
 	```
-1. What byte ordering scheme does the MSP430 use? What would be the location of each byte of the stored word?
-1. What's the purpose of the program counter? Be specific.
-1.
+1. What byte ordering scheme does the MSP430 use? (big or little endian)
+1. What are the 3 types (families) of instructions for our processor?
+1. What's the purpose of the program counter?
+1. How many and what are the "general purpose registers"?
+1. When you write to an invalid area of memory, what will happen? Be specific.
 
 ## Resources
 

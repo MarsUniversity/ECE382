@@ -10,14 +10,17 @@
 
 1. What is a pointer in C?
 1. What does the pointer point to in the following code?
-  ```C
+  ```c
   uint8_t a = 135;
   uint8_t *p;
   p = &a;
   ```
-  1.
+  1. If I dereference the pointer, what value do I get?
 1. Does the compiler or preprocessor interpret `typedef`?
 1. Does the compiler or preprocessor interpret `#define`?
+1. Why do we use `struct` in C?
+1. What is the difference between a `struct` and a `union`?
+1.
 
 ## Resources
 
