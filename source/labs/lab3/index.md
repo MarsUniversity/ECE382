@@ -2,7 +2,6 @@
 
 ## Objectives
 
-- Use pointers and arrays to store music
 - learn how the timer works
 - use the capture compare module
 - how IR encoding/communications work
@@ -25,9 +24,8 @@ reverse engineer a remote control.
 
 A few questions about what goes on in this program are in order before we proceed.
 
-1) How long will it take the timer to roll over?
-
-2) How long does each timer count last?
+1. How long will it take the timer to roll over?
+1.  How long does each timer count last?
 
 
 The while(1) loop in main reads in the IR pulse in the for loop.
@@ -44,10 +42,8 @@ You will need to use the timer interrupt and the general purpose pin interrupt
 to decode a remote control.  Be sure to pick one remote for the whole lab, as
 remote codes vary.
 
-Lab day 1: learn the timing and bit patterns for your remote control
-
-Lab day 2: demonstrate your code can receive and decode button presses from the
-remote control
+**Lab day 1:** learn the timing and bit patterns for your remote control (*hint:* use the logic analyzer)
+**Lab day 2:** demonstrate your code can receive and decode button presses from the remote control
 
 ## Connecting the IR sensor
 
@@ -155,5 +151,3 @@ a third button.
 In addition to the `start.c` and `start.h` files, the below image may be of some use:
 
 ![schematic](schematic.jpg)
-
-##

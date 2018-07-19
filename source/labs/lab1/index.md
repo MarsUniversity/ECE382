@@ -1,7 +1,5 @@
 # Lab 1 - Assembly Language - "A Simple Calculator"
 
-[Teaching Notes](notes.html)
-
 ## Objectives
 
 You'll write your first complete assembly language program using what you've learned in class.  You'll need all of the skills you've learned to this point

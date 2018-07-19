@@ -47,7 +47,7 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
                     raise Exception("*** You need to pass a template to convert Markdown to HTML ***")
 
                 # creates the html5 from markdown and sets pandoc.css to look pretty!
-                html = run('pandoc -c pandoc.css -t html5-smart {0}.md'.format(f, f))
+                html = run('pandoc --highlight-style=pygments -t html5-smart {0}.md'.format(f, f))
                 # print('*'*40)
                 # print(html.decode('utf8'))
                 # print('*'*40)
@@ -60,7 +60,11 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
                 print("*** Invalid Format: {} ***".format(format))
 
         elif ext == 'html':
-            print("left over html:", file)
+            print("*** {}: left over html? You should erase it ***".format(file))
+
+        elif ext == 'fzz':
+            # this is a fritzing file to show lab setup
+            pass
 
         # these are other file types we just want to copy
         elif ext in ['pdf', 'pptx', 'ppt', 'png', 'jpg', 'c', 'asm', 'xlsx', 'gif', 'h', 'txt', 'css']:
