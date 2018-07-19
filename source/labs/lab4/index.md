@@ -10,23 +10,23 @@
 
 # References
 
-- [Servo motor datasheet](../../references/servo.pdf)
+- [Servo motor datasheet](../../references/servo.pdf){width=75%}
 
 # Directions
 
-![](lab-setup.png)
+![](lab-setup.png){width=50%}
 
 The goal of this lab is to read a potentiometer (use your ADC) and command a
 servo motor using PWM. You will write a couple of functions to set up your uC
 to talk to the servo motor. The standard timing for RC servos is:
 
-![](servos.png)
+![](servos.png){width=50%}
 
 Note: there is no standard (really) in RC servos, thus, different servos could
 give you different angles with the same PWM signal. They will be *ballpark*
 the same, but that isn't always good enough depending on the application.
 
-```c
+```{.c}
 const int max_pwm = ?;
 const int min_pwm = ?;
 
