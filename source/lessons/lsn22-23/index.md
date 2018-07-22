@@ -20,7 +20,6 @@
 1. Does the compiler or preprocessor interpret `#define`?
 1. Why do we use `struct` in C?
 1. What is the difference between a `struct` and a `union`?
-1.
 
 ## Resources
 

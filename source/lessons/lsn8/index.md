@@ -20,13 +20,7 @@
 1. Which registers (*hint:* there are 2) are used for generating constant numbers?
     1. What are the 6 constants they can generate?
 1. What is overflow?
-1. Write an assembly code snippet for the following code:
-```c++
-int m = 0;
-for (int i=0; i <10; i++){
-    m += 2;
-}
-```
+
 
 ## Resources
 

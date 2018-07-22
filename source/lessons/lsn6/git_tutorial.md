@@ -13,7 +13,8 @@ Only use these commands:
 - `commit`: after files have been added, bundle of them together with a description of the changes
 - `push`: send a commit of changes to the repo in the cloud
 
-
+Although the Codecademy.com lesson showed you more, in this case, **more is not
+better!**
 
 
 --------------------------

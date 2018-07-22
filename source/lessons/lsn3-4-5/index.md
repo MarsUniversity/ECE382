@@ -10,6 +10,20 @@
 
 **Note:** These questions are based on both the class slides and the reading above.
 
+1. Not due until lesson 6, but you need to start on it before it is due:
+    - Make an account at www.codecademy.com and take the "Learn Git" class.
+    - You are taking the free version, so you don't have to pay for anything
+      and don't try to do anything labelled "Pro"
+    - There are several lessons for the "Pro" version, but you have to pay for
+      those, *don't take them*. The system *should* automatically skip you over
+      them although there are several pop-ups to get you to join.
+    - Please pay attention to this lesson, you will be quizzed and tested on
+      **this** material.
+        - You might want to keep some notes on what the commands do so you
+        can review for the quiz or test
+        - When you are done, turn in a screenshot of your progress, it should
+          look like this, but read 100% complete (ignore the other courses in
+          the picture) ![](codecademy-git.png){width=75%}
 1. What for single operand instruction, what is the Opcode and how many bits is it?
 1. For a jump instruction, how many bits is the PC offset and what is your jump
   range? (Hint: is the PC offset signed or unsigned?)

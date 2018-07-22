@@ -9,3 +9,5 @@
 ## Resources
 
 - [ppt](Lsn6.pptx)
+- [git cheat sheet](git.pdf)
+- [markdown cheat sheet](markdown.pdf)
