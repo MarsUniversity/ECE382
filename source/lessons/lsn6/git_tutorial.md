@@ -16,68 +16,73 @@ Only use these commands:
 Although the Codecademy.com lesson showed you more, in this case, **more is not
 better!**
 
+## `.gitignore`
 
---------------------------
-# OLD
+CCS is a standard horrible IDE that we use. Unfortunately is generates a lot
+of files we don't care about and we don't want that junk in our repo.
 
+```bash
+# Ignore everything
 
-- Open up Git Bash
-- Set some git properties by running these commands:
-    - `git config --global user.name "First Last"`
-        - stores your name as a property to be used for each commit
-    - `git config --global user.email first.last@usafa.edu`
-        - stores your email as a property to be used for each commit
-- Navigate to the directory where your pong project is located
-    - If you don't know where that is:
-        - Open CCS
-        - Right click on the project in project explorer
-        - Select properties
-        - Note the project directory
-- Let's see if the directory is under version control.
-    - Type `git status`
-    - This command would give us the status of the repo in the directory, but there is no repo!
-- Let's create a git repository to track the files in this directory.
-    - Type `git init`
-    - This creates a git repo in your current directory
-- Ok, let's check the status of this directory again.
-    - Type `git status`
-    - This should show a list of files as untracked.
-    - We have a repo, cool!
-- Now we have to put the files we want to track under version control.
-    - Type `git add main.c`
-    - This adds main.c to version control!
-- Let's check the status again.
-    - Type `git status`
-    - We should see main.c as a new file staged for commit and a bunch of untracked files
-- Let's add the other files we care about
-    - Type `git add pong.c pong.h`
-    - This adds pong.c and pong.h to version control
-- Let's make our first commit.
-    - Type `git commit -m "first commit"`
-    - Should see some data about the change listed
-- Let's look at our commit history.
-    - Type `git log`
-    - This displays all of the commits we've ever made to the repo
-- Let's make a change to a file in our repo
-    - Add a comment somewhere in main.c
-    - Type `git status`
-    - To should see main.c show up as modified
-- Let's commit our change.
-    - Type `git add main.c`
-        - Stages main.c for commit
-    - Type `git commit -m "added a comment"`
-        - Commits our change
-- Let's look at our change in the commit history
-    - Type `git log`
-    - Our new commit shows up!
-- But wait, we don't want this comment!  Let's revert to a previous version.
-    - Type `git checkout <first few letters of commit hash> main.c`
-    - Look at main.c!  It's the same as it was initially.
-    - Type `git status` - it shows up as changed!
-- Nevermind, we like that change
-    - Type `git checkout HEAD main.c`
-    - Look at main.c!  Comment is back in place
-    - Type `git status` - it no longer shows up!
+# ok, now we need to bring identify what we want to track
+# let's start with:
+# - assembly files
+# - C files
+# - Markdown files and jpg/png images
+!.gitignore
+!*.c
+!*.h
+!*.asm
+!*.md
+!*.jpg
+!*.png
+```
+
+# Steps
+
+1. Honestly, the easiest thing to do is go to the interweb (bitbucket) and in your browser, click on the (+) symbol on the lefthand side to create a new repo
+1. You should see something like this below: ![](new-repo.png)
+    1. Make sure the repo address is set to `https`, 10th CS blocks `ssh` (port 22)
+1. Now Open up gitbash
+1. Set some git properties by running these commands:
+    1. `git config --global user.name "First Last"`
+        1. Stores your name as a property to be used for each commit
+    1. `git config --global user.email first.last@usafa.edu`
+        1. Stores your email as a property to be used for each commit
+1. Navigate to the directory where your pong project is located
+1. Next do: `git clone https://walchko@bitbucket.org/walchko/ttest.git`
+    1. Change the repo address to the one you just created
+1. Within this repo, create `.gitignore` like the one above
+1. Ok, let's check the status of the repo
+    1. Type `git status`
+    1. This should show a list of files as untracked. The `.gitignore` should be listed there
+1. Let's add the file
+    1. Type `git add .gitignore`
+        1. If you have lots of files, you can use wild cards like `*.c` to add all C files, `*.py` to add all python files (*not this class*), etc.
+1. Let's make our first commit.
+    1. Type `git commit -m "first commit"`
+    1. Should see some data about the change listed
+1. Let's look at our commit history.
+    1. Type `git log`
+    1. This displays all of the commits we've ever made to the repo
+    1. Let's make a change to a file in our repo
+1. Let's check the status now
+    1. Type `git status`
+    1. Everything should be up do date now
+
+## Working with Bitbucket from the Browser
+
+If you create, add or modify a file from the browser (remember you are modifying the repo in the cloud, not on your computer), so you should always do `git pull` first to update your local repo on your laptop. If you don't and you make changes to the same file on your computer, git doesn't know what changes you really want. It just knows two files are different and the cloud and your computer repos are out of sync!
+
+This is also a good reason for branching, which we won't do in the class. But, if you have many different people working on the same code, you will create different branches so things can be merged back together cleanly. I would keep this in mind for capstone, but no one ever uses it primarily because our IT infrastructure is crap because of 10th CS.
+
+## Oops!
+
+Honestly, be careful with Google. If you wildly throw git commands at your system you will break it. If your "buddy" tells you to do something you don't understand, you could break your repo. **If you break your repo**, then it is up to you to fix it. Everything you need for the class is above, you should **never** need to come to an instructor because *your repo is broken*. On the positive side, if you break it, you will learn a lot about git trying to fix it!
+
+# Advance `git` Stuff
+
+**Ignore everything below for this class.** However, if you want to know more or want a little tutorial on advance features you are not allowed to use in this class, then proceed with caution.
 
 ## Adding a Remote
 
@@ -174,24 +179,3 @@ I'll use the "add a new feature" in my example.  Imagine we have our robot navig
         - The sonar-feature branch should now be starred
 - Now we can make and commit changes to our sonar-feature branch without impacting our master branch!  Great success!
 - We can always checkout our master branch if we want to run our earlier code version!
-
-## Ignoring Certain Files
-
-Sometimes there are a bunch of files in your directory that you don't want to
-place under version control.  It's annoying to have git constantly complaining
-about these files being untracked.
-
-### Permanently Ignoring
-
-We can specify files we don't want to track in a .gitignore file!  For
-instance, vim creates .swp files when you open files for editing.  I don't want
-those to go under version control.  So I can specify that in my `.gitignore`:
-
-.gitignore contents:
-
-```
-*.swp
-```
-Now, git won't notice changes to any .swp files.
-
-Make sure you add your .gitignore file to git and commit it!
