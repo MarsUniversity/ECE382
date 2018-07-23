@@ -12,8 +12,9 @@
 
 # Homework
 
-Please type all homework
+Please **type** all homework and homework assigned this lesson is due at the beginning of class next lesson.
 
+1. Install Code Composer Studio
 1. What does the assembler do? Be specific.
 1. What does the linker do? Be specific.
 1. Given the code below, what is the location of each byte of the stored word, assuming big-endian byte ordering?

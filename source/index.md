@@ -10,48 +10,48 @@ header-includes:
 
 # ECE382 - Embedded Systems I
 
-| Lsn | Topic                                                 | Assignments Due             | Misc                      |
-|-----|-------------------------------------------------------|-----------------------------|---------------------------|
-| 1   | [Intro & Overview][1]                                 |                             | |
-| 2   | [uC Comparison and ISA][2]                            | Install required software   | |
-| 3   | [ISA: Instructions to Machine Code][3]                |                             | |
-| 4   | [ISA: Instructions to Machine Code][4]                |                             | |
-| 5   | [ISA: Instructions to Machine Code][5]                |                             | |
-| 6   | [Advanced Git][6]                                     | Code Academy Git Module     | |
-| 7   | [Code Composer Studio (CSS)][7]                       |                             | |
-| 8   | [Status Register and Flow Control][8]                 |                             | |
-| 9   | [Stack, Subroutines, and ABI][9]                      |                             | |
-| 10  | [Stack, Subroutines, and ABI][10]                     |                             | |
-| 11  | [Lab 1: Assembly Calculator][11]                      |                             | |
-| 12  | [Lab 1: Assembly Calculator][11]                      |                             | |
-| 13  | [Memory Mapped IO and Muxes][13]                      |                             | |
-| 14  | [Polling, Debouncing, and Logic Analyzer][14]         |                             | |
-| 15  | [Polling, Debouncing, and Logic Analyzer][15]         |                             | |
-| 16  | [Lab 2: Debouncing and Logic Analyzer][16]            |                             | |
-| 17  | [Lab 2: Debouncing and Logic Analyzer][17]            |                             | |
-| 18  | [GR1][18]                                             |                             | |
-| 19  | [GR Review and High Level Language (HLL) Overview][19]|                             | |
-| 20  | [Intro to C][20]                                      |                             | |
-| 21  | [Programming Libraries][21]                           |                             | |
-| 22  | [Common Data Structures][22]                          |                             | |
-| 23  | [???][23]                                             |                             | |
-| 24  | [Interrupts][24]                                      |                             | |
-| 25  | [Interrupts][25]                                      |                             | |
-| 26  | [??][26]  [[download](lsn26.zip)]                     |                             | |
-| 27  | [??][27]  [[download](lsn27.zip)]                     |                             | |
-| 28  | [??][28]  [[download](lsn28.zip)]                     |                             | |
-| 29  | [??][29]  [[download](lsn29.zip)]                     |                             | |
-| 30  | [??](lab4.pdf)                                        |                             | |
-| 31  | [??](lab4.pdf)                                        |                             | |
-| 32  | [??][32]  [[download](lsn32.zip)]                     |                             | |
-| 33  | [???](final_project.pdf)                              |                             | |
-| 34  | [??](final_project.pdf)                               |                             | |
-| 35  | [??](final_project.pdf)                               |                             | |
-| 36  | [??](final_project.pdf)                               |                             | |
-| 37  | [??][37]                                              |                             | |
-| 38  | [??][37]                                              |                             | |
-| 39  | [??][37]                                              |                             | |
-| 40  | [??][37]                                              |                             | |
+| Lsn | Topic                                                 | Quiz | Misc    |
+|-----|-------------------------------------------------------|------|---------|
+| 1   | [Intro & Overview][1]                                 |      | |
+| 2   | [uC Comparison and ISA][2]                            |      | |
+| 3   | [ISA: Instructions to Machine Code][3]                |      | |
+| 4   | [ISA: Instructions to Machine Code][4]                |      | |
+| 5   | [ISA: Instructions to Machine Code][5]                | X    | |
+| 6   | [Advanced Git][6]                                     | X    | |
+| 7   | [Code Composer Studio (CSS)][7]                       |      | |
+| 8   | [Status Register and Flow Control][8]                 |      | |
+| 9   | [Stack, Subroutines, and ABI][9]                      |      | |
+| 10  | [Stack, Subroutines, and ABI][10]                     | X    | |
+| 11  | [Lab 1: Assembly Calculator][11]                      |      | |
+| 12  | [Lab 1: Assembly Calculator][11]                      |      | |
+| 13  | [Memory Mapped IO and Muxes][13]                      |      | |
+| 14  | [Polling, Debouncing, and Logic Analyzer][14]         |      | |
+| 15  | [Polling, Debouncing, and Logic Analyzer][15]         |      | |
+| 16  | [Lab 2: Stoplight][16]                                |      | |
+| 17  | [Lab 2: Stoplight][17]                                |      | |
+| 18  | [GR1][18]                                             |      | |
+| 19  | [GR Review and High Level Language (HLL) Overview][19]|      | |
+| 20  | [Intro to C and Flow Control][20]                     |      | |
+| 21  | [Programming Libraries][21]                           |      | |
+| 22  | [Common Data Structures][22]                          |      | |
+| 23  | [Common Data Structures][23]                          | X    | |
+| 24  | [Interrupts][24]                                      |      | |
+| 25  | [Interrupts][25]                                      |      | |
+| 26  | [Serial Comm][26]                                     |      | |
+| 27  | [Serial Comm][27]                                     |      | |
+| 28  | [Serial Comm][28]                                     | X    | |
+| 29  | [Timers][29]                                          |      | |
+| 30  | [Timers][30]                                          |      | |
+| 31  | [Capture Compare][31]                                 |      | |
+| 32  | [Lab 3: IR Remote][32]                                |      | |
+| 33  | [Lab 3: IR Remote][33]                                |      | |
+| 34  | [Lab 3: IR Remote][34]                                | X    | |
+| 35  | [Analog-to-Digital Conversion][35]                    |      | |
+| 36  | [Lab 4: Servo Calibrator][36]                         |      | |
+| 37  | [Lab 4: Servo Calibrator][37]                         |      | |
+| 38  | [Lab 4: Servo Calibrator][38]                         |      | |
+| 39  | [GR 2][39]                                            |      | |
+| 40  | [Wrap Up][40]                                         |      | |
 
 - Homeworks are at the beginning of class (BOC)
 - Labs are due on the final day at the end of class (EOC)
