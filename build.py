@@ -56,6 +56,12 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
             elif format == 'html':
                 if template is None:
                     raise Exception("*** You need to pass a template to convert Markdown to HTML ***")
+                # fix  logic_analyzer.md
+                # print('debug:', f)
+                # with open(file, "r") as fp:
+                #     for line in fp:
+                #         line = line.strip()
+                #         line=line.decode('utf-8','ignore').encode("utf-8")
 
                 # creates the html5 from markdown and sets pandoc.css to look pretty!
                 html = run('pandoc --highlight-style=pygments -t html5-smart {0}.md'.format(f, f))
