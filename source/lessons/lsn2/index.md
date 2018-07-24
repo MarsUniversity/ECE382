@@ -12,7 +12,8 @@
 
 # Homework
 
-Please **type** all homework and homework assigned this lesson is due at the beginning of class next lesson.
+Please **type** all homework and homework assigned this lesson is due at the 
+beginning of class next lesson. Also, this needs to be done individually.
 
 1. Install Code Composer Studio
 1. What does the assembler do? Be specific.

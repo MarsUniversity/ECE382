@@ -17,7 +17,7 @@ header-includes:
 | 3   | [ISA: Instructions to Machine Code][3]                |      | |
 | 4   | [ISA: Instructions to Machine Code][4]                |      | |
 | 5   | [ISA: Instructions to Machine Code][5]                | X    | |
-| 6   | [Advanced Git][6]                                     | X    | |
+| 6   | [Advanced Git][6]                                     | X    | on-line git homework due at BOC |
 | 7   | [Code Composer Studio (CSS)][7]                       |      | |
 | 8   | [Status Register and Flow Control][8]                 |      | |
 | 9   | [Stack, Subroutines, and ABI][9]                      |      | |

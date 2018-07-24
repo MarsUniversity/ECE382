@@ -43,7 +43,7 @@
 1. Convert the following assembly in to machine code: `mov.b #0x75, r10`
 1. Convert the following assembly in to machine code: `mov #170, r10`
 1. Convert the following assembly in to machine code: `mov @r7, r8`
-1. Convert the following assembly in to machine code: `swpb r10`
+1. Convert the following assembly in to machine code: `xor @r12+, 0(r6)`
 1. What does the command `clrc` do?
 1. What is the command `jn` and what status bit does it look at?
 1. For `jnc` if the status bit C=0, what value gets put into PC?
