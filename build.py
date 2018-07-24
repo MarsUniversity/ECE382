@@ -23,6 +23,14 @@ def mkdir(path):
         pass
 
 
+def rmdir(path):
+    try:
+        shutil.rmtree(path)
+    except FileNotFoundError:
+        # folder was already deleted or doesn't exist ... it's ok
+        pass
+
+
 def pandoc(file, dest, template=None, format='html', to_main=None):
     # need to keep track of folder stucture for navigation bar across
     # the top of the page
@@ -32,8 +40,11 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
     split = file.split('.')
 
     # files should have an extention, but directories don't
-    if len(split) == 2:
-        f, ext = split
+    # if len(split) == 2:
+    if os.path.isfile(file):
+        # f, ext = split
+        f = '.'.join(file.split('.')[:-1])
+        ext = file.split('.')[-1]
         ext = ext.lower()
 
         if ext == 'md':
@@ -58,27 +69,31 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
 
             else:
                 print("*** Invalid Format: {} ***".format(format))
-
-        elif ext == 'html':
-            print("*** {}: left over html? You should erase it ***".format(file))
-
-        elif ext == 'fzz':
-            # this is a fritzing file to show lab setup
-            pass
-
-        # these are other file types we just want to copy
-        elif ext in ['pdf', 'pptx', 'ppt', 'png', 'jpg', 'c', 'asm', 'xlsx', 'gif', 'h', 'txt', 'css']:
+        else:
             path = dest + '/' + file
             print('>> Copying file {}'.format(file))
             shutil.copy(file, path)
-
-        else:
-            print("*** Unknown format: {} ***".format(file))
-            print("*** Maybe add them above into file types to move ***")
-            raise Exception()
+        # elif ext == 'html':
+        #     print("*** {}: left over html? You should erase it ***".format(file))
+        #
+        # elif ext == 'fzz':
+        #     # this is a fritzing file to show lab setup
+        #     pass
+        #
+        # # these are other file types we just want to copy
+        # elif ext in ['pdf', 'pptx', 'ppt', 'png', 'jpg', 'c', 'asm', 'xlsx', 'gif', 'h', 'txt', 'css']:
+        #     path = dest + '/' + file
+        #     print('>> Copying file {}'.format(file))
+        #     shutil.copy(file, path)
+        #
+        # else:
+        #     print("*** Unknown format: {} ***".format(file))
+        #     print("*** Maybe add them above into file types to move ***")
+        #     raise Exception()
 
     # let's handle directories
-    elif len(split) == 1:
+    # elif len(split) == 1:
+    elif os.path.isdir(file):
         # this must be a directory, let's change into it
         print('==[{:15}] ==============================='.format(file))
 
@@ -101,8 +116,10 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
 def main():
     # delete the old website so we don't miss anything when building
     print('Cleaning out old html ------------------')
-    shutil.rmtree('html')
-    os.mkdir('html')
+    # shutil.rmtree('html')
+    # os.mkdir('html')
+    rmdir('html')
+    mkdir('html')
 
     # change into source and recursively build website
     os.chdir("source")
@@ -129,7 +146,7 @@ def main():
     pandoc('index.md', '../html', format='pdf')
 
     # done
-    os.chdir('../')
+    os.chdir('..')
 
 
 if __name__ == "__main__":
