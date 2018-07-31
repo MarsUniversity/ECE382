@@ -5,6 +5,7 @@ import platform        # macOS or windows
 import shutil          # move and delete files/folders
 from glob import glob  # get contents of folder
 from jinja2 import Environment, FileSystemLoader  # html templating
+import sys
 
 devnull = open(os.devnull, 'w')
 
@@ -52,6 +53,7 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
                 run('pandoc {}.md -V geometry:margin=1in -s -o {}.pdf'.format(f, f))
                 shutil.move(f + '.pdf', dest + '/' + f + '.pdf')
                 print(">> Made {}".format(f + '.pdf'))
+                sys.stdout.flush()  # have to do this for windoze, it sucks!!
 
             elif format == 'html':
                 if template is None:
@@ -72,12 +74,15 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
                 with open(dest + '/' + f + '.html', 'w') as fd:
                     fd.write(html)
                 print(">> Made {}".format(f + '.html'))
+                sys.stdout.flush()  # have to do this for windoze, it sucks!!
 
             else:
                 print("*** Invalid Format: {} ***".format(format))
+                sys.stdout.flush()  # have to do this for windoze, it sucks!!
         else:
             path = dest + '/' + file
             print('>> Copying file {}'.format(file))
+            sys.stdout.flush()  # have to do this for windoze, it sucks!!
             shutil.copy(file, path)
         # elif ext == 'html':
         #     print("*** {}: left over html? You should erase it ***".format(file))
@@ -102,6 +107,7 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
     elif os.path.isdir(file):
         # this must be a directory, let's change into it
         print('==[{:15}] ==============================='.format(file))
+        sys.stdout.flush()  # have to do this for windoze, it sucks!!
 
         # make the destination path have the same folder
         path = dest + '/' + file
@@ -122,6 +128,7 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
 def main():
     # delete the old website so we don't miss anything when building
     print('Cleaning out old html ------------------')
+    sys.stdout.flush()  # have to do this for windoze, it sucks!!
     # shutil.rmtree('html')
     # os.mkdir('html')
     rmdir('html')
@@ -143,6 +150,7 @@ def main():
     with open('../html' + '/index.html', 'w') as fd:
         fd.write(html)
     print(">> Made Syllabus")
+    sys.stdout.flush()  # have to do this for windoze, it sucks!!
 
     # for each file/directory in sourece build it into pdf or copy it
     for f in files:
@@ -150,6 +158,7 @@ def main():
 
     # make a pdf of the syllabus
     pandoc('index.md', '../html', format='pdf')
+    shutil.move('../html/index.pdf', '../html/syllabus.pdf')
 
     # done
     os.chdir('..')

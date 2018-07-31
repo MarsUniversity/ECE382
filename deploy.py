@@ -4,7 +4,9 @@ import platform
 import os
 import tempfile
 import shutil
+import sys
 
+devnull = open(os.devnull, 'w')
 
 def run(cmd):
     # given a command string, it runs it
@@ -29,6 +31,7 @@ os.chdir(tmp + '/html')
 print('====================')
 print('    Redoing git')
 print('====================')
+sys.stdout.flush()  # have to do this for windoze, it sucks!!
 
 run('git init')
 run('git add *')
@@ -38,8 +41,10 @@ run('git commit -m "Deploying-to-{}:{}"'.format(REPO, BRANCH))
 print('====================')
 print('    git push')
 print('====================')
+sys.stdout.flush()  # have to do this for windoze, it sucks!!
 
 run('git push --force {} master:{}'.format(REMOTE, BRANCH))
+sys.stdout.flush()  # have to do this for windoze, it sucks!!
 
 # from glob import glob
 # print(os.getcwd())

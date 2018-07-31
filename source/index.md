@@ -1,14 +1,13 @@
 ---
-title: 'ECE 387: Intro to Robotic Systems'
+title: 'ECE 382: Embedded Systems I'
 header-includes:
     - \usepackage{fancyhdr}
     - \pagestyle{fancy}
-    - \fancyhead[CO,CE]{ECE 387}
+    - \fancyhead[CO,CE]{ECE 382}
     - \fancyfoot[CO,CE]{\thepage}
-    - \fancyfoot[LE,RO]{Robots are cool!}
+    - \fancyfoot[LE,RO]{Embedded Systems I}
 ---
 
-# ECE382 - Embedded Systems I
 
 | Lsn | Topic                                                 | Quiz | Misc    |
 |-----|-------------------------------------------------------|------|---------|
@@ -73,36 +72,36 @@ header-includes:
 [15]: lessons/lsn14-15/index.html
 [16]: labs/lab2/index.html
 [17]: labs/lab2/index.html
-[18]: labs/lab2/index.html
-[19]: lessons/lsn3-4-5/index.html
-[20]: lessons/lsn3-4-5/index.html
-[21]: lessons/lsn3-4-5/index.html
-[22]: lessons/lsn3-4-5/index.html
-[23]: lessons/lsn3-4-5/index.html
-[24]: lessons/lsn3-4-5/index.html
-[25]: lessons/lsn3-4-5/index.html
-[26]: lessons/lsn3-4-5/index.html
-[27]: lessons/lsn3-4-5/index.html
-[28]: lessons/lsn3-4-5/index.html
-[29]: lessons/lsn3-4-5/index.html
-[30]: lessons/lsn3-4-5/index.html
-[31]: lessons/lsn3-4-5/index.html
-[32]: lessons/lsn3-4-5/index.html
-[33]: lessons/lsn3-4-5/index.html
-[34]: lessons/lsn3-4-5/index.html
-[35]: lessons/lsn3-4-5/index.html
-[36]: lessons/lsn3-4-5/index.html
-[37]: lessons/lsn3-4-5/index.html
-[38]: lessons/lsn3-4-5/index.html
-[39]: lessons/lsn3-4-5/index.html
-[40]: lessons/lsn3-4-5/index.html
+[18]: hi
+[19]: lessons/lsn19/index.html
+[20]: lessons/lsn20/index.html
+[21]: lessons/lsn21/index.html
+[22]: lessons/lsn22-23/index.html
+[23]: lessons/lsn22-23/index.html
+[24]: lessons/lsn24-25/index.html
+[25]: lessons/lsn24-25/index.html
+[26]: lessons/lsn26-27-28/index.html
+[27]: lessons/lsn26-27-28/index.html
+[28]: lessons/lsn26-27-28/index.html
+[29]: lessons/lsn29-30/index.html
+[30]: lessons/lsn29-30/index.html
+[31]: lessons/lsn31/index.html
+[32]: labs/lab3/index.html
+[33]: labs/lab3/index.html
+[34]: labs/lab3/index.html
+[35]: lessons/lsn35/index.html
+[36]: labs/lab4/index.html
+[37]: labs/lab4/index.html
+[38]: labs/lab4/index.html
+[39]: hi
+[40]: hi
 
 # [Spring 2018 Syllabus](syllabus.pdf)
 
 ## Instructor
 
   Maj Kevin Walchko
-  Fairchild 2F48
+  Fairchild 2E46A
   kevin.walchko@usafa.edu
 
   Capt Dan Johnson
@@ -138,21 +137,29 @@ CompSci 110 and ECE 281
 
 |               | Prog %   | Final %   |
 |---------------|----------|-----------|
-| HW            | xx       | xx        |
-| Quizzes       | xx       | xx        |
-| GRs           | xx       | xx        |
-| Labs          | xx       | xx        |
-| Final Exam    |          | xx        |
+| HW            | 10       |  5        |
+| Quizzes       | 15       | 10        |
+| GRs           | 50       | 40        |
+| Labs          | 25       | 20        |
+| Final Exam    |          | 25        |
 
 ## Missing Class and the Late Policy
 
-Inform your instructor of absences in advance via email. Please include the reason for the absence and any relevant SCA. Check the SCA to see if instructor permission is required and if it is, make the request prior to the absence. You will be given an Unexcused Absence in CAS if you fail to get permission.
+Inform your instructor of absences in advance via email. Please include the
+reason for the absence and any relevant SCA. Check the SCA to see if
+instructor permission is required and if it is, make the request prior to the
+absence. You will be given an Unexcused Absence in CAS if you fail to get
+permission.
 
-If you plan to miss a class, you *must* take any quiz or GR prior to your departure.
+If you plan to miss a class, you *must* take any quiz or GR prior to your
+departure.
 
-Due to the limited time to conduct labs and the fact they are executed in groups, you can not miss both lab days unless you have a medical excuse due to unplanned illness. You can miss one lab day, but depending on situation (e.g., something you could have avoided), you may loose points for the lab.
-
-If you are expecting to miss class on the day an assignment is due, you shall turn in your assignment prior to your departure. Your instructor may grant a no-penalty turn-in extension for absences resulting from illness or other legitimate extenuating circumstances. Cadets shall coordinate late submittals in advance. The late policy for the Department of Electrical and Computer Engineering is as follows:
+If you are expecting to miss class on the day an assignment is due, you shall
+turn-in your assignment prior to your departure. Your instructor may grant a
+no-penalty turn-in extension for absences resulting from illness or other
+legitimate extenuating circumstances. Cadets shall coordinate late submittals
+in advance. The late policy for the Department of Electrical and Computer
+Engineering is as follows:
 
 | How Late? | Max Penalty | Max Grade |
 |-----------|-------------|-----------|
@@ -163,26 +170,36 @@ If you are expecting to miss class on the day an assignment is due, you shall tu
 
 ## Collaboration and Documentation Policy
 
-You may receive help from any DFEC faculty member on the homework. Do not work
+You may receive help from any **DFEC faculty member** on the homework. Do not work
 with other students in the class or who have taken the class previously. Document
 all help received on work submitted for grading IAW DF policies, or document
 *none* if your work was completely individual effort.
 
 ### Homework
 
-Reading assignments include the lesson notes provided on each lesson page, along with the links and datasheet pages specified at the top of the respective lesson page.  The Barrett readings are optional.  Readings should be accomplished **prior** to the designated class in order to be most beneficial.
+Reading assignments are on each lesson page, along with the links and datasheet
+pages specified at the top of the respective lesson page. Readings should be
+accomplished **prior** to the designated class in order to be most beneficial.
 
-Graded homework assignments are also given at the top of the class notes and are due BOC the next lesson unless otherwise stated.
+Graded homework assignments are also given at the top of the class notes and
+are due BOC the next lesson unless otherwise stated. Not every homework assignment
+or every problem in the homework assignment will be graded, that is up to the
+instructor. The expectation is you will do and turn in every homework assignment.
+Homework will not be handed back. The answers for every problem can be found
+in the lecture notes and the readings.
 
 ### Prelabs, Labs, and Lab Notebooks
 
-Prelabs and Labs will be turned in and graded via Bitbucket unless otherwise stated.  **Prelabs are due NLT one duty day prior to the day you start a lab.**  This is to ensure that instructors have a reasonable amount of time to provide you feedback on your plan prior to starting the lab.
+Labs will be turned in and graded via Bitbucket unless otherwise stated. If a
+prelab is assigned, you will turn it in the lesson prior to the start of the
+lab.
 
-Lab notebooks must follow the lab notebook standards specified under the [Lab Notebooks](/382/admin/labs.html) link on the Admin page.  The lab notebook is maintained as a journal of your lab experience and should allow you, or any knowledgeable engineer, to recreate your project.
+Lab notebooks must follow the lab notebook standards specified on the
+[Labs](/labs/index.html) page. Not following the standard exactly could result
+in a late penalty until the notebook meets standards.
 
 ### Exams
 
-All exams are closed textbook and notes.  Cadets are allowed to use only the provided TI documents and data sheets for exams and quizzes.  Both laboratory and classroom work will appear on exams.  For missed GRs, the following policies are outlined:
-
-- **Scheduled Absence** - If you know that you will be unable to take the GR during the scheduled GR period, you are required to inform your instructor as soon as possible before the GR to schedule a make-up exam.
-- **Unscheduled Absense** - If you miss the GR for reasons beyond your control (e.g. hospitalization, emergency leave, delayed field trip return, etc.) you must contact DFEC (x3190) within **two working days** to schedule a make-up.  Exceptions can only be granted by the Department Head.
+All exams are closed textbook and notes. Homework, laboratories, quizzes and
+classroom work will appear on exams. After the exam, you will not be allowed
+to keep the exam, but you will be allowed to see it when we go over the solutions.
