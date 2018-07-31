@@ -13,7 +13,7 @@ Here's a quick run through on how to use it to measure the characteristics of a 
     - Ground to ground
 4. The logic analyzer should come up in the overview window. (If in the waveform window, click on the overview tab).
 
-![Overview Window.� Arrow points to Bus/Signal Setup Icon](logic_analyzer_1.jpg)
+![Overview Window. Arrow points to Bus/Signal Setup Icon](logic_analyzer_1.jpg)
 
 5. In the My 1682A-1 block, click on bus/signal setup icon.
 ![Bus/Signals Setup Window](logic_analyzer_2.jpg)
@@ -34,23 +34,23 @@ The sampling period determines how often the logic analyzer takes a sample on th
 
 ![Sampling Setup](logic_analyzer_5.jpg)  
 
-10. Click on waveform-1 block (shown).� We can set simple triggers in this window.  I double click to the right of the Port B 0 label in the "simple trigger" column and change this to "rising edge", as shown below. The logic analyzer has much more powerful trigger options available, but they are not needed for this lab.  
+10. Click on waveform-1 block (shown). We can set simple triggers in this window.  I double click to the right of the Port B 0 label in the "simple trigger" column and change this to "rising edge", as shown below. The logic analyzer has much more powerful trigger options available, but they are not needed for this lab.  
 
 ![Setting the trigger event in the waveform window](logic_analyzer_6.jpg)  
 
 
-11. Have the logic analyzer perform a measurement by pushing the Run Single button on the right side of the machine.  A display will appear showing the signal measured.� The white tick marks along the time row correspond to the exact time the samples were taken.  
+11. Have the logic analyzer perform a measurement by pushing the Run Single button on the right side of the machine.  A display will appear showing the signal measured. The white tick marks along the time row correspond to the exact time the samples were taken.  
 ![Captured data of signal - markers 1 and 2 measure the time the pin is set high](logic_analyzer_7.jpg)  
 
 12. How do I zoom in/out and measure timing?
 
-    a. Find the zoom in/out buttons in the window.� Click on these and notice the zoom in time changes.� Scale tells you the time/div for the zoom.� You can also use the Horizontal knob to adjust the zoom. Finally, you can also zoom in with the mouse, by dragging an area to zoom.� Try these out.
-    b. The Delay knob (and setting in the window) allows you to scroll left/right through the waveform relative to the triggering event.� Try the delay knob.� Return the Delay to 0 which places the trigger in the center of the screen.� You can also manually enter a time, such as 0 sec, instead of turning the knob.
-    c. You can also measure time differences using markers.� You can use the mouse to move the green (M1) and purple (M2) markers and see what they measure.� Or you can use the marker knob and choose button to control the markers.
+    a. Find the zoom in/out buttons in the window. Click on these and notice the zoom in time changes. Scale tells you the time/div for the zoom. You can also use the Horizontal knob to adjust the zoom. Finally, you can also zoom in with the mouse, by dragging an area to zoom. Try these out.
+    b. The Delay knob (and setting in the window) allows you to scroll left/right through the waveform relative to the triggering event. Try the delay knob. Return the Delay to 0 which places the trigger in the center of the screen. You can also manually enter a time, such as 0 sec, instead of turning the knob.
+    c. You can also measure time differences using markers. You can use the mouse to move the green (M1) and purple (M2) markers and see what they measure. Or you can use the marker knob and choose button to control the markers.
 
 **How do I save these images to my lab book?**
 
-1. If you print directly from the waveform screen, you will print out your equipment settings or any marker measurements you make. Here is the simple way to print everything of interest: While the image is on the screen, press the Print Screen button on the keyboard, which captures the screen and puts it on the clipboard.� Open up the Microsoft paint program (remember this is just a PC) and paste the image.� You can save the image to your external hard drive.  If you want a physical copy, before you print, go into page setup and change the page scaling so the printout is scaled to only one page.�
+1. If you print directly from the waveform screen, you will print out your equipment settings or any marker measurements you make. Here is the simple way to print everything of interest: While the image is on the screen, press the Print Screen button on the keyboard, which captures the screen and puts it on the clipboard. Open up the Microsoft paint program (remember this is just a PC) and paste the image. You can save the image to your external hard drive.  If you want a physical copy, before you print, go into page setup and change the page scaling so the printout is scaled to only one page.
 
 2. The logic analyzers are NOT hooked up to the internet (to avoid the comm squadron putting all their bloat-ware on our nice clean logic analyzers).
 
