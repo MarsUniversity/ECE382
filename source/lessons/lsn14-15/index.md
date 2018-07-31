@@ -15,3 +15,5 @@
 ## Resources
 
 - [ppt](Lsn14-15.pptx)
+- [DCO calibration asm (*hint:* use logic analyzer)](ice/clock.asm)
+- [ICE: Debouncing buttons](ice/index.html)

@@ -13,9 +13,9 @@ header-includes:
 |-----|-------------------------------------------------------|------|---------|
 | 1   | [Intro & Overview][1]                                 |      | |
 | 2   | [uC Comparison and ISA][2]                            |      | |
-| 3   | [ISA: Instructions to Machine Code][3]                |      | |
+| 3   | [ISA: Instructions to Machine Code][3]                |      | Code Composer Studio should be installed |
 | 4   | [ISA: Instructions to Machine Code][4]                |      | |
-| 5   | [ISA: Instructions to Machine Code][5]                | X    | |
+| 5   | [ISA: Instructions to Machine Code][5]                | X    | `gitbash` should be installed |
 | 6   | [Advanced Git][6]                                     | X    | on-line git homework due at BOC |
 | 7   | [Code Composer Studio (CSS)][7]                       |      | |
 | 8   | [Status Register and Flow Control][8]                 |      | |
@@ -25,7 +25,7 @@ header-includes:
 | 12  | [Lab 1: Assembly Calculator][11]                      |      | |
 | 13  | [Memory Mapped IO and Muxes][13]                      |      | |
 | 14  | [Polling, Debouncing, and Logic Analyzer][14]         |      | |
-| 15  | [Polling, Debouncing, and Logic Analyzer][15]         |      | |
+| 15  | [Polling, Debouncing, and Logic Analyzer][15]         |      | ICE: DCO and Buttons |
 | 16  | [Lab 2: Stoplight][16]                                |      | |
 | 17  | [Lab 2: Stoplight][17]                                |      | |
 | 18  | [GR1][18]                                             |      | |
@@ -35,12 +35,12 @@ header-includes:
 | 22  | [Common Data Structures][22]                          |      | |
 | 23  | [Common Data Structures][23]                          | X    | |
 | 24  | [Interrupts][24]                                      |      | |
-| 25  | [Interrupts][25]                                      |      | |
+| 25  | [Interrupts][25]                                      |      | ICE: Single/Multiple Buttons Interrupts|
 | 26  | [Serial Comm][26]                                     |      | |
 | 27  | [Serial Comm][27]                                     |      | |
 | 28  | [Serial Comm][28]                                     | X    | |
 | 29  | [Timers][29]                                          |      | |
-| 30  | [Timers][30]                                          |      | |
+| 30  | [Timers][30]                                          |      | ICE: Tone Generation (bring earbuds/headphones to class)|
 | 31  | [Capture Compare][31]                                 |      | |
 | 32  | [Lab 3: IR Remote][32]                                |      | |
 | 33  | [Lab 3: IR Remote][33]                                |      | |

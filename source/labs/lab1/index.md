@@ -2,7 +2,8 @@
 
 ## Objectives
 
-You'll write your first complete assembly language program using what you've learned in class.  You'll need all of the skills you've learned to this point
+You'll write your first complete assembly language program using what you've
+learned in class.  You'll need:
 
 - the instruction set
 - addressing modes
@@ -89,27 +90,23 @@ ADD_OP:         .equ        0x11
 SUB_OP:         .equ        0x22
 ```
 
-## Prelab
+# Prelab
 
 **This is due at the beginning of class**
 
-[15 pts] You will hand in a flow diagram of how your program will work (use PowerPoint).
-Your flow chart must start from when the program starts running until you
+You will hand in a flow diagram of how your program will work (use PowerPoint).
+Your flow chart must start from when the program starts running until your program
+receives an **END_OP**
 
-[10 pts] Answer the following questions:
+Answer the following questions:
 
 1. What should your program do if an input is out of range?
 1. How do you know if an input is out of range?
 1. What should your program do if an operator is unknown?
 1. Are there any bytes that you *cannot* use as an operand?
 1. What happens if you do not find and `END_OP` command?
-1. What happens ???
-1. ?
-1. ?
-1. ?
-1. ?
 
-# Lab Functionality
+# Demonstration
 
 Here are the test cases you must demonstrate to your instructor before the end
 of the class:
@@ -129,10 +126,6 @@ the demo grade.
 
 ## Rubric
 
-| Item | 0-25% | 25-50% | 50-75% | 75-100% |
-|---|---|---|---|---|
-| Prelab |
-
-- Prelab 25 (15 flowchart, 10 questions)
-- Code 25 pts
-- Demonstration in class 50 pts
+- [25 pts] Prelab (15 flowchart, 10 questions)
+- [25 pts] Code organization, comments, and good programming practices
+- [50 pts] Demonstration in class

@@ -19,22 +19,10 @@ reverse engineer a remote control.
 - [test3.c](test3.c) - Use this file to characterize the buttons of your remote
 - [start3.c](start3.c) - Initial template file for lab
 - [start3.h](start3.h) - Initial template file for lab
-
-## Prelab
-
-A few questions about what goes on in this program are in order before we proceed.
-
-1. How long will it take the timer to roll over?
-1.  How long does each timer count last?
-
-
-The while(1) loop in main reads in the IR pulse in the for loop.
-
-Annotate the picture below to indicate which line of the for loop in the program
-is executed at which part of the pulse. You should show a total of 6 lines of
-code (lines 32-34 and lines 36-38).
-
-![IR wave](irWave.gif)
+- [IR timing spreadsheet](ir_remote.xlsx) - use this to help you characterize
+your remote control pulses. You will look at data in CCS and find the start
+of a signal, then copy/paste those values into the spreadsheet. The spreadsheet
+will help you estimate pulse durations.
 
 # Directions
 
@@ -42,8 +30,11 @@ You will need to use the timer interrupt and the general purpose pin interrupt
 to decode a remote control.  Be sure to pick one remote for the whole lab, as
 remote codes vary.
 
+## Milestones
+
 **Lab day 1:** learn the timing and bit patterns for your remote control (*hint:* use the logic analyzer)
 **Lab day 2:** demonstrate your code can receive and decode button presses from the remote control
+**Lab day 3:** demonstrate turning LEDs on/off
 
 ## Connecting the IR sensor
 
@@ -60,7 +51,7 @@ GND pin on J6, and the Vcc pin to Vcc on J6.
 
 #### Timer Counts
 
-Build a project around your modified test5.c and then download it onto your
+Build a project around your modified `test3.c` and then download it onto your
 LaunchPad. Make sure to open the variables tab (View -> Variables). I also like
 to clear memory from the Memory Browser tab (View -> Memory Browser), Fill
 Memory from 0x200 to 0x400 with 0's. Run the program and then press a button on
@@ -80,7 +71,7 @@ Set up your LaunchPad like the picture below. Make sure to connect the power and
 ground in the correct order! Connect the logic analyzer on the Vout pin of
 the IR receiver.
 
-![IR Sensor Datasheet exerpt](ir_sensor.jpg)
+![IR Sensor Datasheet excerpt](ir_sensor.jpg)
 
 ![LaunchPad setup](launchpadSetup.jpg)
 
@@ -97,16 +88,7 @@ Note: "start -- logic 0 half pulse" refers to the logic LOW portion of the start
 pulse, and "data 0 -- logic 1 half pulse" refers to the second half (which is a
   logic HIGH) of the pulse representing a zero bit.
 
-| Pulse | Duration (ms)	| Timer A counts |
-| :-: | :-: | :-: |
-| Start -- logic 0 half pulse | | |
-| Start -- logic 1 half pulse | | | 	 
-| Data 1 -- logic 0 half pulse | | | 	 
-| Data 1 -- logic 1 half pulse | | |	 
-| Data 0 -- logic 0 half pulse | | |	 
-| Data 0 -- logic 1 half pulse | | |	 
-| Stop -- logic 0 half pulse | | |
-| Stop -- logic 1 half pulse | | | |
+
 
 Collect and tabulate in Excel eight samples of timer A counts for each of the
 following pulse types (in decimal). Compute the average and standard deviation
@@ -129,20 +111,62 @@ classify 99.9999426697% of the pulses. This number has something to do with the
 Write the codes (in hex) for at least 10 remote control buttons.  ("Button name"
 refers to CH+, 6, VOL-, Power, etc.)
 
-| Button | Button name | Hex code (not including start and stop bits) |
-| :-: | :-: | :-: |
-| 1 | | |	 
-| 2 | | |
-| 3 | | |	 
-| 4 | | |
-| 5 | | |	 
-| 6 | | |
-| 7 | | |
-| 8 | | |
-| 9 | | |
-| 10 | | | |
+# Prelab
 
-# Demonstrate Functionality
+Hand in a flowchart of your program.
+
+Answer the following questions:
+
+1. How long will it take the timer to roll over?
+1. How long does each timer count last?
+
+
+The while(1) loop in main reads in the IR pulse in the for loop.
+
+Annotate the picture below to indicate which line of the for loop in the program
+is executed at which part of the pulse. You should show a total of 6 lines of
+code (lines 32-34 and lines 36-38).
+
+![IR wave](irWave.gif)
+
+# Day 1 Turn-in
+
+Printable versions of these are here [here](tables.html)
+
+- Excel spreadsheet filed out
+- Table filled in
+
+| Pulse | Duration (ms)	| Timer A counts |
+|-------|---------------|----------------|
+| Start: logic 0 half pulse  | | |
+| Start: logic 1 half pulse  | | | 	 
+| Data 1: logic 0 half pulse | | | 	 
+| Data 1: logic 1 half pulse | | |	 
+| Data 0: logic 0 half pulse | | |	 
+| Data 0: logic 1 half pulse | | |	 
+| Stop: logic 0 half pulse   | | |
+| Stop: logic 1 half pulse   | | |
+
+# Day 2 Turn-in
+
+- Demonstrate pressing a button and deciphering which key was pressed
+- Table filled in
+
+| Button | Button name | Hex code (not including start and stop bits) |
+|--------|-------------|----------------------------------------------|
+| 1      | | |	 
+| 2      | | |
+| 3      | | |	 
+| 4      | | |
+| 5      | | |	 
+| 6      | | |
+| 7      | | |
+| 8      | | |
+| 9      | | |
+| 10     | | |
+
+
+# Demonstrate Functionality on Day 3
 
 Turn an LED on and off with one button on the remote (any button is fine). Turn
 another LED on and off with a different button.  Turn both LEDs on and off with
@@ -151,3 +175,10 @@ a third button.
 In addition to the `start.c` and `start.h` files, the below image may be of some use:
 
 ![schematic](schematic.jpg)
+
+# Rubric
+
+- [25 pts] Prelab (15 pts flowchart, 10 pts questions)
+- [20 pts] Code organization, comments, repo organization, and good programming practices
+- [20 pts] Meeting milestone 1 and 2
+- [30 pts] Demonstration in class

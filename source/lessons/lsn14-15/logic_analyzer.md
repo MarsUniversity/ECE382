@@ -48,10 +48,5 @@ The sampling period determines how often the logic analyzer takes a sample on th
     b. The Delay knob (and setting in the window) allows you to scroll left/right through the waveform relative to the triggering event. Try the delay knob. Return the Delay to 0 which places the trigger in the center of the screen. You can also manually enter a time, such as 0 sec, instead of turning the knob.
     c. You can also measure time differences using markers. You can use the mouse to move the green (M1) and purple (M2) markers and see what they measure. Or you can use the marker knob and choose button to control the markers.
 
-**How do I save these images to my lab book?**
-
-1. If you print directly from the waveform screen, you will print out your equipment settings or any marker measurements you make. Here is the simple way to print everything of interest: While the image is on the screen, press the Print Screen button on the keyboard, which captures the screen and puts it on the clipboard. Open up the Microsoft paint program (remember this is just a PC) and paste the image. You can save the image to your external hard drive.  If you want a physical copy, before you print, go into page setup and change the page scaling so the printout is scaled to only one page.
-
-2. The logic analyzers are NOT hooked up to the internet (to avoid the comm squadron putting all their bloat-ware on our nice clean logic analyzers).
 
 DO NOT REMOVE the yellow cables with red boots from the logic analyzers.

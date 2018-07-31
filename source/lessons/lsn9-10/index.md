@@ -24,3 +24,5 @@
 ## Resources
 
 - [ppt](Lsn9-10.pptx)
+- [Example subroutine asm](ex_subroutine.asm)
+- [Stack example](stack_example.asm)

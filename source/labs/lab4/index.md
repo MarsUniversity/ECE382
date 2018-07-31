@@ -6,7 +6,7 @@
 
 - Interface with an RC Servo motor using PWM
 - Read a potentiometer using the ADC of the uC
-- Talk to external peripherals using the serial bus
+- Talk to an LCD using the UART serial bus
 
 # References
 
@@ -44,3 +44,26 @@ void servo_write(int angle){
   // code
 }
 ```
+
+# Prelab
+
+You will hand-in a flow chart of your program.
+
+Answer the following questions:
+
+- Given your Launchpad operates at 3.3V, is there anything you need to worry
+about with this setup? If so, what will you do to mitigate the issues? If not,
+why not?
+- Identify what ports/pins you are using for this lab and what you will configure
+them for?
+
+# Demonstration
+
+Show your instructor your setup works. You should be able to turn the pot knob
+and see both the servo move and the LCD print out the angle it turned too.
+
+# Rubric
+
+- [25 pts] Prelab (15 pts flowchart, 10 pts questions)
+- [25 pts] Code organization, comments, and good programming practices
+- [50 pts] Demonstration in class
