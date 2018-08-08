@@ -72,7 +72,7 @@ header-includes:
 [15]: lessons/lsn14-15/index.html
 [16]: labs/lab2/index.html
 [17]: labs/lab2/index.html
-[18]: hi
+[18]: www.google.com
 [19]: lessons/lsn19/index.html
 [20]: lessons/lsn20/index.html
 [21]: lessons/lsn21/index.html
@@ -93,8 +93,8 @@ header-includes:
 [36]: labs/lab4/index.html
 [37]: labs/lab4/index.html
 [38]: labs/lab4/index.html
-[39]: hi
-[40]: hi
+[39]: www.google.com
+[40]: www.google.com
 
 # [Spring 2018 Syllabus](syllabus.pdf)
 

@@ -11,16 +11,15 @@ beginning of class next lesson.
 
 **Authorized Resources:** You can **ONLY** seek help from your instructor. Homework is an individual exercise.
 
-- From ECE281 Skills Review, if you can't remember, please review the course
-  material
+- ECE281 Skills Review, if you can't remember, please review the course material
     - What is the range of a signed 8b number?
     - What is the range of an unsigned 8b number?
     - What is the range of a signed 16b number?
     - What is the range of an unsigned 16b number?
     - Convert -10 to 2's complement
     - Convert 137 to a hexidecimal number
-    - Convert 0xf3 to a decimal number
-    - What is the difference between a Von Neumann?
+    - Convert 0xF3 to a decimal number
+    - What is the difference between a Harvard and Von Neumann architecture?
 
 ## Resources
 

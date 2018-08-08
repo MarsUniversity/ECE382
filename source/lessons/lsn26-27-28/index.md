@@ -11,4 +11,4 @@
 
 ## Resources
 
-- [ppt](Lsn26-27.pptx)
+- [ppt](Lsn26-27-28.pptx)

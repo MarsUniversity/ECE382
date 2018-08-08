@@ -11,8 +11,7 @@ reverse engineer a remote control.
 
 ## Handy References
 
-- Information on the [Sony SIRC Protocol](http://users.telenet.be/davshomepage/home.htm)
-- You can verify your remote's button codes [here](http://lirc.sourceforge.net/remotes/)
+- IR Receiver TSOP382.. [datasheet](../../references/tsop382.pdf)
 
 ## Given code
 
@@ -32,9 +31,9 @@ remote codes vary.
 
 ## Milestones
 
-**Lab day 1:** learn the timing and bit patterns for your remote control (*hint:* use the logic analyzer)
-**Lab day 2:** demonstrate your code can receive and decode button presses from the remote control
-**Lab day 3:** demonstrate turning LEDs on/off
+- **Lab day 1:** learn the timing and bit patterns for your remote control (*hint:* use the logic analyzer)
+- **Lab day 2:** demonstrate your code can receive and decode button presses from the remote control
+- **Lab day 3:** demonstrate turning LEDs on/off
 
 ## Connecting the IR sensor
 
@@ -119,7 +118,6 @@ Answer the following questions:
 
 1. How long will it take the timer to roll over?
 1. How long does each timer count last?
-
 
 The while(1) loop in main reads in the IR pulse in the for loop.
 

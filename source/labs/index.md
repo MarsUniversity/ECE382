@@ -7,4 +7,27 @@
 
 # Lab Notebook Standards
 
-- TBD
+- Your bitbucket account is your lab notebook
+- The layout of your repo should be:
+    - ECE382-Your-Last-Name
+        - `readme.md`
+        - Lab1
+            - `main.asm` or `main.c`
+        - LabN
+            - `main.asm` or `main.c`
+        - ICE1
+            - `main.asm` or `main.c`
+        - ICEN
+            - `main.asm` or `main.c`
+- Your `readme.md` should contain the following information:
+    - picture of you
+    - full name
+    - what you want to do in the AF
+    - interests
+
+# Markdown
+
+If you have forgotten everything from ECE 281 and markdown, here is a good
+reference:
+
+- [markdown cheatsheet](../references/markdown.pdf)
