@@ -1,6 +1,6 @@
 # Reading
 
-- [**MSP430 Family User Guide**](/382/datasheets/msp430_msp430x2xx_family_users_guide.pdf)
+- **MSP430 Family User Guide**
     - Sections 3.3 Addressing Modes
     - Section 3.4 Instruction Set
 - [Debuggers](http://en.wikipedia.org/wiki/Debugger)  
@@ -8,7 +8,15 @@
 
 # Homework
 
+Please **type** all homework and homework assigned this lesson is due at the
+beginning of class next lesson.
+
+**Integrity:** Your honor is extremely important.  This academic security policy is designed to help you succeed in meeting academic requirements while practicing the honorable behavior our country rightfully demands of its military.  Do not compromise your integrity by violating academic security or by taking unfair advantage of your classmates.
+
+
 **Note:** These questions are based on both the class slides and the reading above.
+
+**Note:** This is due the beginning of lesson 6.
 
 1. Not due until lesson 6, but you need to start on it before it is due:
     - Make an account at www.codecademy.com and take the "Learn Git" class.

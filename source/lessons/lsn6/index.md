@@ -6,7 +6,7 @@
 # Homework
 
 - [Install gitbash](git_install.html)
-- Due at the beginning of class: CodeAcademy.com git lesson
+- Due at the beginning of lesson 6: CodeAcademy.com git lesson
 
 ## Resources
 

@@ -66,7 +66,7 @@ def pandoc(file, dest, template=None, format='html', to_main=None):
                 #         line=line.decode('utf-8','ignore').encode("utf-8")
 
                 # creates the html5 from markdown and sets pandoc.css to look pretty!
-                html = run('pandoc --highlight-style=pygments -t html5-smart {0}.md'.format(f, f))
+                html = run('pandoc --highlight-style=pygments --ascii -t html5-smart {0}.md'.format(f, f))
                 # print('*'*40)
                 # print(html.decode('utf8'))
                 # print('*'*40)

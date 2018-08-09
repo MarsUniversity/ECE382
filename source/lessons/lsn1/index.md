@@ -9,9 +9,10 @@ beginning of class next lesson.
 
 **Integrity:** Your honor is extremely important.  This academic security policy is designed to help you succeed in meeting academic requirements while practicing the honorable behavior our country rightfully demands of its military.  Do not compromise your integrity by violating academic security or by taking unfair advantage of your classmates.
 
-**Authorized Resources:** You can **ONLY** seek help from your instructor. Homework is an individual exercise.
+You can easily double check your answers with a calculator, but you need to be
+able to do these without one during quizzes, GRs, and the Final.
 
-- ECE281 Skills Review, if you can't remember, please review the course material
+- ECE281 Skills Review, if you cannot remember, please review the course material
     - What is the range of a signed 8b number?
     - What is the range of an unsigned 8b number?
     - What is the range of a signed 16b number?

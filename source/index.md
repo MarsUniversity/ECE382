@@ -98,7 +98,7 @@ header-includes:
 
 # [Spring 2018 Syllabus](syllabus.pdf)
 
-## Instructor
+## Instructors
 
   Maj Kevin Walchko
   Fairchild 2E46A

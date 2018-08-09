@@ -4,6 +4,11 @@
 
 # Homework
 
+Please **type** all homework and homework assigned this lesson is due at the
+beginning of class next lesson.
+
+**Integrity:** Your honor is extremely important.  This academic security policy is designed to help you succeed in meeting academic requirements while practicing the honorable behavior our country rightfully demands of its military.  Do not compromise your integrity by violating academic security or by taking unfair advantage of your classmates.
+
 1. How many bytes are the following
     1. uint8_t
     1. int8_t
