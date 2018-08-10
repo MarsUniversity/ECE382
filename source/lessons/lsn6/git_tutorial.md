@@ -2,28 +2,29 @@
 
 `git` is one of the most common and popular versioning systems in the world.
 You are already familiar with it from ECE281, so this should be simple. There
-are only a couple of commands for you to learn (and you are aloud to use)
+are only a couple of commands for you to learn (and you can only use these)
 
 Only use these commands:
 
 - `clone`: make a copy of a repository located in the internet/cloud
-- `pull`: update your local repo with any changes in the repo in the cloud
+- `pull`: update your local repo with any changes in the repo in the cloud. This is necessary when working in a group or making changes via web browser to bitbucket.
 - `status`: are there untracked changes in your local repo?
 - `add`: gather up files in your local repo that have changed and you want to save those changes
 - `commit`: after files have been added, bundle of them together with a description of the changes
 - `push`: send a commit of changes to the repo in the cloud
+- `log`: displays your commit history
 
 Although the Codecademy.com lesson showed you more, in this case, **more is not
 better!**
 
 ## `.gitignore`
 
-CCS is a standard horrible IDE that we use. Unfortunately is generates a lot
+CCS is a standard *horrible* IDE that we use. Unfortunately it generates a lot
 of files we don't care about and we don't want that junk in our repo.
 
 ```bash
 # Ignore everything
-
+*
 # ok, now we need to bring identify what we want to track
 # let's start with:
 # - assembly files
@@ -38,6 +39,8 @@ of files we don't care about and we don't want that junk in our repo.
 !*.png
 ```
 
+Further documentation on `git` is available [here](https://git-scm.com/docs/gitignore).
+
 # Steps
 
 1. Honestly, the easiest thing to do is go to the interweb (bitbucket) and in your browser, click on the (+) symbol on the lefthand side to create a new repo
@@ -49,9 +52,9 @@ of files we don't care about and we don't want that junk in our repo.
         1. Stores your name as a property to be used for each commit
     1. `git config --global user.email first.last@usafa.edu`
         1. Stores your email as a property to be used for each commit
-1. Navigate to the directory where your pong project is located
-1. Next do: `git clone https://walchko@bitbucket.org/walchko/ttest.git`
-    1. Change the repo address to the one you just created
+1. Navigate to the directory where you want to store you projects
+1. Next do: `git clone https://walchko@bitbucket.org/walchko/382-walchko.git`
+    1. Change the repo address to the one **you** just created
 1. Within this repo, create `.gitignore` like the one above
 1. Ok, let's check the status of the repo
     1. Type `git status`
@@ -78,7 +81,9 @@ This is also a good reason for branching, which we won't do in the class. But, i
 
 ## Oops!
 
-Honestly, be careful with Google. If you wildly throw git commands at your system you will break it. If your "buddy" tells you to do something you don't understand, you could break your repo. **If you break your repo**, then it is up to you to fix it. Everything you need for the class is above, you should **never** need to come to an instructor because *your repo is broken*. On the positive side, if you break it, you will learn a lot about git trying to fix it!
+Honestly, be careful with Google. If you wildly throw `git` commands at your system you will break it. If your *buddy* tells you to do something you don't understand, you could break your repo. **If you break your repo**, then it is up to you to fix it. Everything you need for the class is above, you should **never** need to come to an instructor because *your repo is broken*. On the positive side, if you break it, you will learn a lot about `git` trying to fix it!
+
+---
 
 # Advance `git` Stuff
 

@@ -18,6 +18,20 @@ beginning of class next lesson.
 **Integrity:** Your honor is extremely important.  This academic security policy is designed to help you succeed in meeting academic requirements while practicing the honorable behavior our country rightfully demands of its military.  Do not compromise your integrity by violating academic security or by taking unfair advantage of your classmates.
 
 1. Install Code Composer Studio
+    - The installation is actually simple and straight forward
+    - Navigate to: K:/DF/DFEC/ECE382/Fall-18
+    - Drag the binary `CSS8.00016_win32.zip` to your computer
+    - You can't install from the zipped archive, so right click on it and select
+    `Extract All`
+    - Now go to where you extracted the folder and find the file `ccs_setup_8.0.0.00016`, double
+    click on that to run the installation
+        - You will probably have to give your admin password to install this
+        - I also got a warning about virus software running, ignore it
+        - Accept the license and select all of the defaults
+        - Eventually you come to a window asking you to select what to install
+            - Select: MSP430 ultra-low power MCU's
+            - It was the top item when I did it
+        - The install will take a while, 10 minutes?
 1. What does the assembler do? Be specific.
 1. What does the linker do? Be specific.
 1. Given the code below, what is the location of each byte of the stored word, assuming big-endian byte ordering?
