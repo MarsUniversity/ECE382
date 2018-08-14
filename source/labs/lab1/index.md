@@ -41,6 +41,7 @@ and 255 (an unsigned byte). If you are passed a value greater than 255, then
 you *must* set it to 255.
 - Good coding standards (labels, .`equ` where appropriate) must be used throughout
 (review the lessons if you are unclear on what this means)
+- Make sure you reserve space for your result (use `.space`)
 - Comment code to others can easily follow your code
 - Break your code up into logical blocks of code (subroutines) so it is easy to
 debug and check
@@ -159,5 +160,11 @@ be done in class.** The exception to this is, if you are late and need to demo
 ## Rubric
 
 - [25 pts] Prelab (15 flowchart, 10 questions)
-- [25 pts] Code organization, comments, and good programming practices
+- [25 pts] Bitbucket, looking for:
+    - Code organization
+    - Comments
+    - Proper header
+    - Good git commit messages like: `lab 1 init project` or `lab 1 final working code check by instructor`
+    - Good programming practices
+    - Proper repository organization
 - [50 pts] Demonstration in class

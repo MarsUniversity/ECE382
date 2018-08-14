@@ -23,6 +23,8 @@ beginning of class next lesson.
     1. `.bytes`
     1. `.word`
     1. `.equ`
+    1. `.space`
+    1. `.text`
 1. What are the benefits of modular code?
 
 

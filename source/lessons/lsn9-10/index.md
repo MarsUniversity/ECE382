@@ -20,11 +20,13 @@ beginning of lesson 11.
 1. When you do a `pop`, which of the following 2 things does it do:
     1. write data to destination, then change SP value
     1. change SP value, then write data to destination
-1. How can I use the stack to swap the values in two registers (say r10, r11)?
+1. How can I use the stack to swap the values in two registers (say r10, r11)? write a subroutine.
 1. Can we push too much to the stack? If so, how is this bad?
-1. How can you avoid subroutines from destroying registers? Be specific.
+1. How can you prevent subroutines from destroying registers? Be specific.
 1. What is the difference between pass-by-value and pass-by-reference?
 1. When would you use pass-by-reference?
+1. If you have a subroutine `f(w, x, y, z) => answer`, how would you pass the
+arguments xw, x, y, z and get answer back using the ABI?
 
 ## Resources
 
