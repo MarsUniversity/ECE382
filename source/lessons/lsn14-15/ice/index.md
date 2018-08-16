@@ -8,3 +8,4 @@ By the end of class, you will demonstrate to your instructor:
 - **[bonus]** Show your instructor a HW debounced button
     - Show the calculations for determining the parts and be able to explain
     how you designed it
+    - Also, you should be able to run your code without a SW delay and it will work

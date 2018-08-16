@@ -19,4 +19,3 @@ beginning of lesson 26.
 ## Resources
 
 - [ppt](Lsn24-25.pptx)
-- [Calibrating the DCO]()

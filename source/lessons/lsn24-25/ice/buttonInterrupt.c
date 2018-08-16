@@ -16,7 +16,7 @@ which is the work of other individuals is a violation of the honor
 code.  I also understand that if I knowingly give my original work to
 another individual is also a violation of the honor code.
 -------------------------------------------------------------------------*/
-#include <msp430.h> 
+#include <msp430.h>
 
 char interruptFlag = 0;
 
@@ -28,7 +28,7 @@ void main(void) {
 
     P1DIR |= BIT0|BIT6;                     // set LEDs to output
 
-    P1DIR &= ~BIT3;                            // set button to input
+    P1DIR &= ~BIT3;                         // set button to input
 
     P1REN |= BIT3;                          // enable internal pull-up/pull-down network
     P1OUT |= BIT3;                          // configure as pull-up
