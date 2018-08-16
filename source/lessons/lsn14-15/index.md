@@ -12,7 +12,8 @@ beginning of lesson 16.
 **Integrity:** Your honor is extremely important.  This academic security policy is designed to help you succeed in meeting academic requirements while practicing the honorable behavior our country rightfully demands of its military.  Do not compromise your integrity by violating academic security or by taking unfair advantage of your classmates.
 
 1. What is the difference between polling and interrupts?
-1. Generally, which is better from a performance stand point?
+1. Generally, which is better from a response time stand point?
+1. Generally, which is better from a multitasking stand point?
 1. On buttons or switches, why do we get noise?
 1. How (in words) do we debounce an input in SW?
 1. How (in words) do we debounce an input in HW?

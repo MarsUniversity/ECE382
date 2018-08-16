@@ -22,11 +22,11 @@ beginning of lesson 11.
     1. change SP value, then write data to destination
 1. How can I use the stack to swap the values in two registers (say r10, r11)? write a subroutine.
 1. Can we push too much to the stack? If so, how is this bad?
-1. How can you prevent subroutines from destroying registers? Be specific.
+1. How can you prevent subroutines from destroying registers? give example code.
 1. What is the difference between pass-by-value and pass-by-reference?
-1. When would you use pass-by-reference?
 1. If you have a subroutine `f(w, x, y, z) => answer`, how would you pass the
 arguments xw, x, y, z and get answer back using the ABI?
+1. What 2 assembly commands are used for subroutines and what do they do?
 
 ## Resources
 

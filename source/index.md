@@ -15,16 +15,16 @@ header-includes:
 | 2   | [uC Comparison and ISA][2]                            |      | |
 | 3   | [ISA: Instructions to Machine Code][3]                |      | Code Composer Studio should be installed |
 | 4   | [ISA: Instructions to Machine Code][4]                |      | |
-| 5   | [ISA: Instructions to Machine Code][5]                | X    | `gitbash` should be installed, [instructions](lsn6/git_install.html) |
-| 6   | [Advanced Git][6]                                     | X    | on-line git homework due at BOC |
-| 7   | [Code Composer Studio (CSS)][7]                       |      | ICE: setup repo for the class|
-| 8   | [Status Register and Flow Control][8]                 |      | ICE: hello_world.asm|
+| 5   | [ISA: Instructions to Machine Code][5]                |      | `gitbash` should be installed, [instructions](lsn6/git_install.html) |
+| 6   | [Code Composer Studio][6]                             | X    | on-line git homework due at BOC, ICE: setup repo for the class |
+| 7   | [Git Review][7]                                       |      | ICE: hello_world.asm |
+| 8   | [Status Register and Flow Control][8]                 | X    | |
 | 9   | [Stack, Subroutines, and ABI][9]                      |      | |
-| 10  | [Stack, Subroutines, and ABI][10]                     | X    | |
+| 10  | [Stack, Subroutines, and ABI][10]                     |      | |
 | 11  | [Lab 1: Assembly Calculator][11]                      |      | |
 | 12  | [Lab 1: Assembly Calculator][11]                      |      | |
 | 13  | [Memory Mapped IO and Muxes][13]                      |      | |
-| 14  | [Polling, Debouncing, and Logic Analyzer][14]         |      | |
+| 14  | [Polling, Debouncing, and Logic Analyzer][14]         | X    | |
 | 15  | [Polling, Debouncing, and Logic Analyzer][15]         |      | ICE: DCO and Buttons |
 | 16  | [Lab 2: Stoplight][16]                                |      | |
 | 17  | [Lab 2: Stoplight][17]                                |      | |
