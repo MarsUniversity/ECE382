@@ -1,6 +1,6 @@
 # ECE 382
 
-The website is built using [pandoc](http://pandoc.org/no) and [nodejs](https://nodejs.org/en/). We are also using a templating system (probably not necessary) called ejs which is found on [npm](https://www.npmjs.com/). Finally, we are using [Bootstrap](http://getbootstrap.com/) to produce a nice HTML5 navigation bar across the top of the page.
+The website is built using [pandoc](http://pandoc.org) and python. We are also using a templating system (probably not necessary) called [Jinja](http://jinja.pocoo.org/). Finally, we are using [Bootstrap](http://getbootstrap.com/) to produce a nice HTML5 navigation bar across the top of the page.
 
 - `build.py` builds the website and dumps the html files into the folder `html`
 - `deploy.py` performs the process of copying the website to `gh-pages` branch of
