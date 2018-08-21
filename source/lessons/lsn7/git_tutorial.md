@@ -12,7 +12,6 @@ Only use these commands:
 - `add`: gather up files in your local repo that have changed and you want to save those changes
 - `commit`: after files have been added, bundle of them together with a description of the changes
 - `push`: send a commit of changes to the repo in the cloud
-- `log`: displays your commit history
 
 Although the Codecademy.com lesson showed you more, in this case, **more is not
 better!**
@@ -31,22 +30,45 @@ of files we don't care about and we don't want that junk in our repo.
 # - C files
 # - Markdown files and jpg/png images
 !.gitignore
-!*.c
-!*.h
-!*.asm
+!lab*/
+!*/*.c
+!*/*.h
+!*/*.asm
 !*.md
 !*.jpg
 !*.png
+!*/
 ```
 
 Further documentation on `git` is available [here](https://git-scm.com/docs/gitignore).
 
+# Lab Notebook Setup
+
+The layout of your repo should be:
+    - ECE382-Your-Last-Name
+        - `readme.md`
+        - Lab1
+            - `main.asm` or `main.c`
+        - LabN
+            - `main.asm` or `main.c`
+        - ICE1
+            - `main.asm` or `main.c`
+        - ICEN
+            - `main.asm` or `main.c`
+- Your `readme.md` should contain the following information:
+    - picture of you
+    - full name
+    - what you want to do in the AF
+    - interests
+
 # Steps
 
 1. Honestly, the easiest thing to do is go to the interweb (bitbucket) and in your browser, click on the (+) symbol on the lefthand side to create a new repo
-1. You should see something like this below: ![](new-repo.png)
+    1. Call your repo: ECE382-*<Lastname>*
+1. You should see something like this: ![](new-repo.png){width=75%}
+1. Now let's `clone` this to our laptops
     1. Make sure the repo address is set to `https`, 10th CS blocks `ssh` (port 22)
-1. Now Open up gitbash
+1. Now Open up `gitbash`
 1. Set some git properties by running these commands:
     1. `git config --global user.name "First Last"`
         1. Stores your name as a property to be used for each commit
