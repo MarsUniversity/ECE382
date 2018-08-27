@@ -45,16 +45,17 @@ Further documentation on `git` is available [here](https://git-scm.com/docs/giti
 # Lab Notebook Setup
 
 The layout of your repo should be:
-    - ECE382-Your-Last-Name
-        - `readme.md`
-        - Lab1
-            - `main.asm` or `main.c`
-        - LabN
-            - `main.asm` or `main.c`
-        - ICE1
-            - `main.asm` or `main.c`
-        - ICEN
-            - `main.asm` or `main.c`
+
+- ECE382-Your-Last-Name
+    - `readme.md`
+    - Lab1
+        - `main.asm` or `main.c`
+    - LabN
+        - `main.asm` or `main.c`
+    - ICE1
+        - `main.asm` or `main.c`
+    - ICEN
+        - `main.asm` or `main.c`
 - Your `readme.md` should contain the following information:
     - picture of you
     - full name
