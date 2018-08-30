@@ -4,8 +4,6 @@
     - Section 3.2 CPU Registers
 - [Stacks](http://en.wikipedia.org/wiki/Stack_(abstract_data_type)  
 - [Stack Overflow](http://en.wikipedia.org/wiki/Stack_overflow)
-- [Stack Example in CCS](Lesson10_Stack_Example_in_CCS.pptx)
-    - [Stack Example code](Lesson10_Stack_Example.asm)
 
 # Homework
 
@@ -32,4 +30,4 @@ arguments xw, x, y, z and get answer back using the ABI?
 
 - [ppt](Lsn9-10.pptx)
 - [Example subroutine asm](ex_subroutine.asm)
-- [Stack example](stack_example.asm)
+- [Stack example asm](stack_example.asm)
