@@ -18,8 +18,8 @@ header-includes:
 | 5   | [ISA: Instructions to Machine Code][5]                |      | `gitbash` should be installed, [instructions](lessons/lsn7/git_install.html) |
 | 6   | [Code Composer Studio][6]                             | X    | on-line git homework due at BOC |
 | 7   | [Git Review][7]                                       |      | |
-| 8   | [Status Register and Flow Control][8]                 | X    | |
-| 9   | [Stack, Subroutines, and ABI][9]                      |      | |
+| 8   | [Status Register and Flow Control][8]                 |      | |
+| 9   | [Stack, Subroutines, and ABI][9]                      | X    | |
 | 10  | [Stack, Subroutines, and ABI][10]                     |      | |
 | 11  | [Lab 1: Assembly Calculator][11]                      |      | |
 | 12  | [Lab 1: Assembly Calculator][11]                      |      | |

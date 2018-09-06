@@ -2,7 +2,7 @@
 
 - **MSP430 Family Users Guide**
     - Section 3.2 CPU Registers
-- [Stacks](http://en.wikipedia.org/wiki/Stack_(abstract_data_type)  
+- [Stacks](http://en.wikipedia.org/wiki/Stack_\(abstract_data_type\))  
 - [Stack Overflow](http://en.wikipedia.org/wiki/Stack_overflow)
 
 # Homework
