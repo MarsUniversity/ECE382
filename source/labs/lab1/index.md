@@ -134,10 +134,10 @@ receives an **END_OP**
 
 Answer the following questions:
 
-1. What should your program do if an input is out of range?
+1. What should your program do if a value is out of range?
 1. What should your program do if an operator is unknown?
 1. Are there any bytes that you *cannot* use as an operand?
-1. What happens if you do not find and `0x55` (**END_OP**) command?
+1. What happens if you do not find a `0x55` (**END_OP**) command?
 
 # Demonstration
 
@@ -152,7 +152,8 @@ of the class:
     - Result: `0x44, 0x11, 0x88, 0x00, 0x00, 0x00, 0xff, 0x00, 0xff, 0x00, 0x00, 0xff`
 4. An additional input/result pair will be given on the last day of the lab
 
-When you demo, due to time limitations, you only get *one* chance to demo for full
+When you demo, due to time limitations, you only get *one* chance to demo each
+of the four programs for full
 credit, so make sure it works (repeatedly) before you show the instructor. Any
 follow-on demos will result in a 10% penalty each time. Also, **demos will only
 be done in class.** If you demo after class, then you are subjected to a 25% penalty.
