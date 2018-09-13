@@ -1,8 +1,8 @@
-# Lab 2 - Logic Analyzer and Debouncing
+# Lab 2 - Stoplight
 
 ## Objectives
 
-- Learn to characterize and debounce a button in SW and HW
+- Learn to characterize and debounce a button in SW
 - Learn to use the logic analyzer to characterize digital signals
 - Learn external HW communications
 
@@ -24,12 +24,32 @@ a software delay so the uC only registers 1 button press when the button is hit.
 ![](lab-setup_bb.png){width=75%}
 
 Now, wire up your shift register according to the datasheet. A suggested setup
-is shown above. Note, the command wires going from your Launchpad to the 595 are
-not shown. You get to pick which pins you want to use and how they get wired up.
+is shown above. Note, the command wires going from your Launchpad to the 595 **are
+not shown**. You get to pick which pins you want to use and how they get wired up.
 
 To verify your uC is sending the correct commands to the 595, hook it up to the
 logic analyzer. Make sure you understand how the `SRCLK`, `SER`, and `RCLK` works
 in order to verify the signal on the logic analyzer.
+
+![](settings-timing.jpg)
+
+![](settings-inputs.jpg)
+
+### Bits: 1000
+
+![](bit0.jpg)
+
+### Bits: 0100
+
+![](bit1.jpg)
+
+### Bits: 0010
+
+![](bit2.jpg)
+
+### Bits: 0001
+
+![](bit3.jpg)
 
 ### Wiring Up LEDs
 
@@ -52,19 +72,24 @@ Once you have everything hooked up, you need to write assembly code to:
 
 - When the button is pushed, the LED attached to $Q_A$ lights up
 - When the button is pushed again, $Q_A$ turns off and $Q_B$ turns on
-- Subsequent pushes cause the lite LED to shift to the next pin.
+- Subsequent button pushes cause the lit LED to shift to the next pin.
 - Finally, when you push the button, the lite LED wraps around from $Q_D$ to $Q_A$
 and it continues on again
 - One button push should correlate to one shift of the LED
+    - This is where debouncing comes in
 
 ### Software
 
+The 595 chip is basically a serial data in, parallel data out converter. Later
+we will talk about different types of serial communications. Right now you are
+going to program a software serial device.
+
 There is more than one way to write this software. Basically you need to tie pins
 on your Launchpad to the `SRCLK`, `SER`, and `RCLK` pins on the 595. Which ever
-pins you choose on the Launchpad, you will need to set them up as outputs. You have to
+pins you choose on the Launchpad, you will need to set them up properly. You have to
 come up with a way to "clock in" the serial data to the 595 by toggling those
 three pins in the right sequence. This really isn't hard, you just have to think
-about it.
+about it (it is a state machine ... draw a flowchart!).
 
 # Prelab
 

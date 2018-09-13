@@ -23,3 +23,4 @@ beginning of lesson 16.
 - [ppt](Lsn14-15.pptx)
 - [DCO calibration asm (*hint:* use logic analyzer)](ice/clock.asm)
 - [ICE: Debouncing buttons](ice/index.html)
+- [Hardware debouncing guide](debouncing.pdf)
