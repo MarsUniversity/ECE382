@@ -19,7 +19,7 @@
 Using the your knowledge and experience from class. First implement a button with
 a software delay so the uC only registers 1 button press when the button is hit.
 
-## 595 Shift Register
+## SN74HC595 Shift Register
 
 ![](lab-setup_bb.png){width=75%}
 
@@ -95,18 +95,19 @@ about it (it is a state machine ... draw a flowchart!).
 
 Turn in a flow diagram of your code.
 
-1. On the SN74HC595 8b shift register, answer the following (*Note:* some of this
-    should be familiar from ECE 281):
+On the SN74HC595 8b shift register, answer the following (*Note:* some of this
+should be familiar from ECE 281):
+
     1. What are acceptable operating voltages for this chip
     1. What does the `SRCLR` pin do?
     1. What does the `SER` pin do?
     1. What does the `RCLK` do?
     1. What does the `SRCLK` do?
-    1. Are the $Q_A$ to $Q_H$ pins?
-    1. What are the VCC and GND pins?
-    1. Which pin is the output-enable?
-2. If you were given a battery, resistor, and an LED, draw (hand drawn is fine)
-how you hook these up so they work.
+    1. What are the $Q_A$ to $Q_D$ pins?
+    1. For our uC (3.3V), what is the approximate pulse duration for SRCLK and RCLK?
+    1. What values for VCC can this chip use?
+    1. Which pin is the output-enable (1-16)?
+
 
 # Demonstration
 
