@@ -98,15 +98,15 @@ Turn in a flow diagram of your code.
 On the SN74HC595 8b shift register, answer the following (*Note:* some of this
 should be familiar from ECE 281):
 
-    1. What are acceptable operating voltages for this chip
-    1. What does the `SRCLR` pin do?
-    1. What does the `SER` pin do?
-    1. What does the `RCLK` do?
-    1. What does the `SRCLK` do?
-    1. What are the $Q_A$ to $Q_D$ pins?
-    1. For our uC (3.3V), what is the approximate pulse duration for SRCLK and RCLK?
-    1. What values for VCC can this chip use?
-    1. Which pin is the output-enable (1-16)?
+1. What are acceptable operating voltages for this chip
+1. What does the `SRCLR` pin do?
+1. What does the `SER` pin do?
+1. What does the `RCLK` do?
+1. What does the `SRCLK` do?
+1. What are the $Q_A$ to $Q_D$ pins?
+1. For our uC (3.3V), what is the approximate pulse duration for SRCLK and RCLK?
+1. What values for VCC can this chip use?
+1. Which pin is the output-enable (1-16)?
 
 
 # Demonstration
