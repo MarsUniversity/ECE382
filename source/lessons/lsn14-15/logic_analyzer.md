@@ -1,6 +1,6 @@
 # The Logic Analyzer
 
-You have used oscilloscopes previously to display 1 to 4 analog signals.  A logic analyzer is similar, but instead displays up to 64 digital signals.  The logic analyzer works by waiting for a "trigger" (a unique user specified signal) to occur, then samples the various signals (at a user specified sample rate) and stores all the samples in memory until the memory is full.
+You have used oscilloscopes previously in other classes.  A logic analyzer is similar, but instead displays up to 64 digital signals.  The logic analyzer works by waiting for a "trigger" (a unique user specified signal) to occur, then samples the various signals (at a user specified sample rate) and stores all the samples in memory until the memory is full.
 
 Our Agilent 1682A logic analyzers are actually PCs running Windows.  You can interface with the logic analyzers using a standard mouse and keyboard, or the knobs and buttons on the face of the display.
 

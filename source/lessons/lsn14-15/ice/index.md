@@ -2,6 +2,9 @@
 
 By the end of class, you will:
 
+1. Know the speed of your clock
+1. Know how long your button bounces for
+
 # Calibrate DCO
 
 1. Load `clock.asm` on to your uC and disconnect from laptop
@@ -22,12 +25,14 @@ By the end of class, you will:
 
 ## Show Instructor
 
-- Waveform
+- Clock aveform
 - What is your clock period in nsec (or whatever the appropriate time unit is)
 
 # Button Debouncing
 
-1. Load `button.asm` on to your uC and disconnect from laptop
+**I added the button setup to** `clock.asm`
+
+1. Load `clock.asm` on to your uC and disconnect from laptop
 1. Connect POD1 to uC
     - Gnd (black wire) to uC GND
     - Bit 0 (gray wire) to pin 1.3

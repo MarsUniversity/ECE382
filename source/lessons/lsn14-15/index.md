@@ -2,7 +2,6 @@
 
 - [Polling](https://en.wikipedia.org/wiki/Polling_%28computer_science%29)
 - [Logic Analyzer](http://www.radio-electronics.com/info/t_and_m/logic_analyzer/logic_analyzer.php)
-- [Logic Analyzer tutorial](./logic_analyzer.html)
 
 # Homework
 
@@ -21,6 +20,6 @@ beginning of lesson 16.
 ## Resources
 
 - [ppt](Lsn14-15.pptx)
-- [DCO calibration asm (*hint:* use logic analyzer)](ice/clock.asm)
-- [ICE: Debouncing buttons](ice/index.html)
+- [DCO calibration and button bounce asm](ice/clock.asm)
+- [ICE 3: Debouncing buttons and DCO calibration](ice/index.html)
 - [Hardware debouncing guide](debouncing.pdf)

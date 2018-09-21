@@ -24,10 +24,18 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ;-------------------------------------------------------------------------------
 ; Main loop here
 ;-------------------------------------------------------------------------------
+            ; Measure button bouncing time
+            ; Set up active-low button for input
+            bic.b  #BIT3, &P1SEL   ; GPIO
+            bic.b  #BIT3, &P1SEL2  ; GPIO
+            bic.b  #BIT3, &P1DIR   ; pin set to input
+            bis.b  #BIT3, &P1REN   ; resistor enabled
+            bis.b  #BIT3, &P1OUT   ; pull-up
+
+            ; DCO calibration
             bis.b #BIT4, &P1DIR ; show SMCLK on P1.4
             bis.b #BIT4, &P1SEL
-;            bis.b #DCO2|DCO1|DCO0, &DCOCTL ; drive clock at fastest possible settings
-;            bis.b #RSEL3|RSEL2|RSEL1|RSEL0, &BCSCTL1
+
 forever     jmp forever
 ;-------------------------------------------------------------------------------
 ;           Stack Pointer definition
