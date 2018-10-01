@@ -132,6 +132,7 @@ For complete operation, show your instructor:
     - Comments
     - Proper header
     - Good git commit messages like: `lab 1 init project` or `lab 1 final working code check by instructor`
+    - Push code by end of class
     - Good programming practices
     - Proper repository organization
 - [50 pts] Demonstration in class and answering questions

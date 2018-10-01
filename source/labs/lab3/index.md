@@ -2,23 +2,26 @@
 
 ## Objectives
 
-- learn how the timer works
-- use the capture compare module
-- how IR encoding/communications work
+- Using the timing peripheral
+- Reverse engineer a protocol
+- Use the capture compare peripheral
+- Use interrupts
+- Communicate with external hardware
 
 In this lab, you'll use your knowledge of interrupts and the Timer_A subsytem to
 reverse engineer a remote control.
 
 ## Handy References
 
-- IR Receiver TSOP382.. [datasheet](../../references/tsop382.pdf)
+- IR Receiver TSOP382 [datasheet](../../references/tsop382.pdf)
 
 ## Given code
 
-- [test3.c](test3.c) - Use this file to characterize the buttons of your remote
-- [start3.c](start3.c) - Initial template file for lab
-- [start3.h](start3.h) - Initial template file for lab
-- [IR timing spreadsheet](ir_remote.xlsx) - use this to help you characterize
+- [test3.c](./test3.c) - Use this file to characterize the buttons of your remote
+- [start3.c](./start3.c) - Initial template file for lab
+- [start3.h](./start3.h) - Initial template file for lab
+- [IR timing spreadsheet](./ir_remote.xlsx) - use this to help you characterize
+
 your remote control pulses. You will look at data in CCS and find the start
 of a signal, then copy/paste those values into the spreadsheet. The spreadsheet
 will help you estimate pulse durations.
@@ -31,24 +34,47 @@ remote codes vary.
 
 ## Milestones
 
-- **Lab day 1:** learn the timing and bit patterns for your remote control (*hint:* use the logic analyzer)
-- **Lab day 2:** demonstrate your code can receive and decode button presses from the remote control
-- **Lab day 3:** demonstrate turning LEDs on/off
+This lab will be completed in 3 steps:
+
+- **Lab day 1:** Characterize the IR buttons: learn the timing and bit patterns for your remote control (*hint:* use the logic analyzer)
+- **Lab day 2:** Use interrupts to capture IR packets: demonstrate your code can receive and decode button presses from the remote control
+- **Lab day 3:** Demonstrate turning LEDs on/off
+
+# Day 1
+
+## Prelab 1
+
+- Fill in the setup code for [start3.c](start3.c)
 
 ## Connecting the IR sensor
 
-Insert the IR receiver module into the protoboard.  Use M/F wires to connect
-your protoboard to your MSP430. Use a regular wire to connect your signal and
-ground to the logic analyzer.
+Insert the IR receiver module into the protoboard. Look at the datasheet and make
+sure you are wiring up the receiver module correctly. When you are looking at
+the sensor ball on your IR receiver module, the pin on the left is your signal
+pin; the pin in the middle is your ground pin; and the pin on the right is
+your Vcc.
 
-When you are looking at the sensor ball on your IR receiver module, the pin on
-the left is your signal pin; the pin in the middle is your ground pin; and the
-pin on the right is your Vcc.  
+![IR Sensor Datasheet excerpt](ir_sensor.jpg)
 
-On your MSP430, connect the signal pin to XIN/P2.6 on J2, the ground pin to the
-GND pin on J6, and the Vcc pin to Vcc on J6.  
+Hook up your launchpad to the IR module as shown in either picture:
 
-#### Timer Counts
+![](launchpadSetup.jpg)
+
+Or
+
+![](lab-setup.png)
+
+On your MSP430, connect:
+
+- the signal pin to XIN/P2.6 on J2
+- the ground pin to the GND pin on J6
+- IR Vcc pin to Vcc on the MSP430.
+
+When hooking up to the logic analyzer, remember to connect the MSP430 ground to
+the logic analyzer ground. Also, hook the signal from the IR to one of the POD1
+inputs.
+
+## Timer Counts
 
 Build a project around your modified `test3.c` and then download it onto your
 LaunchPad. Make sure to open the variables tab (View -> Variables). I also like
@@ -58,6 +84,15 @@ a remote. Then pause the program and look at the variables. You should see
 something like the following.
 
 ![array screen shot](arrayScreenShot.gif)
+
+The values are the captured wave form from the remote. Using this data the
+IR timing spreadsheet, you need to determine the remote's timing
+
+## Due day 1:
+
+- Table-1
+
+# Day 2
 
 #### IR data packets
 
@@ -70,9 +105,9 @@ Set up your LaunchPad like the picture below. Make sure to connect the power and
 ground in the correct order! Connect the logic analyzer on the Vout pin of
 the IR receiver.
 
-![IR Sensor Datasheet excerpt](ir_sensor.jpg)
+![schematic](schematic.jpg)
 
-![LaunchPad setup](launchpadSetup.jpg)
+
 
 Configure the logic analyzer to collect data on an edge change, with at least
 90% of the data stored post-trigger.  On my remote control, the full remote
@@ -176,7 +211,9 @@ In addition to the `start.c` and `start.h` files, the below image may be of some
 
 # Rubric
 
-- [25 pts] Prelab (15 pts flowchart, 10 pts questions)
+- [5 pts] Prelab
+- [10 pts] Day one milestone
+- [10 pts] Day two milestone
 - [20 pts] Code organization, comments, repo organization, and good programming practices
 - [20 pts] Meeting milestone 1 and 2
 - [30 pts] Demonstration in class
