@@ -1,15 +1,21 @@
 # Lab 3 - Interrupts - "Remote Control Decoding"
 
+You have already seen serial communication in Lab 2, but you will see it again
+here. This time, instead of sending the signal across a wire, we will send it
+through the air as modulated light.
+
+Your task for this lab is to reverse engineer (hack) an IR remote control so
+you can get it to light up some LEDs for you. Unfortunately, IR remotes don't
+really follow much of a standard, but they tend to operate similar to each other.
+We will exploit that to learn how they work.
+
 ## Objectives
 
-- Using the timing peripheral
+- Use the Time A subsystem
 - Reverse engineer a protocol
 - Use the capture compare peripheral
 - Use interrupts
 - Communicate with external hardware
-
-In this lab, you'll use your knowledge of interrupts and the Timer_A subsytem to
-reverse engineer a remote control.
 
 ## Handy References
 
@@ -17,10 +23,10 @@ reverse engineer a remote control.
 
 ## Given code
 
-- [test3.c](./test3.c) - Use this file to characterize the buttons of your remote
-- [start3.c](./start3.c) - Initial template file for lab
-- [start3.h](./start3.h) - Initial template file for lab
-- [IR timing spreadsheet](./ir_remote.xlsx) - use this to help you characterize
+- [test3.c](./test3.c): Use this file to characterize the buttons of your remote
+- [start3.c](./start3.c): Initial template file for lab
+- [start3.h](./start3.h): Initial template file for lab
+- [IR timing spreadsheet](./ir_remote.xlsx): use this to help you characterize
 
 your remote control pulses. You will look at data in CCS and find the start
 of a signal, then copy/paste those values into the spreadsheet. The spreadsheet
@@ -29,8 +35,8 @@ will help you estimate pulse durations.
 # Directions
 
 You will need to use the timer interrupt and the general purpose pin interrupt
-to decode a remote control.  Be sure to pick one remote for the whole lab, as
-remote codes vary.
+to decode a remote control. Be sure to pick one remote for the whole lab, as
+remote codes vary between manufacturer.
 
 ## Milestones
 
@@ -44,9 +50,18 @@ This lab will be completed in 3 steps:
 
 ## Prelab 1
 
-- Fill in the setup code for [start3.c](start3.c)
+
+1. How long will it take the timer to roll over?
+1. How long does each timer count last?
+
+Show your instructor these:
+
+- Fill in the missing code for [start3.c](start3.c)
+- Print the tables you need for [Day 1 and 2](tables.html)
 
 ## Connecting the IR sensor
+
+**Do Not Power Your Board When You Are Wiring It Up!**
 
 Insert the IR receiver module into the protoboard. Look at the datasheet and make
 sure you are wiring up the receiver module correctly. When you are looking at
@@ -54,7 +69,7 @@ the sensor ball on your IR receiver module, the pin on the left is your signal
 pin; the pin in the middle is your ground pin; and the pin on the right is
 your Vcc.
 
-![IR Sensor Datasheet excerpt](ir_sensor.jpg)
+![IR Sensor Datasheet excerpt](ir_sensor.jpg){width=50%}
 
 Hook up your launchpad to the IR module as shown in either picture:
 
@@ -66,51 +81,46 @@ Or
 
 On your MSP430, connect:
 
-- the signal pin to XIN/P2.6 on J2
-- the ground pin to the GND pin on J6
-- IR Vcc pin to Vcc on the MSP430.
+- the sensor signal pin to XIN/P2.6
+- the sensor ground pin to the GND pin
+- the sensor Vcc pin to Vcc on the MSP430
+
+## Connecting to the Logic Analyzer
 
 When hooking up to the logic analyzer, remember to connect the MSP430 ground to
-the logic analyzer ground. Also, hook the signal from the IR to one of the POD1
-inputs.
+the logic analyzer ground. Also, hook the signal from the IR sensor to one of
+the POD1 inputs bits.
 
-## Timer Counts
+## Measure Timer Counts
 
-Build a project around your modified `test3.c` and then download it onto your
-LaunchPad. Make sure to open the variables tab (View -> Variables). I also like
-to clear memory from the Memory Browser tab (View -> Memory Browser), Fill
-Memory from 0x200 to 0x400 with 0's. Run the program and then press a button on
-a remote. Then pause the program and look at the variables. You should see
-something like the following.
+1. Build a project around *your modified* `test3.c` and then download it onto your
+LaunchPad. Make sure to open the variables tab (View -> Variables).
+    - I also like to clear memory from the Memory Browser tab (View -> Memory Browser), Fill
+Memory from 0x200 to 0x400 with 0's.
+1. Run the program and then press a button on
+a remote.
+1. Pause the program and look at the variables. You should see
+something like the following. The values are the captured wave form from the
+remote.
 
-![array screen shot](arrayScreenShot.gif)
+  ![array screen shot](arrayScreenShot.gif)
 
-The values are the captured wave form from the remote. Using this data the
-IR timing spreadsheet, you need to determine the remote's timing
+1. Copy/Paste this data into the IR timing spreadsheet. The goal is to determine
+the remote's timing
 
-## Due day 1:
+Also repeat the process, but now look at the logic analyzer.
+- Configure the logic analyzer to trigger from high-to-low
+- Capture at least 90% of the data stored post-trigger
+- Select 100 nsec sampling
+- Grab 4M samples
+- Press run single
 
-- Table-1
+Then press a remote button and look at the captured signal. It should look *sort of like*
+the following:
 
-# Day 2
+![](la.png)
 
-#### IR data packets
-
-Before you start on this portion of the assignment, watch
-[Dave Jones' Trigger Hold-off Tutorial](http://www.youtube.com/watch?v=ta096oBzSac).
-You are going to need to use the logic analyzer to examine the IR waveforms
-generated by a remote control of your choice.
-
-Set up your LaunchPad like the picture below. Make sure to connect the power and
-ground in the correct order! Connect the logic analyzer on the Vout pin of
-the IR receiver.
-
-![schematic](schematic.jpg)
-
-
-
-Configure the logic analyzer to collect data on an edge change, with at least
-90% of the data stored post-trigger.  On my remote control, the full remote
+**WARNING:** On my remote control, the full remote
 control signal was about 80ms. Please note that remote control data packets
 are not standardized by any means, so the remote that you use to perform these
 experiment will almost certainly generate results different  from those that
@@ -122,52 +132,27 @@ Note: "start -- logic 0 half pulse" refers to the logic LOW portion of the start
 pulse, and "data 0 -- logic 1 half pulse" refers to the second half (which is a
   logic HIGH) of the pulse representing a zero bit.
 
-
+**where does this go?**
 
 Collect and tabulate in Excel eight samples of timer A counts for each of the
 following pulse types (in decimal). Compute the average and standard deviation
 of each pulse type. I would suggest just grabbing it from the CCS variables tab.
 
+- Data 1, logic 0 half-pulse
 - Data 1, logic 1 half-pulse
-
 - Data 0, logic 0 half-pulse
-
 - Data 0, logic 1 half-pulse
-
-Ensure you label the rows and columns of your table so that I will know what
-the information in each cell means.
 
 For each pulse type list the range of timer A counts that would correctly
 classify 99.9999426697% of the pulses. This number has something to do with the
 [standard deviation](http://en.wikipedia.org/wiki/Standard_deviation#Rules_for_normally_distributed_data)
 (hint: look at the table in this section).
 
-Write the codes (in hex) for at least 10 remote control buttons.  ("Button name"
-refers to CH+, 6, VOL-, Power, etc.)
+**end**
 
-# Prelab
+## Due day 1:
 
-Hand in a flowchart of your program.
-
-Answer the following questions:
-
-1. How long will it take the timer to roll over?
-1. How long does each timer count last?
-
-The while(1) loop in main reads in the IR pulse in the for loop.
-
-Annotate the picture below to indicate which line of the for loop in the program
-is executed at which part of the pulse. You should show a total of 6 lines of
-code (lines 32-34 and lines 36-38).
-
-![IR wave](irWave.gif)
-
-# Day 1 Turn-in
-
-Printable versions of these are here [here](tables.html)
-
-- Excel spreadsheet filed out
-- Table filled in
+Show your instructor these:
 
 | Pulse | Duration (ms)	| Timer A counts |
 |-------|---------------|----------------|
@@ -180,40 +165,97 @@ Printable versions of these are here [here](tables.html)
 | Stop: logic 0 half pulse   | | |
 | Stop: logic 1 half pulse   | | |
 
+
+# Day 2
+
+## Prelab Day 2
+
+- TBD
+
+## IR data packets
+
+Connect your MSP430 back to the logic analyzer as you did during day 1. Now that
+you know the characteristics of your remote, we want to capture the packets now.
+
+![](protocol.jpg)
+
+
+
+Write the codes (in hex) for at least 5 remote control buttons.  ("Button name"
+refers to CH+, 6, VOL-, Power, etc.)
+
 # Day 2 Turn-in
 
-- Demonstrate pressing a button and deciphering which key was pressed
-- Table filled in
+- Show your instructor the following table
 
 | Button | Button name | Hex code (not including start and stop bits) |
 |--------|-------------|----------------------------------------------|
 | 1      | | |	 
 | 2      | | |
-| 3      | | |	 
-| 4      | | |
-| 5      | | |	 
-| 6      | | |
-| 7      | | |
-| 8      | | |
-| 9      | | |
-| 10     | | |
+| 3      | | |
 
+# Day 3
 
-# Demonstrate Functionality on Day 3
+Now that you have deciphered the remote, lets have it control some LEDs on your
+Launchpad.
 
-Turn an LED on and off with one button on the remote (any button is fine). Turn
-another LED on and off with a different button.  Turn both LEDs on and off with
-a third button.
+## Prelab Day 3
 
-In addition to the `start.c` and `start.h` files, the below image may be of some use:
+- You need to have working code (at least something that compiles and does
+    everything) if you want to finish on time. **Don't** wait until class to
+    start coding!
 
-![schematic](schematic.jpg)
+## Main
 
-# Rubric
+## Port 2 Vector Data Collection
 
-- [5 pts] Prelab
-- [10 pts] Day one milestone
-- [10 pts] Day two milestone
+For the IR remote data, you only need to detect the data's logic high as either
+a `0` (should be short time) or a `1` (should be a long time)
+
+### Falling Edge
+
+1. Read TAR
+1. Classify logic 1 half-pulse and shift bit into `irPacket`
+1. Store TAR in `packetData`
+1. Turn Timer A off
+1. Enable rising edge interrupt
+
+### Rising Edge
+
+1. set TAR = 0
+1. Turn Timer A on
+1. Enable Timer A interrupt
+1. Enable falling edge interrupt
+
+After both rising/falling edge, clear the `P2IFG`
+
+## Timer 0 Vector
+
+1. Turn off Timer A
+1. Turn off Timer A interrupt
+1. Clear `packetIndex`
+1. Set `newPacket` flag
+1. Clear `TAIFG`
+
+# Day 3 Turn-in
+
+- Demonstrate pressing the 3 buttons and deciphering which key was pressed
+    - Basically, if button one is `0xaabbccdd`, then press button and show
+    in CCS that your program read in the correct value
+- Turn the red on/off with one button on the remote (any button is fine).
+- Turn the green LED on/off with a different button
+- Turn both LEDs on/off with a third button
+- **Only push this LED code to bitbucket, not the Day 1/2 code**
+
+# Rubric TBD
+
+**WARNING:** This lab has been around and I have made changes to it. When I review
+your code, if I see code from the old way to do the lab you will receive 0 pts
+for your code. Please do not cheat.
+
+- [5 pts] Prelab Day 1
+- [x pts] Prelab Day 2
+- [10 pts] Day one milestone: Table 1 on-time
+- [10 pts] Day two milestone: Table 2 on-time
 - [20 pts] Code organization, comments, repo organization, and good programming practices
-- [20 pts] Meeting milestone 1 and 2
 - [30 pts] Demonstration in class
