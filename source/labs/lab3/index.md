@@ -26,7 +26,6 @@ We will exploit that to learn how they work.
 - [test3.c](./test3.c): Use this file to characterize the buttons of your remote
 - [start3.c](./start3.c): Initial template file for lab
 - [start3.h](./start3.h): Initial template file for lab
-- [IR timing spreadsheet](./ir_remote.xlsx): use this to help you characterize
 
 your remote control pulses. You will look at data in CCS and find the start
 of a signal, then copy/paste those values into the spreadsheet. The spreadsheet
@@ -177,7 +176,7 @@ Show your instructor these:
 Connect your MSP430 back to the logic analyzer as you did during day 1. Now that
 you know the characteristics of your remote, we want to capture the packets now.
 
-![](protocol.jpg)
+![](protocol-signal.jpg)
 
 
 
