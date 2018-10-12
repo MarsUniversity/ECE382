@@ -1,13 +1,25 @@
 //-----------------------------------------------------------------
 // Your header here
 //-----------------------------------------------------------------
-// #include <msp430g2553.h>
-// #include <stdint.h>
-#include "start5.h"
+#include <msp430g2553.h>
+#include <stdint.h>
+#include <stdbool.h>
 
-bool newIrPacket = FALSE;
-uint16_t packetData[48];
-uint8_t packetIndex = 0;
+// delay code written in assembly
+// make sure to drag/drop the assembly code too
+extern void Delay160ms(void);
+extern void Delay40ms(void);
+
+// globals are the only way to work with interrupts
+bool irPacket = 0;
+
+// Globals are bad, but these are constants and can't be changed accidently.
+// Set them up for your remote.
+const uint32_t Button1 = 0x0;
+const uint32_t Button2 = 0x0;
+const uint32_t Button3 = 0x0;
+const uint32_t Button4 = 0x0;
+const uint32_t Button5 = 0x0;
 
 // -----------------------------------------------------------------------
 // In order to decode IR packets, the MSP430 needs to be configured to
@@ -21,8 +33,6 @@ uint8_t packetIndex = 0;
 // last.  In some degenerate cases, we will need to generate a interrupt
 // when the timer rolls over.  This will indicate the end of a packet
 // and will be used to alert main that we have a new packet.
-// -----------------------------------------------------------------------
-// -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
 void main(void){
 
@@ -38,19 +48,23 @@ void main(void){
     P2IE  |= BIT6;      // Enable P2.3 interrupt
 
     HIGH_2_LOW;         // check the header out.  P2IES changed.
-                        // Set LEDs as outputs
-                        // And turn the LEDs off
 
-                        // create a 16ms roll-over period
-                        // clear flag before enabling interrupts = good practice
-                        // Use 1:8 prescalar off SMCLK and enable interrupts
+    ??                  // Set LEDs as outputs
+    ??                  // And turn the LEDs off
+    ??                  // ... you will need several lines to
 
-    _enable_interrupt();
+    ??                  // create a 16ms roll-over period
+    ??                  // clear flag before enabling interrupts = good practice
+    ??                  // Use 1:8 prescalar off SMCLK and enable interrupts
+
+                        // and enable interrupts
+
+                        // toggle the Green led for on for 1 second
 
     while(1){
-        if (packetIndex > 33) {
-            packetIndex = 0;
-        } // end if new IR packet arrived
+                        // check for valid ir packet and handle it
+                        // however you are supposed to
+
     } // end infinite loop
 } // end main
 
@@ -80,42 +94,42 @@ void main(void){
 // Since the duration of this half-bit determines the outcome
 // we will turn on the timer and its associated interrupt.
 // -----------------------------------------------------------------------
-#pragma vector = PORT2_VECTOR          // This is from the MSP430G2553.h file
-
+#pragma vector = PORT2_VECTOR
 __interrupt void pinChange (void) {
-
     uint8_t    pin;
     uint16_t   pulseDuration;          // The timer is 16-bits
 
-    if (IR_PIN)        pin=1;    else pin=0;
+    if (IR_PIN)  // is pin high or low?
+        pin=1;
+    else
+        pin=0;
 
-    switch (pin) {                    // read the current pin level
-        case 0:                        // !!!!!!!!!NEGATIVE EDGE!!!!!!!!!!
-            pulseDuration = TA0R;    //**Note** If you don't specify TA1 or TA0 then TAR defaults to TA0R
-            packetData[packetIndex++] = pulseDuration;
-            LOW_2_HIGH;                 // Set up pin interrupt on positive edge
+    switch (pin) {
+        case 0: // !!!!!!!!!NEGATIVE EDGE!!!!!!!!!!
+            pulseDuration = TA0R;
+
+            ??                      // figure out what this is?
+            ??                      // start? 0-bit? 1-bit?
+
+            LOW_2_HIGH;             // Set up pin interrupt on positive edge
             break;
 
-        case 1:                            // !!!!!!!!POSITIVE EDGE!!!!!!!!!!!
-            TA0R = 0x0000;                        // time measurements are based at time 0
-            HIGH_2_LOW;                         // Set up pin interrupt on falling edge
+        case 1: // !!!!!!!!POSITIVE EDGE!!!!!!!!!!!
+            TA0R = 0x0000;          // time measurements are based at time 0
+            TA0CTL |= MC_1 | TAIE;
+            HIGH_2_LOW;             // Set up pin interrupt on falling edge
             break;
     } // end switch
 
-    P2IFG &= ~BIT6;            // Clear the interrupt flag to prevent immediate ISR re-entry
+    ??                             // Clear the interrupt flag to prevent
+                                   // immediate ISR re-entry
 
 } // end pinChange ISR
 
-// -----------------------------------------------------------------------
-//            0 half-bit    1 half-bit        TIMER A COUNTS        TIMER A COUNTS
-//    Logic 0    xxx
-//    Logic 1
-//    Start
-//    End
-//
-// -----------------------------------------------------------------------
-#pragma vector = TIMER0_A1_VECTOR            // This is from the MSP430G2553.h file
-__interrupt void timerOverflow (void) {
 
-    TA0CTL &= ~TAIFG;
+#pragma vector = TIMER0_A1_VECTOR
+__interrupt void timerOverflow (void) {
+    TA0CTL &= ~MC_1;              // Turn off Timer A and Enable Interrupt
+    TA0CTL &= ~TAIE;
+    TA0CTL &= ~TAIFG;  // clear timer a interrupt
 }

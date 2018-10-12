@@ -86,13 +86,13 @@ header-includes:
 [29]: lessons/lsn29-30/index.html
 [30]: lessons/lsn29-30/index.html
 [31]: lessons/lsn31/index.html
-[32]: labs/lab3/index.html
-[33]: labs/lab3/index.html
-[34]: labs/lab3/index.html
+[32]: labs/index.html
+[33]: labs/index.html
+[34]: labs/index.html
 [35]: lessons/lsn35/index.html
-[36]: labs/lab4/index.html
-[37]: labs/lab4/index.html
-[38]: labs/lab4/index.html
+[36]: labs/index.html
+[37]: labs/index.html
+[38]: labs/index.html
 [39]: www.google.com
 [40]: www.google.com
 
