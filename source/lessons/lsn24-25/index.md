@@ -14,7 +14,7 @@ beginning of lesson 26.
 1. When an interrupt occurs, what are the 7 steps that occur?
 1. When an interrupt is completed, what are the 2 things that occur?
 1. What are the C commands to enable or disable all interrupts?
-1. Write a code snippet to handle the port 1 interrupt flag?
+1. Write a code snippet to handle the port 1 pin 3 push button interrupt ... just write the ISR and `#pragma`
 
 ## Resources
 
