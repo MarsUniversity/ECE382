@@ -36,15 +36,15 @@ header-includes:
 | 23  | [Common Data Structures][23]                          | X    | |
 | 24  | [Interrupts][24]                                      |      | |
 | 25  | [Interrupts][25]                                      |      | ICE: Single/Multiple Buttons Interrupts|
-| 26  | [Serial Comm][26]                                     |      | |
-| 27  | [Serial Comm][27]                                     |      | |
-| 28  | [Serial Comm][28]                                     | X    | |
-| 29  | [Timers][29]                                          |      | |
-| 30  | [Timers][30]                                          |      | ICE: Tone Generation (bring earbuds/headphones to class)|
-| 31  | [Capture Compare][31]                                 |      | |
-| 32  | [Lab 3: IR Remote][32]                                |      | |
-| 33  | [Lab 3: IR Remote][33]                                |      | |
-| 34  | [Lab 3: IR Remote][34]                                | X    | |
+| 26  | [Timers][26]                                          |      | |
+| 27  | [Timers][27]                                          |      | ICE: Tone Generation (bring earbuds/headphones to class)|
+| 28  | [Capture Compare][28]                                 |      | |
+| 29  | [Lab 3: IR Remote][29]                                |      | |
+| 30  | [Lab 3: IR Remote][30]                                |      | |
+| 31  | [Lab 3: IR Remote][31]                                | X    | |
+| 32  | [Serial Comm][32]                                     |      | |
+| 33  | [Serial Comm][33]                                     |      | |
+| 34  | [Serial Comm][34]                                     | X    | |
 | 35  | [Analog-to-Digital Conversion][35]                    |      | |
 | 36  | [Lab 4: Servo Calibrator][36]                         |      | |
 | 37  | [Lab 4: Servo Calibrator][37]                         |      | |
@@ -80,15 +80,15 @@ header-includes:
 [23]: lessons/lsn22-23/index.html
 [24]: lessons/lsn24-25/index.html
 [25]: lessons/lsn24-25/index.html
-[26]: lessons/lsn26-27-28/index.html
-[27]: lessons/lsn26-27-28/index.html
-[28]: lessons/lsn26-27-28/index.html
-[29]: lessons/lsn29-30/index.html
-[30]: lessons/lsn29-30/index.html
-[31]: lessons/lsn31/index.html
-[32]: labs/index.html
-[33]: labs/index.html
-[34]: labs/index.html
+[26]: lessons/lsn26-27/index.html
+[27]: lessons/lsn26-27/index.html
+[28]: lessons/lsn28/index.html
+[29]: labs/index.html
+[30]: labs/index.html
+[31]: labs/index.html
+[32]: lessons/lsn32-33-34/index.html
+[33]: lessons/lsn32-33-34/index.html
+[34]: lessons/lsn32-33-34/index.html
 [35]: lessons/lsn35/index.html
 [36]: labs/index.html
 [37]: labs/index.html

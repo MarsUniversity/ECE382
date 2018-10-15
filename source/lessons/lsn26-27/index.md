@@ -15,5 +15,5 @@ beginning lesson 31.
 
 ## Resources
 
-- [ppt](Lsn29-30.pptx)
+- [ppt](Lsn26-27.pptx)
 - [Timers doc](timers.docx)
