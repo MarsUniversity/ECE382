@@ -11,7 +11,11 @@ beginning lesson 31.
 
 **Integrity:** Your honor is extremely important.  This academic security policy is designed to help you succeed in meeting academic requirements while practicing the honorable behavior our country rightfully demands of its military.  Do not compromise your integrity by violating academic security or by taking unfair advantage of your classmates.
 
-1. TBD
+1. What is the difference between the ACLK, SMCLK, and INCLK?
+1. What is the command to select the SMCLK using C?
+1. Of the 4 modes, which mode counts up to 0xffff and then returns straight to 0 (saw tooth)?
+1. Of the 4 modes, which mode counts up to TACCR0 and then decrements back down to 0 (looks like pyramids)?
+
 
 ## Resources
 
