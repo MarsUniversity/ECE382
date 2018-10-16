@@ -96,7 +96,10 @@ header-includes:
 [39]: www.google.com
 [40]: www.google.com
 
-# [Spring 2018 Syllabus](syllabus.pdf)
+# Spring 2018 Syllabus
+
+
+- [printable Spring 2018 Syllabus](syllabus.pdf)
 
 ## Instructors
 
