@@ -35,18 +35,18 @@ header-includes:
 | 22  | [Common Data Structures][22]                          |      | |
 | 23  | [Common Data Structures][23]                          | X    | |
 | 24  | [Interrupts][24]                                      |      | |
-| 25  | [Interrupts][25]                                      |      | ICE: Single/Multiple Buttons Interrupts|
+| 25  | [Interrupts][25]                                      |      | |
 | 26  | [Timers][26]                                          |      | |
-| 27  | [Timers][27]                                          |      | ICE: Tone Generation (bring earbuds/headphones to class)|
-| 28  | [Capture Compare][28]                                 |      | |
+| 27  | [Timers][27]                                          |      | |
+| 28  | [Capture Compare][28]                                 | X    | |
 | 29  | [Lab 3: IR Remote][29]                                |      | |
 | 30  | [Lab 3: IR Remote][30]                                |      | |
-| 31  | [Lab 3: IR Remote][31]                                | X    | |
+| 31  | [Lab 3: IR Remote][31]                                |      | |
 | 32  | [Serial Comm][32]                                     |      | |
 | 33  | [Serial Comm][33]                                     |      | |
-| 34  | [Serial Comm][34]                                     | X    | |
+| 34  | [Serial Comm][34]                                     |      | |
 | 35  | [Analog-to-Digital Conversion][35]                    |      | |
-| 36  | [Lab 4: Servo Calibrator][36]                         |      | |
+| 36  | [Lab 4: Servo Calibrator][36]                         | X    | |
 | 37  | [Lab 4: Servo Calibrator][37]                         |      | |
 | 38  | [Lab 4: Servo Calibrator][38]                         |      | |
 | 39  | [GR 2][39]                                            |      | |

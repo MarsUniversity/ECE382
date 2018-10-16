@@ -20,4 +20,3 @@ beginning lesson 31.
 ## Resources
 
 - [ppt](Lsn26-27.pptx)
-- [Timers doc](timers.docx)
