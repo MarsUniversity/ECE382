@@ -16,11 +16,11 @@ header-includes:
 | 3   | [ISA: Instructions to Machine Code][3]                |      | Code Composer Studio should be installed |
 | 4   | [ISA: Instructions to Machine Code][4]                |      | |
 | 5   | [ISA: Instructions to Machine Code][5]                |      | `gitbash` should be installed, [instructions](lessons/lsn7/git_install.html) |
-| 6   | [Code Composer Studio][6]                             | X    | on-line git homework due at BOC |
-| 7   | [Git Review][7]                                       |      | |
+| 6   | [Code Composer Studio][6]                             | X    | ICE: Code Composer Studio |
+| 7   | [Git Review][7]                                       |      | ICE: Git |
 | 8   | [Status Register and Flow Control][8]                 |      | |
 | 9   | [Stack, Subroutines, and ABI][9]                      | X    | |
-| 10  | [Stack, Subroutines, and ABI][10]                     |      | |
+| 10  | [Stack, Subroutines, and ABI][10]                     |      | ICE: Stack and Flow Control |
 | 11  | [Lab 1: Assembly Calculator][11]                      |      | |
 | 12  | [Lab 1: Assembly Calculator][11]                      |      | |
 | 13  | [Memory Mapped IO and Muxes][13]                      |      | |
@@ -35,16 +35,16 @@ header-includes:
 | 22  | [Common Data Structures][22]                          |      | |
 | 23  | [Common Data Structures][23]                          | X    | |
 | 24  | [Interrupts][24]                                      |      | |
-| 25  | [Interrupts][25]                                      |      | |
+| 25  | [Interrupts][25]                                      |      | ICE: Buttons and LEDs|
 | 26  | [Timers][26]                                          |      | |
-| 27  | [Timers][27]                                          |      | |
+| 27  | [Timers][27]                                          |      | ICE: Tones|
 | 28  | [Capture Compare][28]                                 | X    | |
 | 29  | [Lab 3: IR Remote][29]                                |      | |
 | 30  | [Lab 3: IR Remote][30]                                |      | |
 | 31  | [Lab 3: IR Remote][31]                                |      | |
 | 32  | [Serial Comm][32]                                     |      | |
 | 33  | [Serial Comm][33]                                     |      | |
-| 34  | [Serial Comm][34]                                     |      | |
+| 34  | [Serial Comm][34]                                     |      | ICE: Serial LCD |
 | 35  | [Analog-to-Digital Conversion][35]                    |      | |
 | 36  | [Lab 4: Servo Calibrator][36]                         | X    | |
 | 37  | [Lab 4: Servo Calibrator][37]                         |      | |

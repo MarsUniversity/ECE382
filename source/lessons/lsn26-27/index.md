@@ -19,4 +19,6 @@ beginning lesson 31.
 
 ## Resources
 
+- [ICE: Tones ppt](ice/ice.pptx)
+- [ICE: interruptTones.c](ice/interruptTones.c)
 - [ppt](Lsn26-27.pptx)
