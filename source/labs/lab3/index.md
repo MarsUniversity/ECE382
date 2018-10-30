@@ -9,6 +9,15 @@ you can get it to light up some LEDs for you. Unfortunately, IR remotes don't
 really follow much of a standard, but they tend to operate similar to each other.
 We will exploit that to learn how they work.
 
+---
+
+**WARNING:** This lab has been around for a while, but I have changed it this
+semester. If I see your code *looks* like work from previous years, I will
+*assume* you are cheating and you will loose **a lot of points**.
+Depending on how bad it looks, it could result in an honor case.
+
+---
+
 ## Objectives
 
 - Use the Time A subsystem
@@ -42,7 +51,9 @@ This lab will be completed in 3 steps:
 - **Lab day 2:** Use interrupts to capture IR packets: demonstrate your code can receive and decode button presses from the remote control
 - **Lab day 3:** Demonstrate turning LEDs on/off
 
-**If you finish a day early, move on to the next**
+**If you finish a day early, move on to the next day's work**
+
+**Please do the prelabs, they will help you meet the above deadlines**
 
 # Day 1
 
@@ -50,7 +61,7 @@ This lab will be completed in 3 steps:
 
 I will not check these, but you need to do them to stay on track.
 
-- Fill in the missing code for [test.c](test.c)
+- Fill in the missing code for [test3.c](test3.c)
 - Print the tables you need for [Day 1 and 2](tables.html)
 
 ## Connecting the IR sensor
@@ -190,13 +201,16 @@ Show your instructor the following table
 or off. This is good feedback that our remote works (batteries aren't dead) and
 we have setup our interrupts setup correctly
 - Every time you get a complete 32b data packet, toggle the Green LED on/off
-- Attach two additional LED/resistors, look back at lab 2 if you need to remember
+- Attach two additional LEDs/resistors, look back at lab 2 if you need to remember
 on how to do this, to your Launchpad.
 - Pressing button 1 should light up LED 1
 - Pressing button 2 should turn off LED 1
 - Pressing button 3 should blink LED 2 three times (about 1 second on and 1 second off for each blink)
 - Pressing button 4 should blink LED 2 five times (same timings as button 3)
 - Pressing button 5 should turn on/off LED 1 and 2
+
+Each of the above actions are independent. Do not hit multiple buttons at the
+same time or hit remote buttons to interrupt button 4 blinking lights.
 
 ## Port 2 Vector Data Collection
 
@@ -231,7 +245,7 @@ After both rising/falling edge, clear the `P2IFG`
 - Demonstrate the buttons working
 - **Only push this LED code to bitbucket, not the Day 1/2 code, by the end-of-class**
 
-# Rubric TBD
+# Rubric
 
 **WARNING:** This lab has been around and I have made changes to it. When I review
 your code, if I see code from the old way to do the lab you will receive 0 pts

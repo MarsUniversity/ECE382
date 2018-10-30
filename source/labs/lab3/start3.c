@@ -10,8 +10,10 @@
 extern void Delay160ms(void);
 extern void Delay40ms(void);
 
-// globals are the only way to work with interrupts
-bool irPacket = 0;
+// macros to make life easier
+#define        IR_PIN            (P2IN & BIT6)
+#define        HIGH_2_LOW        P2IES |= BIT6
+#define        LOW_2_HIGH        P2IES &= ~BIT6
 
 // Globals are bad, but these are constants and can't be changed accidently.
 // Set them up for your remote.
