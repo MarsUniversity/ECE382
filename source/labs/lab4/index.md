@@ -1,11 +1,10 @@
-# Lab 4: Servo Calibrator
+# Lab 4: Servo Motor
 
-![](servo.jpg)
+![](servo.jpg){width=300px}
 
 # Objectives
 
-- Figure out how to interface a microcontroller to various sensors and actuators
-without much information
+- Interfacing a microcontroller with external HW
     - You will need to figure out how to do this lab without example/starter code
     - You have all the knowledge (lessons) and hands-on-experience (ICEs) to do this
     - There are many different ways to accomplish this lab, pick which ever way
@@ -17,7 +16,8 @@ without much information
 
 # References
 
-- [Servo motor datasheet](../../references/servo.pdf){width=75%}
+- [Servo motor datasheet](servo.pdf)
+- [LCD datasheet](SerLCD_v2_5ApplicationNote.pdf)
 - Class lessons
 - Class ICEs
 
@@ -40,31 +40,43 @@ rather than one really one `main.c`.
 
 - You will hand-in a flow chart of your program.
 - Hand in a wiring diagram (you can use PowerPoint, Visio or equivalent)
-
-Answer the following questions:
-
-- Given your Launchpad operates at 3.3V, is there anything you need to worry
-about with this setup? If so, what will you do to mitigate the issues? If not,
-why not?
-- Identify what ports/pins (Px.y) you are using for this lab and what you will configure
-them for?
+- Identify what ports/pins (Px.y) you are using for this lab and what you will
+use them for in the table below:
 
 | Px.y | Use |
 |------|-----|
-|      |     |
+| P1.0 | Set as output, red LED for debugging the ...  |
 |      | *add more lines as needed for you table* |
 
 # Demonstration
 
+1. When your MSP430 boots up, it should clear the LCD and then print:
+    - Line 1: `ECE 382, Fall 2018`
+    - Line 2: `C2C First Last` (obviously fill in your rank and name)
+    - Wait about 3 seconds, then clear the screen and show the servo angle
+
 1. Show your instructor that your setup works. You should be able to turn the
 pot knob and see both the servo move and the LCD print out the angle it turned
 too.
+    1. Servo should turn from ~0 to ~180 deg when the pot is turned
+        1. If you are off by a 1-2 degrees, that is ok
+        1. Show your instructor the angles: ~0, ~90, ~180 deg
+    1. LCD line 1 should show the current angle, example `Servo: 25 deg`
+    1. Don't try to turn the servo less than 0 deg or more than 180 deg
 1. Show the logic analyzer displaying your PWM signal at the 2 extremes of your
 servo's movement.
-1. Identify the period of your PWM signal.
+    1. Identify the period of your PWM signal
+    1. Show the pulse width (msec) of your signal for an angle of ~0 deg
+    1. Show the pulse width (msec) of your signal for an angle of ~180 deg
+
+# Bonus
+
+1. Go back to lab 3 and control the servo with your IR remote. Select 3 buttons
+which correspond to 0, 90, and 180 deg.
 
 # Rubric
 
-- [25 pts] Prelab (15 pts flowchart, 10 pts questions)
-- [25 pts] Code organization, comments, and good programming practices
-- [50 pts] Demonstration in class
+- [10 pts] Prelab
+- [20 pts] Code organization, comments, and good programming practices
+- [70 pts] Demonstration in class
+- [15 pts] **Bonus**
