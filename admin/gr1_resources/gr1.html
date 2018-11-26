@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title> ECE 382 </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+      <!-- <link rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/MarsUniversity/ece382/master/source/pandoc.css'> -->
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [["$","$"],["\\(","\\)"]]
+          }
+        });
+      </script>
+
+      <style type="text/css">
+           code{white-space: pre-wrap;}
+           span.smallcaps{font-variant: small-caps;}
+           span.underline{text-decoration: underline;}
+           div.column{display: inline-block; vertical-align: top; width: 50%;}
+       </style>
+       <style type="text/css">
+     a.sourceLine { display: inline-block; line-height: 1.25; }
+     a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+     a.sourceLine:empty { height: 1.2em; }
+     .sourceCode { overflow: visible; }
+     code.sourceCode { white-space: pre; position: relative; }
+     div.sourceCode { margin: 1em 0; }
+     pre.sourceCode { margin: 0; }
+     @media screen {
+     div.sourceCode { overflow: auto; }
+     }
+     @media print {
+     code.sourceCode { white-space: pre-wrap; }
+     a.sourceLine { text-indent: -1em; padding-left: 1em; }
+     }
+     pre.numberSource a.sourceLine
+       { position: relative; left: -4em; }
+     pre.numberSource a.sourceLine::before
+       { content: attr(data-line-number);
+         position: relative; left: -1em; text-align: right; vertical-align: baseline;
+         border: none; pointer-events: all; display: inline-block;
+         -webkit-touch-callout: none; -webkit-user-select: none;
+         -khtml-user-select: none; -moz-user-select: none;
+         -ms-user-select: none; user-select: none;
+         padding: 0 4px; width: 4em;
+         color: #aaaaaa;
+       }
+     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+     div.sourceCode
+       {  }
+     @media screen {
+     a.sourceLine::before { text-decoration: underline; }
+     }
+     code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+     code span.at { color: #7d9029; } /* Attribute */
+     code span.bn { color: #40a070; } /* BaseN */
+     code span.bu { } /* BuiltIn */
+     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+     code span.ch { color: #4070a0; } /* Char */
+     code span.cn { color: #880000; } /* Constant */
+     code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+     code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+     code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+     code span.dt { color: #902000; } /* DataType */
+     code span.dv { color: #40a070; } /* DecVal */
+     code span.er { color: #ff0000; font-weight: bold; } /* Error */
+     code span.ex { } /* Extension */
+     code span.fl { color: #40a070; } /* Float */
+     code span.fu { color: #06287e; } /* Function */
+     code span.im { } /* Import */
+     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+     code span.op { color: #666666; } /* Operator */
+     code span.ot { color: #007020; } /* Other */
+     code span.pp { color: #bc7a00; } /* Preprocessor */
+     code span.sc { color: #4070a0; } /* SpecialChar */
+     code span.ss { color: #bb6688; } /* SpecialString */
+     code span.st { color: #4070a0; } /* String */
+     code span.va { color: #19177c; } /* Variable */
+     code span.vs { color: #4070a0; } /* VerbatimString */
+     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+     img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+     }
+
+
+     html {
+       font-size: 100%;
+       overflow-y: scroll;
+       -webkit-text-size-adjust: 100%;
+       -ms-text-size-adjust: 100%;
+     }
+
+     body {
+       color: #444;
+       font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+       /*font-size: 14px;*/
+       line-height: 1.7;
+       padding: 1em;
+       margin: auto;
+       /*max-width: 42em;*/
+       max-width: 90%;
+       /* background: #fefefe; */
+     }
+
+     a {
+       color: #0645ad;
+       text-decoration: none;
+     }
+
+     a:visited {
+       color: #0b0080;
+     }
+
+     a:hover {
+       color: #06e;
+     }
+
+     a:active {
+       color: #faa700;
+     }
+
+     a:focus {
+       outline: thin dotted;
+     }
+
+     *::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     *::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     a::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     a::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     p {
+       margin: 1em 0;
+     }
+
+     img {
+       max-width: 100%;
+     }
+
+     h1, h2, h3, h4, h5, h6 {
+       color: #111;
+       line-height: 125%;
+       margin-top: 1em;
+       font-weight: normal;
+     }
+
+     h4, h5, h6 {
+       font-weight: bold;
+     }
+
+     h1 {
+       font-size: 2.5em;
+     }
+
+     h2 {
+       font-size: 2em;
+     }
+
+     h3 {
+       font-size: 1.5em;
+     }
+
+     h4 {
+       font-size: 1.2em;
+     }
+
+     h5 {
+       font-size: 1em;
+     }
+
+     h6 {
+       font-size: 0.9em;
+     }
+
+     blockquote {
+       color: #666666;
+       margin: 0;
+       padding-left: 3em;
+       border-left: 0.5em #EEE solid;
+     }
+
+     hr {
+       display: block;
+       height: 2px;
+       border: 0;
+       border-top: 1px solid #aaa;
+       border-bottom: 1px solid #eee;
+       margin: 1em 0;
+       padding: 0;
+     }
+
+     pre, code, kbd, samp {
+       color: #000;
+       font-family: monospace, monospace;
+       /*_font-family: 'courier new', monospace;*/
+       font-size: 0.98em;
+     }
+
+     pre {
+       white-space: pre;
+       white-space: pre-wrap;
+       word-wrap: break-word;
+     }
+
+     b, strong {
+       font-weight: bold;
+     }
+
+     dfn {
+       font-style: italic;
+     }
+
+     ins {
+       background: #ff9;
+       color: #000;
+       text-decoration: none;
+     }
+
+     mark {
+       background: #ff0;
+       color: #000;
+       font-style: italic;
+       font-weight: bold;
+     }
+
+     sub, sup {
+       font-size: 75%;
+       line-height: 0;
+       position: relative;
+       vertical-align: baseline;
+     }
+
+     sup {
+       top: -0.5em;
+     }
+
+     sub {
+       bottom: -0.25em;
+     }
+
+     ul, ol {
+       margin: 1em 0;
+       padding: 0 0 0 2em;
+     }
+
+     li p:last-child {
+       margin-bottom: 0;
+     }
+
+     ul ul, ol ol {
+       margin: .3em 0;
+     }
+
+     dl {
+       margin-bottom: 1em;
+     }
+
+     dt {
+       font-weight: bold;
+       margin-bottom: .8em;
+     }
+
+     dd {
+       margin: 0 0 .8em 2em;
+     }
+
+     dd:last-child {
+       margin-bottom: 0;
+     }
+
+     img {
+       border: 0;
+       -ms-interpolation-mode: bicubic;
+       vertical-align: middle;
+     }
+
+     figure {
+       display: block;
+       text-align: center;
+       margin: 1em 0;
+     }
+
+     figure img {
+       border: none;
+       margin: 0 auto;
+     }
+
+     figcaption {
+       font-size: 0.8em;
+       font-style: italic;
+       margin: 0 0 .8em;
+     }
+
+     table {
+       margin-left:auto;
+       margin-right:auto;
+       margin-bottom: 2em;
+       border-bottom: 1px solid #ddd;
+       border-right: 1px solid #ddd;
+       border-spacing: 0;
+       border-collapse: collapse;
+     }
+
+     table th {
+       padding: .2em 1em;
+       background-color: #0099ff;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       color: white;
+     }
+
+     /*.even {background-color: #f2f2f2}*/
+     tr:nth-child(even) {background-color: #f2f2f2}
+
+     table td {
+       padding: .2em 1em;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       vertical-align: top;
+     }
+       </style>
+
+
+    </head>
+    <body>
+        <div class = "container"> <!-- center navbar on page -->
+            <!-- <nav class = "navbar navbar-default navbar-inverse bg-inverse"> -->
+            <nav class="navbar navbar-inverse bg-inverse">
+                <div class = "container-fluid">
+                    <div class="navbar-header">
+                    <a class = "navbar-brand" href="./../../index.html">ECE382</a>
+                  </div>
+                    <ul class = "nav navbar-nav">
+                        <li><a href="./../../index.html">Home</a></li>
+                        <li><a href="./../../labs/index.html">Labs</a></li>
+                        <li><a href="./../../references/index.html">References</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <p>title = &#8216;GR1 Resources&#8217;</p>
+<h1 id="gr-resources">GR Resources</h1>
+<h2 id="past-gr">Past GR</h2>
+<p><a href="GR1_v3.pdf">GR1 Fall 2016</a></p>
+<h2 id="instruction-set">Instruction Set</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Opcode</th>
+<th style="text-align: center;">Assembly Instruction</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">000</td>
+<td style="text-align: center;">RRC(.B)</td>
+<td style="text-align: center;">9-bit rotate right through carry. C-&gt;msbit-&gt;&#8230;-&gt;lsbit-&gt;C. Clear the carry bit beforehand to do a logical right shift.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">001</td>
+<td style="text-align: center;">SWPB</td>
+<td style="text-align: center;">Swap 8-bit register halves. No byte form.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">010</td>
+<td style="text-align: center;">RRA(.B)</td>
+<td style="text-align: center;">Badly named, this is an arithmetic right shift - meaning the most significant bit is preserved.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">011</td>
+<td style="text-align: center;">SXT</td>
+<td style="text-align: center;">Sign extend 8 bits to 16. No byte form.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">PUSH(.B)</td>
+<td style="text-align: center;">Push operand on stack. Push byte decrements SP by 2. Most significant byte not overwritten. CPU BUG: PUSH #4 and PUSH #8 do not work when the short encoding using <span class="citation" data-cites="r2">@r2</span> and <span class="citation" data-cites="r2">@r2</span>+ is used. The workaround, to use a 16-bit immediate, is trivial, so TI do not plan to fix this bug.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">101</td>
+<td style="text-align: center;">CALL</td>
+<td style="text-align: center;">Fetch operand, push PC, then assign operand value to PC. Note the immediate form is the most commonly used. There is no easy way to perform a PC-relative call; the PC-relative addressing mode fetches a word and uses it as an absolute address. This has no byte form.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">110</td>
+<td style="text-align: center;">RETI</td>
+<td style="text-align: center;">Pop SP, then pop PC. Note that because flags like CPUOFF are in the stored status register, the CPU will normally return to the low-power mode it was previously in. This can be changed by adjusting the SR value stored on the stack before invoking RETI (see below). The operand field is unused.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">111</td>
+<td style="text-align: center;">Unused</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Condition Code</th>
+<th style="text-align: center;">Assembly Instruction</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">000</td>
+<td style="text-align: center;">JNE/JNZ</td>
+<td style="text-align: center;">Jump if Z==0 (if <code>!=</code>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">001</td>
+<td style="text-align: center;">JEQ/Z</td>
+<td style="text-align: center;">Jump if Z==1 (if <code>==</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">010</td>
+<td style="text-align: center;">JNC/JLO</td>
+<td style="text-align: center;">Jump if C==0 (if unsigned <code>&lt;</code>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">011</td>
+<td style="text-align: center;">JC/JHS</td>
+<td style="text-align: center;">Jump if C==1 (if unsigned <code>&gt;</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">JN</td>
+<td style="text-align: center;">Jump if N==1 - Note there is no jump if N==0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">101</td>
+<td style="text-align: center;">JGE</td>
+<td style="text-align: center;">Jump if N==V (if signed <code>&gt;=</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">110</td>
+<td style="text-align: center;">JL</td>
+<td style="text-align: center;">Jump if N!=V (if signed <code>&lt;</code>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">111</td>
+<td style="text-align: center;">JMP</td>
+<td style="text-align: center;">Jump unconditionally</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Opcode</th>
+<th style="text-align: center;">Assembly Instruction</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0100</td>
+<td style="text-align: center;">MOV src, dest</td>
+<td style="text-align: center;">dest = src</td>
+<td style="text-align: center;">The status flags are NOT set.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0101</td>
+<td style="text-align: center;">ADD src, dest</td>
+<td style="text-align: center;">dest += src</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0110</td>
+<td style="text-align: center;">ADDC src, dest</td>
+<td style="text-align: center;">dest += src + C</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">SUBC src, dest</td>
+<td style="text-align: center;">dest += ~src + C</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">SUB src, dest</td>
+<td style="text-align: center;">dest -= src</td>
+<td style="text-align: center;">Implemented as dest += ~src + 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1001</td>
+<td style="text-align: center;">CMP src, dest</td>
+<td style="text-align: center;">dest - src</td>
+<td style="text-align: center;">Sets status only; the destination is not written.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1010</td>
+<td style="text-align: center;">DADD src, dest</td>
+<td style="text-align: center;">dest += src + C, BCD (Binary Coded Decimal)</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1011</td>
+<td style="text-align: center;">BIT src, dest</td>
+<td style="text-align: center;">dest &amp; src</td>
+<td style="text-align: center;">Sets status only; the destination is not written.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1100</td>
+<td style="text-align: center;">BIC src, dest</td>
+<td style="text-align: center;">dest &amp;= ~src</td>
+<td style="text-align: center;">The status flags are NOT set.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1101</td>
+<td style="text-align: center;">BIS src, dest</td>
+<td style="text-align: center;">dest |=src</td>
+<td style="text-align: center;">The status flags are NOT set.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1110</td>
+<td style="text-align: center;">XOR src, dest</td>
+<td style="text-align: center;">dest ^= src</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">AND src, dest</td>
+<td style="text-align: center;">dest &amp;= src</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Emulated Instruction</th>
+<th style="text-align: center;">Assembly Instruction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">NOP</td>
+<td style="text-align: center;">MOV r3, r3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">POP dst</td>
+<td style="text-align: center;">MOV <span class="citation" data-cites="SP">@SP</span>+, dst</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BR dst</td>
+<td style="text-align: center;">MOV dst, PC</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">RET</td>
+<td style="text-align: center;">MOV <span class="citation" data-cites="SP">@SP</span>+, PC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CLRC</td>
+<td style="text-align: center;">BIC #1, SR</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SETC</td>
+<td style="text-align: center;">BIS #1, SR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CLRZ</td>
+<td style="text-align: center;">BIC #2, SR</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SETZ</td>
+<td style="text-align: center;">BIS #2, SR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CLRN</td>
+<td style="text-align: center;">BIC #4, SR</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SETN</td>
+<td style="text-align: center;">BIS #4, SR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DINT</td>
+<td style="text-align: center;">BIC #8, SR</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EINT</td>
+<td style="text-align: center;">BIS #8, SR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">RLA(.B)</td>
+<td style="text-align: center;">ADD(.B) dst, dst</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">RLC(.B)</td>
+<td style="text-align: center;">ADDC(.B) dst, dst</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">INV(.B) dst</td>
+<td style="text-align: center;">XOR(.B) #-1, dst</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CLR(.B) dst</td>
+<td style="text-align: center;">MOV(.B) #0, dst</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">TST(.B) dst</td>
+<td style="text-align: center;">CMP(.B) #0, dst</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">DEC(.B) dst</td>
+<td style="text-align: center;">SUB(.B) #1, dst</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DECD(.B) dst</td>
+<td style="text-align: center;">SUB(.B) #2, dst</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">INC(.B) dst</td>
+<td style="text-align: center;">ADD(.B) #1, dst</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">INCD(.B) dst</td>
+<td style="text-align: center;">ADD(.B) #2, dst</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ADC(.B) dst</td>
+<td style="text-align: center;">ADDC(.B) #0, dst</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DADC(.B) dst</td>
+<td style="text-align: center;">DADD(.B) #0, dst</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SBC(.B) dst</td>
+<td style="text-align: center;">SUBC(.B) #0, dst</td>
+</tr>
+</tbody>
+</table>
+<h2 id="assembly-to-machine-code">Assembly-to-Machine Code</h2>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">15</th>
+<th style="text-align: center;">14</th>
+<th style="text-align: center;">13</th>
+<th style="text-align: center;">12</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">10</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Opcode colspan=3</td>
+<td style="text-align: center;">W=0/B=1</td>
+<td style="text-align: center;">Ad colspan=2</td>
+<td style="text-align: center;">Dest reg colspan=4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Condition colspan=3</td>
+<td style="text-align: center;">PC offset (10 bit) colspan=10</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Opcode colspan=4</td>
+<td style="text-align: center;">Source reg colspan=4</td>
+<td style="text-align: center;">Ad</td>
+<td style="text-align: center;">W=0/B=1</td>
+<td style="text-align: center;">As colspan=2</td>
+<td style="text-align: center;">Dest reg colspan=4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Code</th>
+<th style="text-align: center;">Addressing Mode</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">Rn</td>
+<td style="text-align: center;">Register direct</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">offset(Rn)</td>
+<td style="text-align: center;">Register indexed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"><span class="citation" data-cites="Rn">@Rn</span></td>
+<td style="text-align: center;">Register indirect</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;"><span class="citation" data-cites="Rn">@Rn</span>+</td>
+<td style="text-align: center;">Register indirect with post-increment</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Code</th>
+<th style="text-align: center;">Register</th>
+<th style="text-align: center;">Addressing Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;">r2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;">&amp;&lt; location&gt;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;">#4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;">#8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;">#0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;">#1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;">#2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;">#-1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="msp430g2553">MSP430G2553</h2>
+<figure>
+<img src="device_pinout.jpg" alt="Device Pinout" /><figcaption>Device Pinout</figcaption>
+</figure>
+<figure>
+<img src="P1_0_to_P1_2.jpg" alt="P1_0 to P1_2" /><figcaption>P1_0 to P1_2</figcaption>
+</figure>
+<figure>
+<img src="P1_3.jpg" alt="P1_3" /><figcaption>P1_3</figcaption>
+</figure>
+<figure>
+<img src="P1_4.jpg" alt="P1_4" /><figcaption>P1_4</figcaption>
+</figure>
+<h2 id="serial-peripheral-interface-spi">Serial Peripheral Interface (SPI)</h2>
+<figure>
+<img src="SPI_CTL0_CTL1.jpg" alt="SPI Control Registers 0 and 1" /><figcaption>SPI Control Registers 0 and 1</figcaption>
+</figure>
+<h2 id="instruction-lengths">Instruction Lengths</h2>
+<figure>
+<img src="single_operand_lengths.jpg" alt="Single Operand Instruction Lengths" /><figcaption>Single Operand Instruction Lengths</figcaption>
+</figure>
+<figure>
+<img src="jump_lengths.jpg" alt="Jump Instruction Lengths" /><figcaption>Jump Instruction Lengths</figcaption>
+</figure>
+<figure>
+<img src="double_operand_lengths.jpg" alt="Double Operand Instruction Lengths" /><figcaption>Double Operand Instruction Lengths</figcaption>
+</figure>
+<h2 id="digital-io-gpio">Digital IO (GPIO)</h2>
+<figure>
+<img src="digital_IO_page1.jpg" alt="Digital IO Page 1" /><figcaption>Digital IO Page 1</figcaption>
+</figure>
+<figure>
+<img src="digital_IO_page2.jpg" alt="Digital IO Page 2" /><figcaption>Digital IO Page 2</figcaption>
+</figure>
+<figure>
+<img src="digital_IO_page3.jpg" alt="Digital IO Page 3" /><figcaption>Digital IO Page 3</figcaption>
+</figure>
+
+        </div>
+    </body>
+</html>

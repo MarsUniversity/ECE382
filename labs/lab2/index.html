@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title> ECE 382 </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+      <!-- <link rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/MarsUniversity/ece382/master/source/pandoc.css'> -->
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [["$","$"],["\\(","\\)"]]
+          }
+        });
+      </script>
+
+      <style type="text/css">
+           code{white-space: pre-wrap;}
+           span.smallcaps{font-variant: small-caps;}
+           span.underline{text-decoration: underline;}
+           div.column{display: inline-block; vertical-align: top; width: 50%;}
+       </style>
+       <style type="text/css">
+     a.sourceLine { display: inline-block; line-height: 1.25; }
+     a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+     a.sourceLine:empty { height: 1.2em; }
+     .sourceCode { overflow: visible; }
+     code.sourceCode { white-space: pre; position: relative; }
+     div.sourceCode { margin: 1em 0; }
+     pre.sourceCode { margin: 0; }
+     @media screen {
+     div.sourceCode { overflow: auto; }
+     }
+     @media print {
+     code.sourceCode { white-space: pre-wrap; }
+     a.sourceLine { text-indent: -1em; padding-left: 1em; }
+     }
+     pre.numberSource a.sourceLine
+       { position: relative; left: -4em; }
+     pre.numberSource a.sourceLine::before
+       { content: attr(data-line-number);
+         position: relative; left: -1em; text-align: right; vertical-align: baseline;
+         border: none; pointer-events: all; display: inline-block;
+         -webkit-touch-callout: none; -webkit-user-select: none;
+         -khtml-user-select: none; -moz-user-select: none;
+         -ms-user-select: none; user-select: none;
+         padding: 0 4px; width: 4em;
+         color: #aaaaaa;
+       }
+     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+     div.sourceCode
+       {  }
+     @media screen {
+     a.sourceLine::before { text-decoration: underline; }
+     }
+     code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+     code span.at { color: #7d9029; } /* Attribute */
+     code span.bn { color: #40a070; } /* BaseN */
+     code span.bu { } /* BuiltIn */
+     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+     code span.ch { color: #4070a0; } /* Char */
+     code span.cn { color: #880000; } /* Constant */
+     code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+     code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+     code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+     code span.dt { color: #902000; } /* DataType */
+     code span.dv { color: #40a070; } /* DecVal */
+     code span.er { color: #ff0000; font-weight: bold; } /* Error */
+     code span.ex { } /* Extension */
+     code span.fl { color: #40a070; } /* Float */
+     code span.fu { color: #06287e; } /* Function */
+     code span.im { } /* Import */
+     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+     code span.op { color: #666666; } /* Operator */
+     code span.ot { color: #007020; } /* Other */
+     code span.pp { color: #bc7a00; } /* Preprocessor */
+     code span.sc { color: #4070a0; } /* SpecialChar */
+     code span.ss { color: #bb6688; } /* SpecialString */
+     code span.st { color: #4070a0; } /* String */
+     code span.va { color: #19177c; } /* Variable */
+     code span.vs { color: #4070a0; } /* VerbatimString */
+     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+     img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+     }
+
+
+     html {
+       font-size: 100%;
+       overflow-y: scroll;
+       -webkit-text-size-adjust: 100%;
+       -ms-text-size-adjust: 100%;
+     }
+
+     body {
+       color: #444;
+       font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+       /*font-size: 14px;*/
+       line-height: 1.7;
+       padding: 1em;
+       margin: auto;
+       /*max-width: 42em;*/
+       max-width: 90%;
+       /* background: #fefefe; */
+     }
+
+     a {
+       color: #0645ad;
+       text-decoration: none;
+     }
+
+     a:visited {
+       color: #0b0080;
+     }
+
+     a:hover {
+       color: #06e;
+     }
+
+     a:active {
+       color: #faa700;
+     }
+
+     a:focus {
+       outline: thin dotted;
+     }
+
+     *::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     *::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     a::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     a::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     p {
+       margin: 1em 0;
+     }
+
+     img {
+       max-width: 100%;
+     }
+
+     h1, h2, h3, h4, h5, h6 {
+       color: #111;
+       line-height: 125%;
+       margin-top: 1em;
+       font-weight: normal;
+     }
+
+     h4, h5, h6 {
+       font-weight: bold;
+     }
+
+     h1 {
+       font-size: 2.5em;
+     }
+
+     h2 {
+       font-size: 2em;
+     }
+
+     h3 {
+       font-size: 1.5em;
+     }
+
+     h4 {
+       font-size: 1.2em;
+     }
+
+     h5 {
+       font-size: 1em;
+     }
+
+     h6 {
+       font-size: 0.9em;
+     }
+
+     blockquote {
+       color: #666666;
+       margin: 0;
+       padding-left: 3em;
+       border-left: 0.5em #EEE solid;
+     }
+
+     hr {
+       display: block;
+       height: 2px;
+       border: 0;
+       border-top: 1px solid #aaa;
+       border-bottom: 1px solid #eee;
+       margin: 1em 0;
+       padding: 0;
+     }
+
+     pre, code, kbd, samp {
+       color: #000;
+       font-family: monospace, monospace;
+       /*_font-family: 'courier new', monospace;*/
+       font-size: 0.98em;
+     }
+
+     pre {
+       white-space: pre;
+       white-space: pre-wrap;
+       word-wrap: break-word;
+     }
+
+     b, strong {
+       font-weight: bold;
+     }
+
+     dfn {
+       font-style: italic;
+     }
+
+     ins {
+       background: #ff9;
+       color: #000;
+       text-decoration: none;
+     }
+
+     mark {
+       background: #ff0;
+       color: #000;
+       font-style: italic;
+       font-weight: bold;
+     }
+
+     sub, sup {
+       font-size: 75%;
+       line-height: 0;
+       position: relative;
+       vertical-align: baseline;
+     }
+
+     sup {
+       top: -0.5em;
+     }
+
+     sub {
+       bottom: -0.25em;
+     }
+
+     ul, ol {
+       margin: 1em 0;
+       padding: 0 0 0 2em;
+     }
+
+     li p:last-child {
+       margin-bottom: 0;
+     }
+
+     ul ul, ol ol {
+       margin: .3em 0;
+     }
+
+     dl {
+       margin-bottom: 1em;
+     }
+
+     dt {
+       font-weight: bold;
+       margin-bottom: .8em;
+     }
+
+     dd {
+       margin: 0 0 .8em 2em;
+     }
+
+     dd:last-child {
+       margin-bottom: 0;
+     }
+
+     img {
+       border: 0;
+       -ms-interpolation-mode: bicubic;
+       vertical-align: middle;
+     }
+
+     figure {
+       display: block;
+       text-align: center;
+       margin: 1em 0;
+     }
+
+     figure img {
+       border: none;
+       margin: 0 auto;
+     }
+
+     figcaption {
+       font-size: 0.8em;
+       font-style: italic;
+       margin: 0 0 .8em;
+     }
+
+     table {
+       margin-left:auto;
+       margin-right:auto;
+       margin-bottom: 2em;
+       border-bottom: 1px solid #ddd;
+       border-right: 1px solid #ddd;
+       border-spacing: 0;
+       border-collapse: collapse;
+     }
+
+     table th {
+       padding: .2em 1em;
+       background-color: #0099ff;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       color: white;
+     }
+
+     /*.even {background-color: #f2f2f2}*/
+     tr:nth-child(even) {background-color: #f2f2f2}
+
+     table td {
+       padding: .2em 1em;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       vertical-align: top;
+     }
+       </style>
+
+
+    </head>
+    <body>
+        <div class = "container"> <!-- center navbar on page -->
+            <!-- <nav class = "navbar navbar-default navbar-inverse bg-inverse"> -->
+            <nav class="navbar navbar-inverse bg-inverse">
+                <div class = "container-fluid">
+                    <div class="navbar-header">
+                    <a class = "navbar-brand" href="./../../index.html">ECE382</a>
+                  </div>
+                    <ul class = "nav navbar-nav">
+                        <li><a href="./../../index.html">Home</a></li>
+                        <li><a href="./../../labs/index.html">Labs</a></li>
+                        <li><a href="./../../references/index.html">References</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <h1 id="lab-2---stoplight">Lab 2 - Stoplight</h1>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Learn to characterize and debounce a button in SW</li>
+<li>Learn to use the logic analyzer to characterize digital signals</li>
+<li>Learn external HW communications</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=gZ2oEjQgtcM">How a 74HC595 shift register works</a> gives a simple overview of how you can clock data into the shift register.</li>
+<li><a href="https://marsuniversity.github.io/ece382/references/sn74hc595.pdf">74HC595 datasheet</a></li>
+<li><a href="http://www.idogendel.com/en/archives/211">BEGINNER&#8217;S GUIDE TO THE 595 SHIFT REGISTER</a></li>
+</ul>
+<h1 id="directions">Directions</h1>
+<h2 id="debounced-button">Debounced Button</h2>
+<p>Using the your knowledge and experience from class. First implement a button with a software delay so the uC only registers 1 button press when the button is hit.</p>
+<h2 id="sn74hc595-shift-register">SN74HC595 Shift Register</h2>
+<p><img src="lab-setup_bb.png" style="width:75.0%" /></p>
+<p>Now, wire up your shift register according to the datasheet. A suggested setup is shown above. Note, the command wires going from your Launchpad to the 595 <strong>are not shown</strong>. You get to pick which pins you want to use and how they get wired up.</p>
+<p>To verify your uC is sending the correct commands to the 595, hook it up to the logic analyzer. Make sure you understand how the <code>SRCLK</code>, <code>SER</code>, and <code>RCLK</code> works in order to verify the signal on the logic analyzer.</p>
+<p><img src="settings-timing.jpg" /></p>
+<p><img src="settings-inputs.jpg" /></p>
+<h3 id="bits-1000">Bits: 1000</h3>
+<p><img src="bit0.jpg" /></p>
+<h3 id="bits-0100">Bits: 0100</h3>
+<p><img src="bit1.jpg" /></p>
+<h3 id="bits-0010">Bits: 0010</h3>
+<p><img src="bit2.jpg" /></p>
+<h3 id="bits-0001">Bits: 0001</h3>
+<p><img src="bit3.jpg" /></p>
+<h3 id="wiring-up-leds">Wiring Up LEDs</h3>
+<p><img src="led_diagram.png" width="300" /></p>
+<p>LEDs are polarized, meaning, if you hook them up backwards, you will destroy them. The key feature on every through hole LED is the flat side which indicates it is the side you attach to ground.</p>
+<p><img src="led-wiring.gif" /></p>
+<p>Most LEDS, like the ones we have for our lab, can handle between 2 and 20 mA of current. Too much, and you will destroy the LED. So we need to put a current limiting resistor in there.</p>
+<h2 id="operation">Operation</h2>
+<p>Once you have everything hooked up, you need to write assembly code to:</p>
+<ul>
+<li>When the button is pushed, the LED attached to <span class="math inline"><em>Q</em><sub><em>A</em></sub></span> lights up</li>
+<li>When the button is pushed again, <span class="math inline"><em>Q</em><sub><em>A</em></sub></span> turns off and <span class="math inline"><em>Q</em><sub><em>B</em></sub></span> turns on</li>
+<li>Subsequent button pushes cause the lit LED to shift to the next pin.</li>
+<li>Finally, when you push the button, the lite LED wraps around from <span class="math inline"><em>Q</em><sub><em>D</em></sub></span> to <span class="math inline"><em>Q</em><sub><em>A</em></sub></span> and it continues on again</li>
+<li>One button push should correlate to one shift of the LED
+<ul>
+<li>This is where debouncing comes in</li>
+</ul></li>
+</ul>
+<h3 id="software">Software</h3>
+<p>The 595 chip is basically a serial data in, parallel data out converter. Later we will talk about different types of serial communications. Right now you are going to program a software serial device.</p>
+<p>There is more than one way to write this software. Basically you need to tie pins on your Launchpad to the <code>SRCLK</code>, <code>SER</code>, and <code>RCLK</code> pins on the 595. Which ever pins you choose on the Launchpad, you will need to set them up properly. You have to come up with a way to &#8220;clock in&#8221; the serial data to the 595 by toggling those three pins in the right sequence. This really isn&#8217;t hard, you just have to think about it (it is a state machine &#8230; draw a flowchart!).</p>
+<h1 id="prelab">Prelab</h1>
+<p>Turn in a flow diagram of your code.</p>
+<p>On the SN74HC595 8b shift register, answer the following (<em>Note:</em> some of this should be familiar from ECE 281):</p>
+<ol type="1">
+<li>What are acceptable operating voltages for this chip</li>
+<li>What does the <code>SRCLR</code> pin do?</li>
+<li>What does the <code>SER</code> pin do?</li>
+<li>What does the <code>RCLK</code> do?</li>
+<li>What does the <code>SRCLK</code> do?</li>
+<li>What are the <span class="math inline"><em>Q</em><sub><em>A</em></sub></span> to <span class="math inline"><em>Q</em><sub><em>D</em></sub></span> pins?</li>
+<li>For our uC (3.3V), what is the approximate pulse duration for SRCLK and RCLK?</li>
+<li>What values for VCC can this chip use?</li>
+<li>Which pin is the output-enable (1-16)?</li>
+</ol>
+<h1 id="demonstration">Demonstration</h1>
+<p>For button debouncing, show your instructor:</p>
+<ul>
+<li>The logic analyzer display showing how long you need to wait for the bouncing to stop</li>
+<li>The SW delay loop in your code</li>
+<li>The calculations showing how long your delay should take</li>
+</ul>
+<p>For complete operation, show your instructor:</p>
+<ul>
+<li>The signal the uC sends to the 595 on the logic analyzer
+<ul>
+<li>Be able to explain how the signal operates</li>
+</ul></li>
+<li>Pressing the button once lights up one LED and shifts it</li>
+<li>The lite LED should wrap from the 4th to the 1st LED when the button is pressed</li>
+</ul>
+<h2 id="rubric">Rubric</h2>
+<ul>
+<li>[25 pts] Prelab (15 flowchart, 10 questions)</li>
+<li>[25 pts] Bitbucket, looking for:
+<ul>
+<li>Code organization</li>
+<li>Comments</li>
+<li>Proper header</li>
+<li>Good git commit messages like: <code>lab 1 init project</code> or <code>lab 1 final working code check by instructor</code></li>
+<li>Push code by end of class</li>
+<li>Good programming practices</li>
+<li>Proper repository organization</li>
+</ul></li>
+<li>[50 pts] Demonstration in class and answering questions</li>
+</ul>
+
+        </div>
+    </body>
+</html>

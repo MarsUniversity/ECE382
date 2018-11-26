@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title> ECE 382 </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+      <!-- <link rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/MarsUniversity/ece382/master/source/pandoc.css'> -->
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [["$","$"],["\\(","\\)"]]
+          }
+        });
+      </script>
+
+      <style type="text/css">
+           code{white-space: pre-wrap;}
+           span.smallcaps{font-variant: small-caps;}
+           span.underline{text-decoration: underline;}
+           div.column{display: inline-block; vertical-align: top; width: 50%;}
+       </style>
+       <style type="text/css">
+     a.sourceLine { display: inline-block; line-height: 1.25; }
+     a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+     a.sourceLine:empty { height: 1.2em; }
+     .sourceCode { overflow: visible; }
+     code.sourceCode { white-space: pre; position: relative; }
+     div.sourceCode { margin: 1em 0; }
+     pre.sourceCode { margin: 0; }
+     @media screen {
+     div.sourceCode { overflow: auto; }
+     }
+     @media print {
+     code.sourceCode { white-space: pre-wrap; }
+     a.sourceLine { text-indent: -1em; padding-left: 1em; }
+     }
+     pre.numberSource a.sourceLine
+       { position: relative; left: -4em; }
+     pre.numberSource a.sourceLine::before
+       { content: attr(data-line-number);
+         position: relative; left: -1em; text-align: right; vertical-align: baseline;
+         border: none; pointer-events: all; display: inline-block;
+         -webkit-touch-callout: none; -webkit-user-select: none;
+         -khtml-user-select: none; -moz-user-select: none;
+         -ms-user-select: none; user-select: none;
+         padding: 0 4px; width: 4em;
+         color: #aaaaaa;
+       }
+     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+     div.sourceCode
+       {  }
+     @media screen {
+     a.sourceLine::before { text-decoration: underline; }
+     }
+     code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+     code span.at { color: #7d9029; } /* Attribute */
+     code span.bn { color: #40a070; } /* BaseN */
+     code span.bu { } /* BuiltIn */
+     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+     code span.ch { color: #4070a0; } /* Char */
+     code span.cn { color: #880000; } /* Constant */
+     code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+     code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+     code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+     code span.dt { color: #902000; } /* DataType */
+     code span.dv { color: #40a070; } /* DecVal */
+     code span.er { color: #ff0000; font-weight: bold; } /* Error */
+     code span.ex { } /* Extension */
+     code span.fl { color: #40a070; } /* Float */
+     code span.fu { color: #06287e; } /* Function */
+     code span.im { } /* Import */
+     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+     code span.op { color: #666666; } /* Operator */
+     code span.ot { color: #007020; } /* Other */
+     code span.pp { color: #bc7a00; } /* Preprocessor */
+     code span.sc { color: #4070a0; } /* SpecialChar */
+     code span.ss { color: #bb6688; } /* SpecialString */
+     code span.st { color: #4070a0; } /* String */
+     code span.va { color: #19177c; } /* Variable */
+     code span.vs { color: #4070a0; } /* VerbatimString */
+     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+     img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+     }
+
+
+     html {
+       font-size: 100%;
+       overflow-y: scroll;
+       -webkit-text-size-adjust: 100%;
+       -ms-text-size-adjust: 100%;
+     }
+
+     body {
+       color: #444;
+       font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+       /*font-size: 14px;*/
+       line-height: 1.7;
+       padding: 1em;
+       margin: auto;
+       /*max-width: 42em;*/
+       max-width: 90%;
+       /* background: #fefefe; */
+     }
+
+     a {
+       color: #0645ad;
+       text-decoration: none;
+     }
+
+     a:visited {
+       color: #0b0080;
+     }
+
+     a:hover {
+       color: #06e;
+     }
+
+     a:active {
+       color: #faa700;
+     }
+
+     a:focus {
+       outline: thin dotted;
+     }
+
+     *::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     *::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     a::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     a::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     p {
+       margin: 1em 0;
+     }
+
+     img {
+       max-width: 100%;
+     }
+
+     h1, h2, h3, h4, h5, h6 {
+       color: #111;
+       line-height: 125%;
+       margin-top: 1em;
+       font-weight: normal;
+     }
+
+     h4, h5, h6 {
+       font-weight: bold;
+     }
+
+     h1 {
+       font-size: 2.5em;
+     }
+
+     h2 {
+       font-size: 2em;
+     }
+
+     h3 {
+       font-size: 1.5em;
+     }
+
+     h4 {
+       font-size: 1.2em;
+     }
+
+     h5 {
+       font-size: 1em;
+     }
+
+     h6 {
+       font-size: 0.9em;
+     }
+
+     blockquote {
+       color: #666666;
+       margin: 0;
+       padding-left: 3em;
+       border-left: 0.5em #EEE solid;
+     }
+
+     hr {
+       display: block;
+       height: 2px;
+       border: 0;
+       border-top: 1px solid #aaa;
+       border-bottom: 1px solid #eee;
+       margin: 1em 0;
+       padding: 0;
+     }
+
+     pre, code, kbd, samp {
+       color: #000;
+       font-family: monospace, monospace;
+       /*_font-family: 'courier new', monospace;*/
+       font-size: 0.98em;
+     }
+
+     pre {
+       white-space: pre;
+       white-space: pre-wrap;
+       word-wrap: break-word;
+     }
+
+     b, strong {
+       font-weight: bold;
+     }
+
+     dfn {
+       font-style: italic;
+     }
+
+     ins {
+       background: #ff9;
+       color: #000;
+       text-decoration: none;
+     }
+
+     mark {
+       background: #ff0;
+       color: #000;
+       font-style: italic;
+       font-weight: bold;
+     }
+
+     sub, sup {
+       font-size: 75%;
+       line-height: 0;
+       position: relative;
+       vertical-align: baseline;
+     }
+
+     sup {
+       top: -0.5em;
+     }
+
+     sub {
+       bottom: -0.25em;
+     }
+
+     ul, ol {
+       margin: 1em 0;
+       padding: 0 0 0 2em;
+     }
+
+     li p:last-child {
+       margin-bottom: 0;
+     }
+
+     ul ul, ol ol {
+       margin: .3em 0;
+     }
+
+     dl {
+       margin-bottom: 1em;
+     }
+
+     dt {
+       font-weight: bold;
+       margin-bottom: .8em;
+     }
+
+     dd {
+       margin: 0 0 .8em 2em;
+     }
+
+     dd:last-child {
+       margin-bottom: 0;
+     }
+
+     img {
+       border: 0;
+       -ms-interpolation-mode: bicubic;
+       vertical-align: middle;
+     }
+
+     figure {
+       display: block;
+       text-align: center;
+       margin: 1em 0;
+     }
+
+     figure img {
+       border: none;
+       margin: 0 auto;
+     }
+
+     figcaption {
+       font-size: 0.8em;
+       font-style: italic;
+       margin: 0 0 .8em;
+     }
+
+     table {
+       margin-left:auto;
+       margin-right:auto;
+       margin-bottom: 2em;
+       border-bottom: 1px solid #ddd;
+       border-right: 1px solid #ddd;
+       border-spacing: 0;
+       border-collapse: collapse;
+     }
+
+     table th {
+       padding: .2em 1em;
+       background-color: #0099ff;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       color: white;
+     }
+
+     /*.even {background-color: #f2f2f2}*/
+     tr:nth-child(even) {background-color: #f2f2f2}
+
+     table td {
+       padding: .2em 1em;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       vertical-align: top;
+     }
+       </style>
+
+
+    </head>
+    <body>
+        <div class = "container"> <!-- center navbar on page -->
+            <!-- <nav class = "navbar navbar-default navbar-inverse bg-inverse"> -->
+            <nav class="navbar navbar-inverse bg-inverse">
+                <div class = "container-fluid">
+                    <div class="navbar-header">
+                    <a class = "navbar-brand" href="./index.html">ECE382</a>
+                  </div>
+                    <ul class = "nav navbar-nav">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./labs/index.html">Labs</a></li>
+                        <li><a href="./references/index.html">References</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ECE 382: Embedded Systems I</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  
+  
+  
+  
+  
+</head>
+<body>
+<header>
+<h1 class="title">ECE 382: Embedded Systems I</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#spring-2018-syllabus">Spring 2018 Syllabus</a><ul>
+<li><a href="#instructors">Instructors</a></li>
+<li><a href="#course-goals-and-objectives">Course Goals and Objectives</a><ul>
+<li><a href="#course-prerequisites">Course Prerequisites</a></li>
+</ul></li>
+<li><a href="#grades">Grades</a></li>
+<li><a href="#missing-class-and-the-late-policy">Missing Class and the Late Policy</a></li>
+<li><a href="#collaboration-and-documentation-policy">Collaboration and Documentation Policy</a><ul>
+<li><a href="#homework">Homework</a></li>
+<li><a href="#prelabs-labs-and-lab-notebooks">Prelabs, Labs, and Lab Notebooks</a></li>
+<li><a href="#exams">Exams</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 73%" />
+<col style="width: 8%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lsn</th>
+<th>Topic</th>
+<th>Quiz</th>
+<th>Misc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><a href="lessons/lsn1/index.html">Intro &amp; Overview</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><a href="lessons/lsn2/index.html">uC Comparison and ISA</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="lessons/lsn3-4-5/index.html">ISA: Instructions to Machine Code</a></td>
+<td></td>
+<td>Code Composer Studio should be installed</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="lessons/lsn3-4-5/index.html">ISA: Instructions to Machine Code</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><a href="lessons/lsn3-4-5/index.html">ISA: Instructions to Machine Code</a></td>
+<td></td>
+<td><code>gitbash</code> should be installed, <a href="lessons/lsn7/git_install.html">instructions</a></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><a href="lessons/lsn6/index.html">Code Composer Studio</a></td>
+<td>X</td>
+<td>ICE: Code Composer Studio</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><a href="lessons/lsn7/index.html">Git Review</a></td>
+<td></td>
+<td>ICE: Git</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><a href="lessons/lsn8/index.html">Status Register and Flow Control</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td><a href="lessons/lsn9-10/index.html">Stack, Subroutines, and ABI</a></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><a href="lessons/lsn9-10/index.html">Stack, Subroutines, and ABI</a></td>
+<td></td>
+<td>ICE: Stack and Flow Control</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td><a href="labs/lab1/index.html">Lab 1: Assembly Calculator</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td><a href="labs/lab1/index.html">Lab 1: Assembly Calculator</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td><a href="lessons/lsn13/index.html">Memory Mapped IO and Muxes</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td><a href="lessons/lsn14-15/index.html">Polling, Debouncing, and Logic Analyzer</a></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td><a href="lessons/lsn14-15/index.html">Polling, Debouncing, and Logic Analyzer</a></td>
+<td></td>
+<td>ICE: DCO and Buttons</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td><a href="labs/lab2/index.html">Lab 2: Stoplight</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td><a href="labs/lab2/index.html">Lab 2: Stoplight</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td><a href="www.google.com">GR1</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td><a href="lessons/lsn19/index.html">GR Review and High Level Language (HLL) Overview</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td><a href="lessons/lsn20/index.html">Intro to C and Flow Control</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td><a href="lessons/lsn21/index.html">Programming Libraries</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td><a href="lessons/lsn22-23/index.html">Common Data Structures</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td><a href="lessons/lsn22-23/index.html">Common Data Structures</a></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td><a href="lessons/lsn24-25/index.html">Interrupts</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td><a href="lessons/lsn24-25/index.html">Interrupts</a></td>
+<td></td>
+<td>ICE: Buttons and LEDs</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td><a href="lessons/lsn26-27/index.html">Timers</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td><a href="lessons/lsn26-27/index.html">Timers</a></td>
+<td></td>
+<td>ICE: Tones</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td><a href="lessons/lsn28/index.html">Capture Compare</a></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td><a href="labs/index.html">Lab 3: IR Remote</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td><a href="labs/index.html">Lab 3: IR Remote</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>31</td>
+<td><a href="labs/index.html">Lab 3: IR Remote</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td><a href="lessons/lsn32-33-34/index.html">Serial Comm</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>33</td>
+<td><a href="lessons/lsn32-33-34/index.html">Serial Comm</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>34</td>
+<td><a href="lessons/lsn32-33-34/index.html">Serial Comm</a></td>
+<td></td>
+<td>ICE: Serial LCD</td>
+</tr>
+<tr class="odd">
+<td>35</td>
+<td><a href="lessons/lsn35/index.html">Analog-to-Digital Conversion</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>36</td>
+<td><a href="labs/index.html">Lab 4: Servo Calibrator</a></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>37</td>
+<td><a href="labs/index.html">Lab 4: Servo Calibrator</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>38</td>
+<td><a href="labs/index.html">Lab 4: Servo Calibrator</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td><a href="www.google.com">GR 2</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td><a href="www.google.com">Wrap Up</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Homeworks are at the beginning of class (BOC)</li>
+<li>Labs are due on the final day at the end of class (EOC)</li>
+</ul>
+<h1 id="spring-2018-syllabus">Spring 2018 Syllabus</h1>
+<ul>
+<li><a href="syllabus.pdf">printable Spring 2018 Syllabus</a></li>
+</ul>
+<h2 id="instructors">Instructors</h2>
+<p>Maj Kevin Walchko Fairchild 2E46A kevin.walchko@usafa.edu</p>
+<p>Capt Dan Johnson Fairchild 2F46A daniel.johnson@usafa.edu</p>
+<h2 id="course-goals-and-objectives">Course Goals and Objectives</h2>
+<p>By the end of this course, cadets shall be able to:</p>
+<ol type="1">
+<li>Utilize the built-in functional units of a specified microcontroller.</li>
+<li>Write, assemble, link, and run microcontroller code in assembly language.</li>
+<li>Write, compile, assemble, link, and run microcontroller code in the C programming language.</li>
+<li>Interpret and explain orally and in writing the functions of a given assembly language or C program as well as laboratory work</li>
+<li>Evaluate, analyze, debug, and modify a given program to improve its execution of a specified task</li>
+<li>Demonstrate a working knowledge of the on-board hardware components of a microcontroller and implement an interface between a specified microcontroller and other hardware.</li>
+<li>Demonstrate the ability to solve well and ill-defined problems</li>
+</ol>
+<h3 id="course-prerequisites">Course Prerequisites</h3>
+<p>CompSci 110 and ECE 281</p>
+<h2 id="grades">Grades</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Grade</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>90 &lt; A &lt; 100</td>
+<td>74 &lt; C+ &lt; 77</td>
+</tr>
+<tr class="even">
+<td>87 &lt; A- &lt; 90</td>
+<td>70 &lt; C &lt; 74</td>
+</tr>
+<tr class="odd">
+<td>84 &lt; B+ &lt; 87</td>
+<td>67 &lt; C- &lt; 70</td>
+</tr>
+<tr class="even">
+<td>80 &lt; B &lt; 84</td>
+<td>60 &lt; D &lt; 67</td>
+</tr>
+<tr class="odd">
+<td>77 &lt; B- &lt; 80</td>
+<td>0 &lt; F &lt; 60</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Prog %</th>
+<th>Final %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HW</td>
+<td>10</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Quizzes</td>
+<td>15</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>GRs</td>
+<td>50</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td>Labs</td>
+<td>25</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>Final Exam</td>
+<td></td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<h2 id="missing-class-and-the-late-policy">Missing Class and the Late Policy</h2>
+<p>Inform your instructor of absences in advance via email. Please include the reason for the absence and any relevant SCA. Check the SCA to see if instructor permission is required and if it is, make the request prior to the absence. You will be given an Unexcused Absence in CAS if you fail to get permission.</p>
+<p>If you plan to miss a class, you <em>must</em> take any quiz or GR prior to your departure.</p>
+<p>If you are expecting to miss class on the day an assignment is due, you shall turn-in your assignment prior to your departure. Your instructor may grant a no-penalty turn-in extension for absences resulting from illness or other legitimate extenuating circumstances. Cadets shall coordinate late submittals in advance. The late policy for the Department of Electrical and Computer Engineering is as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>How Late?</th>
+<th>Max Penalty</th>
+<th>Max Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 1 day</td>
+<td>25%</td>
+<td>75%</td>
+</tr>
+<tr class="even">
+<td>2 day</td>
+<td>50%</td>
+<td>50%</td>
+</tr>
+<tr class="odd">
+<td>3 day</td>
+<td>75%</td>
+<td>25%</td>
+</tr>
+<tr class="even">
+<td>&gt; 3 day</td>
+<td>100%</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="collaboration-and-documentation-policy">Collaboration and Documentation Policy</h2>
+<p>You may receive help from any <strong>DFEC faculty member</strong> on the homework. Do not work with other students in the class or who have taken the class previously. Document all help received on work submitted for grading IAW DF policies, or document <em>none</em> if your work was completely individual effort.</p>
+<h3 id="homework">Homework</h3>
+<p>Reading assignments are on each lesson page, along with the links and datasheet pages specified at the top of the respective lesson page. Readings should be accomplished <strong>prior</strong> to the designated class in order to be most beneficial.</p>
+<p>Graded homework assignments are also given at the top of the class notes and are due BOC the next lesson unless otherwise stated. Not every homework assignment or every problem in the homework assignment will be graded, that is up to the instructor. The expectation is you will do and turn in every homework assignment. Homework will not be handed back. The answers for every problem can be found in the lecture notes and the readings.</p>
+<h3 id="prelabs-labs-and-lab-notebooks">Prelabs, Labs, and Lab Notebooks</h3>
+<p>Labs will be turned in and graded via Bitbucket unless otherwise stated. If a prelab is assigned, you will turn it in the lesson prior to the start of the lab.</p>
+<p>Lab notebooks must follow the lab notebook standards specified on the <a href="/labs/index.html">Labs</a> page. Not following the standard exactly could result in a late penalty until the notebook meets standards.</p>
+<h3 id="exams">Exams</h3>
+<p>All exams are closed textbook and notes. Homework, laboratories, quizzes and classroom work will appear on exams. After the exam, you will not be allowed to keep the exam, but you will be allowed to see it when we go over the solutions.</p>
+</body>
+</html>
+
+        </div>
+    </body>
+</html>

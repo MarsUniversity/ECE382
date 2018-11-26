@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title> ECE 382 </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+      <!-- <link rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/MarsUniversity/ece382/master/source/pandoc.css'> -->
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [["$","$"],["\\(","\\)"]]
+          }
+        });
+      </script>
+
+      <style type="text/css">
+           code{white-space: pre-wrap;}
+           span.smallcaps{font-variant: small-caps;}
+           span.underline{text-decoration: underline;}
+           div.column{display: inline-block; vertical-align: top; width: 50%;}
+       </style>
+       <style type="text/css">
+     a.sourceLine { display: inline-block; line-height: 1.25; }
+     a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+     a.sourceLine:empty { height: 1.2em; }
+     .sourceCode { overflow: visible; }
+     code.sourceCode { white-space: pre; position: relative; }
+     div.sourceCode { margin: 1em 0; }
+     pre.sourceCode { margin: 0; }
+     @media screen {
+     div.sourceCode { overflow: auto; }
+     }
+     @media print {
+     code.sourceCode { white-space: pre-wrap; }
+     a.sourceLine { text-indent: -1em; padding-left: 1em; }
+     }
+     pre.numberSource a.sourceLine
+       { position: relative; left: -4em; }
+     pre.numberSource a.sourceLine::before
+       { content: attr(data-line-number);
+         position: relative; left: -1em; text-align: right; vertical-align: baseline;
+         border: none; pointer-events: all; display: inline-block;
+         -webkit-touch-callout: none; -webkit-user-select: none;
+         -khtml-user-select: none; -moz-user-select: none;
+         -ms-user-select: none; user-select: none;
+         padding: 0 4px; width: 4em;
+         color: #aaaaaa;
+       }
+     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+     div.sourceCode
+       {  }
+     @media screen {
+     a.sourceLine::before { text-decoration: underline; }
+     }
+     code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+     code span.at { color: #7d9029; } /* Attribute */
+     code span.bn { color: #40a070; } /* BaseN */
+     code span.bu { } /* BuiltIn */
+     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+     code span.ch { color: #4070a0; } /* Char */
+     code span.cn { color: #880000; } /* Constant */
+     code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+     code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+     code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+     code span.dt { color: #902000; } /* DataType */
+     code span.dv { color: #40a070; } /* DecVal */
+     code span.er { color: #ff0000; font-weight: bold; } /* Error */
+     code span.ex { } /* Extension */
+     code span.fl { color: #40a070; } /* Float */
+     code span.fu { color: #06287e; } /* Function */
+     code span.im { } /* Import */
+     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+     code span.op { color: #666666; } /* Operator */
+     code span.ot { color: #007020; } /* Other */
+     code span.pp { color: #bc7a00; } /* Preprocessor */
+     code span.sc { color: #4070a0; } /* SpecialChar */
+     code span.ss { color: #bb6688; } /* SpecialString */
+     code span.st { color: #4070a0; } /* String */
+     code span.va { color: #19177c; } /* Variable */
+     code span.vs { color: #4070a0; } /* VerbatimString */
+     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+     img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+     }
+
+
+     html {
+       font-size: 100%;
+       overflow-y: scroll;
+       -webkit-text-size-adjust: 100%;
+       -ms-text-size-adjust: 100%;
+     }
+
+     body {
+       color: #444;
+       font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+       /*font-size: 14px;*/
+       line-height: 1.7;
+       padding: 1em;
+       margin: auto;
+       /*max-width: 42em;*/
+       max-width: 90%;
+       /* background: #fefefe; */
+     }
+
+     a {
+       color: #0645ad;
+       text-decoration: none;
+     }
+
+     a:visited {
+       color: #0b0080;
+     }
+
+     a:hover {
+       color: #06e;
+     }
+
+     a:active {
+       color: #faa700;
+     }
+
+     a:focus {
+       outline: thin dotted;
+     }
+
+     *::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     *::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     a::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     a::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     p {
+       margin: 1em 0;
+     }
+
+     img {
+       max-width: 100%;
+     }
+
+     h1, h2, h3, h4, h5, h6 {
+       color: #111;
+       line-height: 125%;
+       margin-top: 1em;
+       font-weight: normal;
+     }
+
+     h4, h5, h6 {
+       font-weight: bold;
+     }
+
+     h1 {
+       font-size: 2.5em;
+     }
+
+     h2 {
+       font-size: 2em;
+     }
+
+     h3 {
+       font-size: 1.5em;
+     }
+
+     h4 {
+       font-size: 1.2em;
+     }
+
+     h5 {
+       font-size: 1em;
+     }
+
+     h6 {
+       font-size: 0.9em;
+     }
+
+     blockquote {
+       color: #666666;
+       margin: 0;
+       padding-left: 3em;
+       border-left: 0.5em #EEE solid;
+     }
+
+     hr {
+       display: block;
+       height: 2px;
+       border: 0;
+       border-top: 1px solid #aaa;
+       border-bottom: 1px solid #eee;
+       margin: 1em 0;
+       padding: 0;
+     }
+
+     pre, code, kbd, samp {
+       color: #000;
+       font-family: monospace, monospace;
+       /*_font-family: 'courier new', monospace;*/
+       font-size: 0.98em;
+     }
+
+     pre {
+       white-space: pre;
+       white-space: pre-wrap;
+       word-wrap: break-word;
+     }
+
+     b, strong {
+       font-weight: bold;
+     }
+
+     dfn {
+       font-style: italic;
+     }
+
+     ins {
+       background: #ff9;
+       color: #000;
+       text-decoration: none;
+     }
+
+     mark {
+       background: #ff0;
+       color: #000;
+       font-style: italic;
+       font-weight: bold;
+     }
+
+     sub, sup {
+       font-size: 75%;
+       line-height: 0;
+       position: relative;
+       vertical-align: baseline;
+     }
+
+     sup {
+       top: -0.5em;
+     }
+
+     sub {
+       bottom: -0.25em;
+     }
+
+     ul, ol {
+       margin: 1em 0;
+       padding: 0 0 0 2em;
+     }
+
+     li p:last-child {
+       margin-bottom: 0;
+     }
+
+     ul ul, ol ol {
+       margin: .3em 0;
+     }
+
+     dl {
+       margin-bottom: 1em;
+     }
+
+     dt {
+       font-weight: bold;
+       margin-bottom: .8em;
+     }
+
+     dd {
+       margin: 0 0 .8em 2em;
+     }
+
+     dd:last-child {
+       margin-bottom: 0;
+     }
+
+     img {
+       border: 0;
+       -ms-interpolation-mode: bicubic;
+       vertical-align: middle;
+     }
+
+     figure {
+       display: block;
+       text-align: center;
+       margin: 1em 0;
+     }
+
+     figure img {
+       border: none;
+       margin: 0 auto;
+     }
+
+     figcaption {
+       font-size: 0.8em;
+       font-style: italic;
+       margin: 0 0 .8em;
+     }
+
+     table {
+       margin-left:auto;
+       margin-right:auto;
+       margin-bottom: 2em;
+       border-bottom: 1px solid #ddd;
+       border-right: 1px solid #ddd;
+       border-spacing: 0;
+       border-collapse: collapse;
+     }
+
+     table th {
+       padding: .2em 1em;
+       background-color: #0099ff;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       color: white;
+     }
+
+     /*.even {background-color: #f2f2f2}*/
+     tr:nth-child(even) {background-color: #f2f2f2}
+
+     table td {
+       padding: .2em 1em;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       vertical-align: top;
+     }
+       </style>
+
+
+    </head>
+    <body>
+        <div class = "container"> <!-- center navbar on page -->
+            <!-- <nav class = "navbar navbar-default navbar-inverse bg-inverse"> -->
+            <nav class="navbar navbar-inverse bg-inverse">
+                <div class = "container-fluid">
+                    <div class="navbar-header">
+                    <a class = "navbar-brand" href="./../index.html">ECE382</a>
+                  </div>
+                    <ul class = "nav navbar-nav">
+                        <li><a href="./../index.html">Home</a></li>
+                        <li><a href="./../labs/index.html">Labs</a></li>
+                        <li><a href="./../references/index.html">References</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <p>title = &#8216;C Style Guide&#8217;</p>
+<h1 id="c-style-guide">C Style Guide</h1>
+<h2 id="general-guidelines">General Guidelines</h2>
+<ul>
+<li>Minimize use of global variables</li>
+<li>Main should be the first function implemented in <code>main.c</code>
+<ul>
+<li>Function prototypes used in main should be declared above main, but implemented below it</li>
+</ul></li>
+<li>Treat warnings as errors - fix them!</li>
+<li>Choose readability over brevity!</li>
+<li>Well-written code doesn&#8217;t require many comments</li>
+<li>Don&#8217;t comment bad code, rewrite it!</li>
+<li>If you find yourself writing the same code more than once, create a function!</li>
+</ul>
+<h2 id="general-style">General Style</h2>
+<p>Don&#8217;t comment bad code, rewrite it!</p>
+<p>Use whitespace to group code logically:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<p>Use functions to make code more readable:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// bad</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="cf">if</span> ((employeeAge &gt;= <span class="dv">65</span>) &amp;&amp; (yearsOfService &gt;= <span class="dv">10</span>) &amp;&amp; (isFullTime == TRUE))</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">{</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="co">// confer benefits</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">// good</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="cf">if</span> (isEmployeeEligibleForBenefits())</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">{</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    <span class="co">// confer benefits</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="dt">char</span> isEmployeeEligibleForBenefits()</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">{</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">    <span class="cf">return</span> (employeeAge &gt;= <span class="dv">65</span>) &amp;&amp; (yearsOfService &gt;= <span class="dv">10</span>) &amp;&amp; (isFullTime == TRUE);</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">}</a></code></pre></div>
+<h2 id="common-warnings-errors">Common Warnings / Errors</h2>
+<ul>
+<li>Implicit function declaration
+<ul>
+<li>You&#8217;re using a function without a prototype</li>
+<li>You&#8217;re misspelling a function</li>
+</ul></li>
+<li>Interrupt vector will not fit in available memory
+<ul>
+<li>You&#8217;re trying to put two things into the interrupt vector - delete one of them!</li>
+</ul></li>
+<li>Duplicate declaration
+<ul>
+<li>You&#8217;re declaring the same variable / function in multiple files</li>
+</ul></li>
+<li>Couldn&#8217;t resolve symbol
+<ul>
+<li>You&#8217;re spelling the name of something wrong</li>
+<li>You&#8217;re referencing a variable that doesn&#8217;t exist</li>
+<li>You&#8217;re referencing a function you haven&#8217;t implemented</li>
+</ul></li>
+</ul>
+<h2 id="the-right-tool-for-the-job">The Right Tool for the Job</h2>
+<p>Use for loops where they make sense:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// bad</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="dt">int</span> i = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="cf">while</span> (i &lt; <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">{</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="co">// do iterative task</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    i++;</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">// good</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="dt">int</span> i;</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">10</span>; i++)</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">{</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">    <span class="co">// do iterative task</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">}</a></code></pre></div>
+<p>Use switch statements where they make sense:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// bad</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="cf">if</span> (direction == UP)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">{</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="co">// move player up</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">} <span class="cf">else</span> <span class="cf">if</span> (direction == DOWN)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">{</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="co">// move player down</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">// good</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="cf">switch</span> (direction)</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">{</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">    <span class="cf">case</span> UP:</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">        <span class="co">// move player up</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">    <span class="cf">case</span> DOWN:</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">        <span class="co">// move player down</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">}</a></code></pre></div>
+
+        </div>
+    </body>
+</html>

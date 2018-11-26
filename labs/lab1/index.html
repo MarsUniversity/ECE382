@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title> ECE 382 </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+      <!-- <link rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/MarsUniversity/ece382/master/source/pandoc.css'> -->
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [["$","$"],["\\(","\\)"]]
+          }
+        });
+      </script>
+
+      <style type="text/css">
+           code{white-space: pre-wrap;}
+           span.smallcaps{font-variant: small-caps;}
+           span.underline{text-decoration: underline;}
+           div.column{display: inline-block; vertical-align: top; width: 50%;}
+       </style>
+       <style type="text/css">
+     a.sourceLine { display: inline-block; line-height: 1.25; }
+     a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+     a.sourceLine:empty { height: 1.2em; }
+     .sourceCode { overflow: visible; }
+     code.sourceCode { white-space: pre; position: relative; }
+     div.sourceCode { margin: 1em 0; }
+     pre.sourceCode { margin: 0; }
+     @media screen {
+     div.sourceCode { overflow: auto; }
+     }
+     @media print {
+     code.sourceCode { white-space: pre-wrap; }
+     a.sourceLine { text-indent: -1em; padding-left: 1em; }
+     }
+     pre.numberSource a.sourceLine
+       { position: relative; left: -4em; }
+     pre.numberSource a.sourceLine::before
+       { content: attr(data-line-number);
+         position: relative; left: -1em; text-align: right; vertical-align: baseline;
+         border: none; pointer-events: all; display: inline-block;
+         -webkit-touch-callout: none; -webkit-user-select: none;
+         -khtml-user-select: none; -moz-user-select: none;
+         -ms-user-select: none; user-select: none;
+         padding: 0 4px; width: 4em;
+         color: #aaaaaa;
+       }
+     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+     div.sourceCode
+       {  }
+     @media screen {
+     a.sourceLine::before { text-decoration: underline; }
+     }
+     code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+     code span.at { color: #7d9029; } /* Attribute */
+     code span.bn { color: #40a070; } /* BaseN */
+     code span.bu { } /* BuiltIn */
+     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+     code span.ch { color: #4070a0; } /* Char */
+     code span.cn { color: #880000; } /* Constant */
+     code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+     code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+     code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+     code span.dt { color: #902000; } /* DataType */
+     code span.dv { color: #40a070; } /* DecVal */
+     code span.er { color: #ff0000; font-weight: bold; } /* Error */
+     code span.ex { } /* Extension */
+     code span.fl { color: #40a070; } /* Float */
+     code span.fu { color: #06287e; } /* Function */
+     code span.im { } /* Import */
+     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+     code span.op { color: #666666; } /* Operator */
+     code span.ot { color: #007020; } /* Other */
+     code span.pp { color: #bc7a00; } /* Preprocessor */
+     code span.sc { color: #4070a0; } /* SpecialChar */
+     code span.ss { color: #bb6688; } /* SpecialString */
+     code span.st { color: #4070a0; } /* String */
+     code span.va { color: #19177c; } /* Variable */
+     code span.vs { color: #4070a0; } /* VerbatimString */
+     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+     img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+     }
+
+
+     html {
+       font-size: 100%;
+       overflow-y: scroll;
+       -webkit-text-size-adjust: 100%;
+       -ms-text-size-adjust: 100%;
+     }
+
+     body {
+       color: #444;
+       font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+       /*font-size: 14px;*/
+       line-height: 1.7;
+       padding: 1em;
+       margin: auto;
+       /*max-width: 42em;*/
+       max-width: 90%;
+       /* background: #fefefe; */
+     }
+
+     a {
+       color: #0645ad;
+       text-decoration: none;
+     }
+
+     a:visited {
+       color: #0b0080;
+     }
+
+     a:hover {
+       color: #06e;
+     }
+
+     a:active {
+       color: #faa700;
+     }
+
+     a:focus {
+       outline: thin dotted;
+     }
+
+     *::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     *::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #000;
+     }
+
+     a::-moz-selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     a::selection {
+       background: rgba(255, 255, 0, 0.3);
+       color: #0645ad;
+     }
+
+     p {
+       margin: 1em 0;
+     }
+
+     img {
+       max-width: 100%;
+     }
+
+     h1, h2, h3, h4, h5, h6 {
+       color: #111;
+       line-height: 125%;
+       margin-top: 1em;
+       font-weight: normal;
+     }
+
+     h4, h5, h6 {
+       font-weight: bold;
+     }
+
+     h1 {
+       font-size: 2.5em;
+     }
+
+     h2 {
+       font-size: 2em;
+     }
+
+     h3 {
+       font-size: 1.5em;
+     }
+
+     h4 {
+       font-size: 1.2em;
+     }
+
+     h5 {
+       font-size: 1em;
+     }
+
+     h6 {
+       font-size: 0.9em;
+     }
+
+     blockquote {
+       color: #666666;
+       margin: 0;
+       padding-left: 3em;
+       border-left: 0.5em #EEE solid;
+     }
+
+     hr {
+       display: block;
+       height: 2px;
+       border: 0;
+       border-top: 1px solid #aaa;
+       border-bottom: 1px solid #eee;
+       margin: 1em 0;
+       padding: 0;
+     }
+
+     pre, code, kbd, samp {
+       color: #000;
+       font-family: monospace, monospace;
+       /*_font-family: 'courier new', monospace;*/
+       font-size: 0.98em;
+     }
+
+     pre {
+       white-space: pre;
+       white-space: pre-wrap;
+       word-wrap: break-word;
+     }
+
+     b, strong {
+       font-weight: bold;
+     }
+
+     dfn {
+       font-style: italic;
+     }
+
+     ins {
+       background: #ff9;
+       color: #000;
+       text-decoration: none;
+     }
+
+     mark {
+       background: #ff0;
+       color: #000;
+       font-style: italic;
+       font-weight: bold;
+     }
+
+     sub, sup {
+       font-size: 75%;
+       line-height: 0;
+       position: relative;
+       vertical-align: baseline;
+     }
+
+     sup {
+       top: -0.5em;
+     }
+
+     sub {
+       bottom: -0.25em;
+     }
+
+     ul, ol {
+       margin: 1em 0;
+       padding: 0 0 0 2em;
+     }
+
+     li p:last-child {
+       margin-bottom: 0;
+     }
+
+     ul ul, ol ol {
+       margin: .3em 0;
+     }
+
+     dl {
+       margin-bottom: 1em;
+     }
+
+     dt {
+       font-weight: bold;
+       margin-bottom: .8em;
+     }
+
+     dd {
+       margin: 0 0 .8em 2em;
+     }
+
+     dd:last-child {
+       margin-bottom: 0;
+     }
+
+     img {
+       border: 0;
+       -ms-interpolation-mode: bicubic;
+       vertical-align: middle;
+     }
+
+     figure {
+       display: block;
+       text-align: center;
+       margin: 1em 0;
+     }
+
+     figure img {
+       border: none;
+       margin: 0 auto;
+     }
+
+     figcaption {
+       font-size: 0.8em;
+       font-style: italic;
+       margin: 0 0 .8em;
+     }
+
+     table {
+       margin-left:auto;
+       margin-right:auto;
+       margin-bottom: 2em;
+       border-bottom: 1px solid #ddd;
+       border-right: 1px solid #ddd;
+       border-spacing: 0;
+       border-collapse: collapse;
+     }
+
+     table th {
+       padding: .2em 1em;
+       background-color: #0099ff;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       color: white;
+     }
+
+     /*.even {background-color: #f2f2f2}*/
+     tr:nth-child(even) {background-color: #f2f2f2}
+
+     table td {
+       padding: .2em 1em;
+       border-top: 1px solid #ddd;
+       border-left: 1px solid #ddd;
+       vertical-align: top;
+     }
+       </style>
+
+
+    </head>
+    <body>
+        <div class = "container"> <!-- center navbar on page -->
+            <!-- <nav class = "navbar navbar-default navbar-inverse bg-inverse"> -->
+            <nav class="navbar navbar-inverse bg-inverse">
+                <div class = "container-fluid">
+                    <div class="navbar-header">
+                    <a class = "navbar-brand" href="./../../index.html">ECE382</a>
+                  </div>
+                    <ul class = "nav navbar-nav">
+                        <li><a href="./../../index.html">Home</a></li>
+                        <li><a href="./../../labs/index.html">Labs</a></li>
+                        <li><a href="./../../references/index.html">References</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <h1 id="lab-1---assembly-language---a-simple-calculator">Lab 1 - Assembly Language - &#8220;A Simple Calculator&#8221;</h1>
+<h2 id="objectives">Objectives</h2>
+<p>You&#8217;ll write your first complete assembly language program using what you&#8217;ve learned in class. You <strong>will</strong> use the following in your program:</p>
+<ul>
+<li>the instruction set</li>
+<li>addressing modes</li>
+<li>flow control
+<ul>
+<li>conditional jumps</li>
+<li>status register flags</li>
+</ul></li>
+<li>assembly directives</li>
+<li>subroutines</li>
+</ul>
+<h2 id="directions">Directions</h2>
+<p>You&#8217;ll write a program that interprets a series of operands and operations and stores the results - an assembly language calculator!</p>
+<ul>
+<li>Your program will start reading at the location in ROM where you stored the calculator instructions.
+<ol type="1">
+<li>It will read the <strong>first byte</strong> as the first operand.<br />
+</li>
+<li>The <strong>next byte</strong> will be an operation.<br />
+</li>
+<li>The <strong>third byte</strong> will be the second operand.<br />
+</li>
+<li>Your program will execute the operation and store the result starting at <code>0x0200</code>.<br />
+</li>
+<li>The result will then be the <strong>first operand</strong> for the next operation.<br />
+</li>
+<li>The next byte will be an operation.<br />
+</li>
+<li>The following will be the second operand.<br />
+</li>
+<li>Your program will execute the operation and store the result at <code>0x0201</code>.</li>
+</ol></li>
+<li>Your program will continue doing this until you encounter an <code>END_OP</code> - at which point, your program will cease execution.</li>
+</ul>
+<h2 id="functionality">Functionality</h2>
+<ul>
+<li>The input and output for the calculator will be in memory locations. The calculator operations and operands will be stored in ROM, any location in ROM is acceptable. The results of the calculations will be stored in RAM starting at <code>0x0200</code>.</li>
+<li>Labels shall be used in the program to refer to the location of your instructions and results.</li>
+<li>The input operands and output results will be positive integers between 0 and 255 (an unsigned byte).</li>
+<li>Good coding standards (labels, .<code>equ</code> where appropriate) must be used throughout (review the lessons if you are unclear on what this means)</li>
+<li>Make sure you reserve space for your result (use <code>.space</code>)</li>
+<li>Comment code so others can easily follow your code (or grade it)</li>
+<li>Break your code up into logical blocks of code (subroutines) so it is easy to debug and check</li>
+</ul>
+<h2 id="calculator-instruction-set">Calculator Instruction Set</h2>
+<p>Your program will implement the following operations:</p>
+<p><strong>ADD_OP</strong><br />
+An addition operation is coded by the value <code>0x11</code>. It adds two numbers and stores the result. The calculator program <code>0x14 0x11 0x12</code> is equivalent to <code>0x14 + 0x12</code>. It would store the result <code>0x26</code>.</p>
+<p><strong>SUB_OP</strong><br />
+An subtraction operation is coded by the value <code>0x22</code>. It subtracts two numbers and stores the result. The calculator program <code>0x21 0x22 0x01</code> is equivalent to <code>0x21 - 0x1</code>. It would store the result <code>0x20</code>.</p>
+<p><strong>MUL_OP</strong><br />
+An multiplication operation is coded by the value <code>0x33</code>. It multiplies two numbers and stores the result. The calculator program <code>0x02 0x33 0x04</code> is equivalent to <code>0x02 * 0x04</code>. It would store the result <code>0x08</code>.</p>
+<p>The MSP430G2553 that you&#8217;re using does not have a hardware multiplier, so think how multiplication works and implement an algorithm. It doesn&#8217;t has to be the fastest algorithm, it just has to work. Also, we are only working with integer numbers.</p>
+<p><strong>CLR_OP</strong><br />
+A clear operation, represented by the value <code>0x44</code>, clears the result by storing <code>0x00</code> to memory. It then uses the second operand as the initial value for the next operation. The calculator program <code>0x21 0x22 0x01 0x44 0x14 0x11 0x12</code> is equivalent to <code>0x21 - 0x1 CLR 0x14 + 0x12</code>. It would store <code>0x20 0x00 0x26</code>.</p>
+<p><strong>END_OP</strong><br />
+The end operation terminates execution of the calculator. It is coded by the value <code>0x55</code>.</p>
+<p>Example calculator program: <code>0x14 0x11 0x32 0x22 0x08 0x44 0x04 0x11 0x08 0x55</code><br />
+It&#8217;s equivalent to: <code>0x14 + 0x32 - 0x08 CLR 0x04 + 0x08 0x55</code>. The result should be, stored at <code>0x0200</code>: <code>0x46 0x3e 0x00 0x0c</code></p>
+<p>If your program gets an byte that is not in the above instruction set, it will reset. Any values already stored in the <code>0x0200</code> output location will be retained, but any operands pushed into a register will be cleared (or just forgotten) and your program will start back through its flowchart for reading inputs.</p>
+<h2 id="use-subroutines">Use Subroutines!</h2>
+<p>Although some of these operations are really simple, you need to start thinking about how to break up a program into logical chunks.</p>
+<h2 id="document-your-code">Document Your Code!</h2>
+<p>Proper documentation is important. If another programmer needs to maintain your code (or in our case, grade your code) and they cannot easily follow it, because you failed to properly document it, then that is a failure.</p>
+<h2 id="use-assembler-directives">Use Assembler Directives!</h2>
+<p>Your program is going to be reading a series of operands and operations from memory. Use the <code>.byte</code> directive to store them!</p>
+<pre><code>                .text
+myProgram:      .byte      0x13,0x22,0x14,0x11,0x37</code></pre>
+<p>Your program is going to be storing results to memory. Use the <code>.space</code> directive to store space for them!</p>
+<pre><code>                .data
+myResults:      .space      20                          ; reserving 20 bytes of space</code></pre>
+<p>Hex values code for operations. I better not see any magic numbers!</p>
+<pre><code>ADD_OP:         .equ        0x11
+SUB_OP:         .equ        0x22</code></pre>
+<h1 id="prelab">Prelab</h1>
+<p><strong>This is due at the beginning of the lab class</strong></p>
+<p>You will hand in a flow diagram of how your program will work (use PowerPoint). Your flow chart must start from when the program starts running until your program receives an <strong>END_OP</strong></p>
+<p>Answer the following questions:</p>
+<ol type="1">
+<li>What should your program do if a value is out of range?</li>
+<li>What should your program do if an operator is unknown?</li>
+<li>Are there any bytes that you <em>cannot</em> use as an operand?</li>
+<li>What happens if you do not find a <code>0x55</code> (<strong>END_OP</strong>) command?</li>
+</ol>
+<h1 id="demonstration">Demonstration</h1>
+<p>Here are the test cases you must demonstrate to your instructor before the end of the class:</p>
+<ol type="1">
+<li><code>0x11, 0x11, 0x11, 0x11, 0x11, 0x44, 0x22, 0x22, 0x22, 0x11, 0xCC, 0x55</code>
+<ul>
+<li>Result: <code>0x22, 0x33, 0x00, 0x00, 0xCC</code></li>
+</ul></li>
+<li><code>0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0xDD, 0x44, 0x08, 0x22, 0x09, 0x44, 0xFF, 0x22, 0xFD, 0x55</code>
+<ul>
+<li>Result: <code>0x22, 0x33, 0x44, 0xFF, 0x00, 0x00, 0x00, 0x02</code></li>
+</ul></li>
+<li><code>0x22, 0x11, 0x22, 0x22, 0x33, 0x33, 0x08, 0x44, 0x08, 0x22, 0x09, 0x44, 0xff, 0x11, 0xff, 0x44, 0xcc, 0x33, 0x02, 0x33, 0x00, 0x44, 0x33, 0x33, 0x08, 0x55</code>
+<ul>
+<li>Result: <code>0x44, 0x11, 0x88, 0x00, 0x00, 0x00, 0xff, 0x00, 0xff, 0x00, 0x00, 0xff</code></li>
+</ul></li>
+<li>An additional input/result pair will be given on the last day of the lab</li>
+</ol>
+<p>When you demo, due to time limitations, you only get <em>one</em> chance to demo each of the four programs for full credit, so make sure it works (repeatedly) before you show the instructor. Any follow-on demos will result in a 10% penalty each time. Also, <strong>demos will only be done in class.</strong> If you demo after class, then you are subjected to a 25% penalty.</p>
+<h2 id="rubric">Rubric</h2>
+<ul>
+<li>[25 pts] Prelab (15 flowchart, 10 questions)</li>
+<li>[25 pts] Bitbucket, looking for:
+<ul>
+<li>Code organization</li>
+<li>Comments</li>
+<li>Proper header</li>
+<li>Good git commit messages like: <code>lab 1 init project</code> or <code>lab 1 final working code check by instructor</code></li>
+<li>Good programming practices</li>
+<li>Proper repository organization</li>
+</ul></li>
+<li>[50 pts] Demonstration in class</li>
+</ul>
+
+        </div>
+    </body>
+</html>
